@@ -7,7 +7,8 @@ Marathon.
 
 * Ensure `Vagrant <http://www.vagrantup.com/downloads.html>`_ and `Virtualbox <https://www.virtualbox.org/wiki/Downloads>`_ are installed
 * Clone this repository
-* Run ``vagrant up``
+* ``cd mesos-usb``
+* ``vagrant up``
 
 Vagrantfile - READ THIS
 =======================
