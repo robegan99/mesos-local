@@ -1,0 +1,650 @@
+/* -----------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+components/pagination.less
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+----------------------------------------------------------------------------- */
+
+
+
+
+/* -----------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+Pagination
+
+--------------------------------------------------------------------------------
+----------------------------------------------------------------------------- */
+
+
+
+/* -----------------------------------------------------------------------------
+Pagination Styles
+----------------------------------------------------------------------------- */
+
+@pagination-text-font-size:                                                     13px;
+@pagination-text-line-height:                                                   16px;
+@pagination-height:                                                             32px;
+@pagination-padding-horizontal:                                                 @base-spacing-unit * 0.5;
+@pagination-border-radius:                                                      3px;
+
+// Pagination Margins
+
+@pagination-margin:                                                             @base-spacing-unit * 0.5;
+@pagination-margin-screen-mini:                                                 @base-spacing-unit-screen-mini * 0.5;
+@pagination-margin-screen-small:                                                @base-spacing-unit-screen-small * 0.5;
+@pagination-margin-screen-medium:                                               @base-spacing-unit-screen-medium * 0.5;
+@pagination-margin-screen-large:                                                @base-spacing-unit-screen-large * 0.5;
+
+@pagination-margin-short:                                                       @base-spacing-unit * 0.25;
+@pagination-margin-short-screen-mini:                                           @base-spacing-unit-screen-mini * 0.25;
+@pagination-margin-short-screen-small:                                          @base-spacing-unit-screen-small * 0.25;
+@pagination-margin-short-screen-medium:                                         @base-spacing-unit-screen-medium * 0.25;
+@pagination-margin-short-screen-large:                                          @base-spacing-unit-screen-large * 0.25;
+
+@pagination-margin-tall:                                                        @base-spacing-unit * 1.0;
+@pagination-margin-tall-screen-mini:                                            @base-spacing-unit-screen-mini * 1.0;
+@pagination-margin-tall-screen-small:                                           @base-spacing-unit-screen-small * 1.0;
+@pagination-margin-tall-screen-medium:                                          @base-spacing-unit-screen-medium * 1.0;
+@pagination-margin-tall-screen-large:                                           @base-spacing-unit-screen-large * 1.0;
+
+
+
+/* -----------------------------------------------------------------------------
+Pagination Responsive Scaling
+----------------------------------------------------------------------------- */
+
+@pagination-scale-screen-mini-enabled:                                          @screen-mini-enabled;
+@pagination-scale-screen-small-enabled:                                         @screen-small-enabled;
+@pagination-scale-screen-medium-enabled:                                        @screen-medium-enabled;
+@pagination-scale-screen-large-enabled:                                         @screen-large-enabled;
+
+@pagination-text-font-size-scale-screen-mini:                                   1.0;
+@pagination-text-font-size-scale-screen-small:                                  1.1;
+@pagination-text-font-size-scale-screen-medium:                                 1.2;
+@pagination-text-font-size-scale-screen-large:                                  1.2;
+
+@pagination-text-line-height-scale-screen-mini:                                 @pagination-text-font-size-scale-screen-mini;
+@pagination-text-line-height-scale-screen-small:                                @pagination-text-font-size-scale-screen-small;
+@pagination-text-line-height-scale-screen-medium:                               @pagination-text-font-size-scale-screen-medium;
+@pagination-text-line-height-scale-screen-large:                                @pagination-text-font-size-scale-screen-large;
+
+@pagination-height-scale-screen-mini:                                           1.0;
+@pagination-height-scale-screen-small:                                          1.1;
+@pagination-height-scale-screen-medium:                                         1.2;
+@pagination-height-scale-screen-large:                                          1.2;
+
+@pagination-padding-horizontal-scale-screen-mini:                               @pagination-height-scale-screen-mini;
+@pagination-padding-horizontal-scale-screen-small:                              @pagination-height-scale-screen-small;
+@pagination-padding-horizontal-scale-screen-medium:                             @pagination-height-scale-screen-medium;
+@pagination-padding-horizontal-scale-screen-large:                              @pagination-height-scale-screen-large;
+
+@pagination-border-radius-scale-screen-mini:                                    @pagination-text-font-size-scale-screen-mini;
+@pagination-border-radius-scale-screen-small:                                   @pagination-text-font-size-scale-screen-small;
+@pagination-border-radius-scale-screen-medium:                                  @pagination-text-font-size-scale-screen-medium;
+@pagination-border-radius-scale-screen-large:                                   @pagination-text-font-size-scale-screen-large;
+
+
+
+/* -----------------------------------------------------------------------------
+Pagination State: Normal
+----------------------------------------------------------------------------- */
+
+@pagination-text-color:                                                         ~`color_lightness("@{neutral}", -40)`;
+@pagination-text-font-family:                                                   @font-family-sans-serif;
+@pagination-text-font-style:                                                    null;
+@pagination-text-font-weight:                                                   400;
+@pagination-text-transform:                                                     null;
+@pagination-text-shadow:                                                        null;
+@pagination-text-decoration:                                                    none;
+@pagination-text-rendering:                                                     optimizelegibility;
+@pagination-background-color:                                                   rgba(0, 0, 0, 0.1);
+@pagination-background-gradient-color-top:                                      null;
+@pagination-background-gradient-color-bottom:                                   null;
+@pagination-border-width:                                                       0px;
+@pagination-border-color:                                                       null;
+@pagination-border-style:                                                       null;
+@pagination-border-top-width:                                                   null;
+@pagination-border-top-color:                                                   null;
+@pagination-border-top-style:                                                   null;
+@pagination-border-right-width:                                                 null;
+@pagination-border-right-color:                                                 null;
+@pagination-border-right-style:                                                 null;
+@pagination-border-bottom-width:                                                null;
+@pagination-border-bottom-color:                                                null;
+@pagination-border-bottom-style:                                                null;
+@pagination-border-left-width:                                                  null;
+@pagination-border-left-color:                                                  null;
+@pagination-border-left-style:                                                  null;
+@pagination-caret-color:                                                        @pagination-text-color;
+@pagination-shadow:                                                             null;
+
+
+
+/* -----------------------------------------------------------------------------
+Pagination State: Hover
+----------------------------------------------------------------------------- */
+
+@pagination-hover-text-color:                                                   ~`color_lightness("@{neutral}", -60)`;
+@pagination-hover-text-font-family:                                             null;
+@pagination-hover-text-font-style:                                              null;
+@pagination-hover-text-font-weight:                                             null;
+@pagination-hover-text-transform:                                               null;
+@pagination-hover-text-shadow:                                                  null;
+@pagination-hover-text-decoration:                                              none;
+@pagination-hover-text-rendering:                                               null;
+@pagination-hover-background-color:                                             rgba(0, 0, 0, 0.15);
+@pagination-hover-background-gradient-color-top:                                null;
+@pagination-hover-background-gradient-color-bottom:                             null;
+@pagination-hover-border-width:                                                 null;
+@pagination-hover-border-color:                                                 null;
+@pagination-hover-border-style:                                                 null;
+@pagination-hover-border-top-width:                                             null;
+@pagination-hover-border-top-color:                                             null;
+@pagination-hover-border-top-style:                                             null;
+@pagination-hover-border-right-width:                                           null;
+@pagination-hover-border-right-color:                                           null;
+@pagination-hover-border-right-style:                                           null;
+@pagination-hover-border-bottom-width:                                          null;
+@pagination-hover-border-bottom-color:                                          null;
+@pagination-hover-border-bottom-style:                                          null;
+@pagination-hover-border-left-width:                                            null;
+@pagination-hover-border-left-color:                                            null;
+@pagination-hover-border-left-style:                                            null;
+@pagination-hover-caret-color:                                                  @pagination-hover-text-color;
+@pagination-hover-shadow:                                                       null;
+
+
+
+/* -----------------------------------------------------------------------------
+Pagination State: Active
+----------------------------------------------------------------------------- */
+
+@pagination-active-text-color:                                                  ~`color_lightness("@{neutral}", -40)`;
+@pagination-active-text-font-family:                                            null;
+@pagination-active-text-font-style:                                             null;
+@pagination-active-text-font-weight:                                            null;
+@pagination-active-text-transform:                                              null;
+@pagination-active-text-shadow:                                                 null;
+@pagination-active-text-decoration:                                             null;
+@pagination-active-text-rendering:                                              null;
+@pagination-active-background-color:                                            rgba(0, 0, 0, 0.2);
+@pagination-active-background-gradient-color-top:                               null;
+@pagination-active-background-gradient-color-bottom:                            null;
+@pagination-active-border-width:                                                null;
+@pagination-active-border-color:                                                null;
+@pagination-active-border-style:                                                null;
+@pagination-active-border-top-width:                                            null;
+@pagination-active-border-top-color:                                            null;
+@pagination-active-border-top-style:                                            null;
+@pagination-active-border-right-width:                                          null;
+@pagination-active-border-right-color:                                          null;
+@pagination-active-border-right-style:                                          null;
+@pagination-active-border-bottom-width:                                         null;
+@pagination-active-border-bottom-color:                                         null;
+@pagination-active-border-bottom-style:                                         null;
+@pagination-active-border-left-width:                                           null;
+@pagination-active-border-left-color:                                           null;
+@pagination-active-border-left-style:                                           null;
+@pagination-active-caret-color:                                                 @pagination-active-text-color;
+@pagination-active-shadow:                                                      null;
+
+
+
+/* -----------------------------------------------------------------------------
+Pagination State: Selected
+----------------------------------------------------------------------------- */
+
+@pagination-selected-text-color:                                                @pagination-active-text-color;
+@pagination-selected-text-font-family:                                          @pagination-active-text-font-family;
+@pagination-selected-text-font-style:                                           @pagination-active-text-font-style;
+@pagination-selected-text-font-weight:                                          @pagination-active-text-font-weight;
+@pagination-selected-text-transform:                                            @pagination-active-text-transform;
+@pagination-selected-text-shadow:                                               @pagination-active-text-shadow;
+@pagination-selected-text-decoration:                                           @pagination-active-text-decoration;
+@pagination-selected-text-rendering:                                            @pagination-active-text-rendering;
+@pagination-selected-background-color:                                          @pagination-active-background-color;
+@pagination-selected-background-gradient-color-top:                             @pagination-active-background-gradient-color-top;
+@pagination-selected-background-gradient-color-bottom:                          @pagination-active-background-gradient-color-bottom;
+@pagination-selected-border-width:                                              @pagination-active-border-width;
+@pagination-selected-border-color:                                              @pagination-active-border-color;
+@pagination-selected-border-style:                                              @pagination-active-border-style;
+@pagination-selected-border-top-width:                                          @pagination-active-border-top-width;
+@pagination-selected-border-top-color:                                          @pagination-active-border-top-color;
+@pagination-selected-border-top-style:                                          @pagination-active-border-top-style;
+@pagination-selected-border-right-width:                                        @pagination-active-border-right-width;
+@pagination-selected-border-right-color:                                        @pagination-active-border-right-color;
+@pagination-selected-border-right-style:                                        @pagination-active-border-right-style;
+@pagination-selected-border-bottom-width:                                       @pagination-active-border-bottom-width;
+@pagination-selected-border-bottom-color:                                       @pagination-active-border-bottom-color;
+@pagination-selected-border-bottom-style:                                       @pagination-active-border-bottom-style;
+@pagination-selected-border-left-width:                                         @pagination-active-border-left-width;
+@pagination-selected-border-left-color:                                         @pagination-active-border-left-color;
+@pagination-selected-border-left-style:                                         @pagination-active-border-left-style;
+@pagination-selected-caret-color:                                               @pagination-active-caret-color;
+@pagination-selected-shadow:                                                    @pagination-active-shadow;
+
+
+
+/* -----------------------------------------------------------------------------
+Pagination State: Disabled
+----------------------------------------------------------------------------- */
+
+@pagination-disabled-opacity:                                                   0.5;
+@pagination-disabled-text-color:                                                null;
+@pagination-disabled-text-font-family:                                          null;
+@pagination-disabled-text-font-style:                                           null;
+@pagination-disabled-text-font-weight:                                          null;
+@pagination-disabled-text-transform:                                            null;
+@pagination-disabled-text-shadow:                                               null;
+@pagination-disabled-text-decoration:                                           null;
+@pagination-disabled-text-rendering:                                            null;
+@pagination-disabled-background-color:                                          null;
+@pagination-disabled-background-gradient-color-top:                             null;
+@pagination-disabled-background-gradient-color-bottom:                          null;
+@pagination-disabled-border-width:                                              null;
+@pagination-disabled-border-color:                                              null;
+@pagination-disabled-border-style:                                              null;
+@pagination-disabled-border-top-width:                                          null;
+@pagination-disabled-border-top-color:                                          null;
+@pagination-disabled-border-top-style:                                          null;
+@pagination-disabled-border-right-width:                                        null;
+@pagination-disabled-border-right-color:                                        null;
+@pagination-disabled-border-right-style:                                        null;
+@pagination-disabled-border-bottom-width:                                       null;
+@pagination-disabled-border-bottom-color:                                       null;
+@pagination-disabled-border-bottom-style:                                       null;
+@pagination-disabled-border-left-width:                                         null;
+@pagination-disabled-border-left-color:                                         null;
+@pagination-disabled-border-left-style:                                         null;
+@pagination-disabled-caret-color:                                               null;
+@pagination-disabled-shadow:                                                    null;
+
+
+
+
+
+
+
+
+
+/* -----------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+Pagination
+
+--------------------------------------------------------------------------------
+----------------------------------------------------------------------------- */
+
+.pagination {
+
+  display: block;
+  margin: 0px 0px @pagination-margin 0px;
+  text-align: center;
+
+  ul {
+
+    display: inline-block;
+    .ie7-inline-block();
+    margin: 0px auto;
+    .border-radius(@pagination-border-radius);
+
+    > li {
+
+      display: block;
+      float: left;
+      margin-bottom: 0px;
+      margin-left: 2px;
+      padding: 0px;
+
+      &:before {
+
+        display: none;
+        padding: 0px;
+        margin: 0px;
+
+      }
+
+      > a,
+      > span {
+
+        position: relative;
+        vertical-align: middle;
+        cursor: pointer;
+        text-align: center;
+        .ie7-inline-block();
+        .ie7-restore-left-whitespace();
+        display: inline-block;
+        border-style: solid;
+        .button-size-variant('', '');
+        .button-variant('default-stroke');
+        .border-radius(0px) !important;
+
+      }
+
+      > a:hover,
+      > a:focus {
+
+        .button-variant('default-stroke-hover');
+
+      }
+
+      > a:active {
+
+        .button-variant('default-stroke-active');
+
+      }
+
+      > a.current,
+      > span.current {
+
+        .button-variant('default-stroke-selected');
+
+      }
+
+      &:first-child {
+
+        margin-left: 0px;
+
+        > a,
+        > span {
+
+          .border-left-radius(@pagination-border-radius) !important;
+
+        }
+
+      }
+
+      &:last-child {
+
+        > a,
+        > span {
+
+          .border-right-radius(@pagination-border-radius) !important;
+
+        }
+
+      }
+
+    }
+
+  }
+
+  &.short {
+
+    margin-bottom: @pagination-margin-short;
+
+  }
+
+  &.tall {
+
+    margin-bottom: @pagination-margin-tall;
+
+  }
+
+  &.pagination-left {
+
+    text-align: left;
+
+  }
+
+  &.pagination-right {
+
+    text-align: right;
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-mini-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Screen Size: Mini (@screen-mini) and above
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-mini) {
+
+    /* -----------------------------------------------------------------------------
+    --------------------------------------------------------------------------------
+
+    Pagination
+
+    --------------------------------------------------------------------------------
+    ----------------------------------------------------------------------------- */
+
+    .pagination {
+
+      margin: 0px 0px @pagination-margin-screen-mini 0px;
+
+      ul {
+
+        .border-radius(@pagination-border-radius * @pagination-border-radius-scale-screen-mini);
+
+        > li {
+
+          > a,
+          > span {
+
+            .button-size-variant('', 'screen-mini');
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-small-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Screen Size: Small (@screen-small) and above
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-small) {
+
+    /* -----------------------------------------------------------------------------
+    --------------------------------------------------------------------------------
+
+    Pagination
+
+    --------------------------------------------------------------------------------
+    ----------------------------------------------------------------------------- */
+
+    .pagination {
+
+      margin: 0px 0px @pagination-margin-screen-small 0px;
+
+      ul {
+
+        .border-radius(@pagination-border-radius * @pagination-border-radius-scale-screen-small);
+
+        > li {
+
+          > a,
+          > span {
+
+            .button-size-variant('', 'screen-small');
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-medium-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Screen Size: Medium (@screen-medium) and above
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-medium) {
+
+    /* -----------------------------------------------------------------------------
+    --------------------------------------------------------------------------------
+
+    Pagination
+
+    --------------------------------------------------------------------------------
+    ----------------------------------------------------------------------------- */
+
+    .pagination {
+
+      margin: 0px 0px @pagination-margin-screen-medium 0px;
+
+      ul {
+
+        .border-radius(@pagination-border-radius * @pagination-border-radius-scale-screen-medium);
+
+        > li {
+
+          > a,
+          > span {
+
+            .button-size-variant('', 'screen-medium');
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-large-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Screen Size: Large (@screen-large) and above
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-large) {
+
+    /* -----------------------------------------------------------------------------
+    --------------------------------------------------------------------------------
+
+    Pagination
+
+    --------------------------------------------------------------------------------
+    ----------------------------------------------------------------------------- */
+
+    .pagination {
+
+      margin: 0px 0px @pagination-margin-screen-large 0px;
+
+      ul {
+
+        .border-radius(@pagination-border-radius * @pagination-border-radius-scale-screen-large);
+
+        > li {
+
+          > a,
+          > span {
+
+            .button-size-variant('', 'screen-large');
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-resolution-2x-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Screen Resolution: 2x
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-resolution-3x-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Screen Resolution: 3x
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 3) {
+
+  }
+
+}

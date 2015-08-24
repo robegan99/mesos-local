@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: redis-frontend
+spec:
+  containers:
+    - name: redis-frontend
+      image: superguenter/node-redis-demo
+      env:
+        REDIS_HOST: "redis.kubernetes.mesos"
+      ports:
+        - containerPort: 6379
+      resources:
+        limits:
+          cpu: "0.25"
+          mem: "64"

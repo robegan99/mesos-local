@@ -1,0 +1,4161 @@
+/* -----------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+template.less
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+----------------------------------------------------------------------------- */
+
+
+
+
+
+
+/* -----------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+Word Wrap
+
+--------------------------------------------------------------------------------
+----------------------------------------------------------------------------- */
+
+.h1-large {
+
+  word-break: break-word;
+
+}
+
+h1,
+.h1 {
+
+  word-break: break-word;
+
+}
+
+
+
+
+
+
+/* -----------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+Text Decoration (Stripe)
+
+--------------------------------------------------------------------------------
+----------------------------------------------------------------------------- */
+
+&.stripe-purple {
+
+  color: @white;
+  background: @purple;
+
+}
+
+&.stripe-dark {
+
+  color: @white;
+  background: @canvas-pod-dark-background-color;
+
+}
+
+&.stripe-light {
+
+  color: @canvas-pod-dark-background-color;
+  background: @white;
+
+}
+
+&.stripe-gradient {
+
+  color: @white;
+  #gradient > .horizontal(@purple, @pink);
+
+}
+
+
+
+
+
+
+/* -----------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+Text Decoration (Line)
+
+--------------------------------------------------------------------------------
+----------------------------------------------------------------------------- */
+
+/* Select only h1s that contain a 'data-text' attribute */
+.decorate-gradient {
+
+  -webkit-text-fill-color: transparent;
+  .background-clip(text);
+
+  &.decorate-gradient-purple-to-pink {
+
+    color: @purple !important;
+    background-image: -webkit-linear-gradient(top, @purple 0, @pink 100%);
+    background-image: -webkit-linear-gradient(top, @purple 0, @pink 100%);
+    background-image: -webkit-linear-gradient(top, @purple @pink, #333 100%);
+    background-image: -webkit-linear-gradient(top, @purple @pink, #333 100%);
+
+    &.decorate-gradient-horizontal {
+
+      background-image: -webkit-linear-gradient(left,@purple 0, @pink 100%);
+      background-image: -webkit-linear-gradient(left, @purple 0, @pink 100%);
+      background-image: -webkit-linear-gradient(left, @purple @pink, #333 100%);
+      background-image: -webkit-linear-gradient(left, @purple @pink, #333 100%);
+      background-repeat: repeat-x;
+
+    }
+
+  }
+
+  /*
+  &[data-text] {
+
+    position: relative;
+
+    &:after {
+
+      width: 100%;
+      content: attr(data-text);
+      z-index: 2;
+      color: @pink;
+      position: absolute;
+      left: 0;
+      top: 0;
+      -webkit-mask-image: -webkit-gradient(
+          linear,
+          left top, left bottom,
+          from(rgba(0, 0, 0, 1)),
+          color-stop(100%, rgba(0, 0, 0, 0))
+      );
+
+    }
+
+    &.decorate-gradient-horizontal {
+
+      &:after {
+
+        -webkit-mask-image: -webkit-gradient(
+            linear,
+            left top, right top,
+            from(rgba(0, 0, 0, 1)),
+            color-stop(100%, rgba(0, 0, 0, 0))
+        );
+
+      }
+
+    }
+
+    &.text-align-center {
+
+      &:after {
+
+        text-align: center;
+
+      }
+
+    }
+
+    &.text-align-right {
+
+      &:after {
+
+        text-align: right;
+
+      }
+
+    }
+
+  }
+  */
+
+}
+
+html.no-cssmask {
+
+  .decorate-gradient{
+
+    &[data-text] {
+
+      &:after {
+
+        content: none;
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+/* -----------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+Text Decoration (Line)
+
+--------------------------------------------------------------------------------
+----------------------------------------------------------------------------- */
+
+/* -----------------------------------------------------------------------------
+Line
+----------------------------------------------------------------------------- */
+
+.decorate-line {
+
+  position: relative;
+
+  &:after {
+
+    content: '';
+    display: block;
+    width: @base-spacing-unit * 1.0;
+    height: 1px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    #gradient > .horizontal(@purple, @pink);
+
+  }
+
+  &.text-align-center {
+
+    &:after {
+
+      left: 50%;
+      margin-left: -(@base-spacing-unit * 1.0);
+
+    }
+
+  }
+
+  &.text-align-right {
+
+    &:after {
+
+      left: auto;
+      right: 0px;
+
+    }
+
+  }
+
+  &.decorate-line-light {
+
+    &:after {
+
+      background: @white;
+      .opacity(0.4);
+
+    }
+
+  }
+
+  &.decorate-line-dark {
+
+    &:after {
+
+      background: @neutral;
+      .opacity(0.4);
+
+    }
+
+  }
+
+  &.decorate-line-underline {
+
+    &:after {
+
+      bottom: 0px;
+
+    }
+
+  }
+
+  &.decorate-line-overline {
+
+    &:after {
+
+      top: 0px;
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@typography-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Body
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  p {
+
+    /* -----------------------------------------------------------------------------
+    Light
+    ----------------------------------------------------------------------------- */
+
+    &.light {
+
+      color: rgba(255, 255, 255, 0.6);
+
+    }
+
+
+
+    /* -----------------------------------------------------------------------------
+    Text Decoration (Line)
+    ----------------------------------------------------------------------------- */
+
+    &.decorate-line {
+
+      &:after {
+
+        width: @body-text-line-height;
+
+      }
+
+      &.text-align-center {
+
+        &:after {
+
+          margin-left: -(@body-text-line-height / 2);
+
+        }
+
+      }
+
+      &.decorate-line-underline {
+
+        padding-bottom: @body-text-margin-bottom;
+
+        &.decorate-line-short {
+
+          padding-bottom: (@body-text-short-margin-bottom);
+
+        }
+
+        &.decorate-line-tall {
+
+          padding-bottom: (@body-text-tall-margin-bottom);
+
+        }
+
+      }
+
+      &.decorate-line-overline {
+
+        padding-top: @body-text-margin-bottom;
+
+        &.decorate-line-short {
+
+          padding-top: (@body-text-short-margin-bottom);
+
+        }
+
+        &.decorate-line-tall {
+
+          padding-top: (@body-text-tall-margin-bottom);
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@heading-h1-large-text-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Heading h1 Large Text
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  .h1-large {
+
+    display: block;
+
+    .text-styling (
+
+      @heading-h1-large-text-color,
+      @heading-h1-large-text-font-family,
+      @heading-h1-large-text-font-size,
+      @heading-h1-large-text-font-style,
+      @heading-h1-large-text-font-weight,
+      @heading-h1-large-text-line-height,
+      @heading-h1-large-text-transform,
+      @heading-h1-large-text-shadow
+
+    );
+
+    margin-top: @heading-h1-large-text-margin-top;
+    margin-bottom: @heading-h1-large-text-margin-bottom;
+
+
+
+    /* -----------------------------------------------------------------------------
+    Short
+    ----------------------------------------------------------------------------- */
+
+    &.short {
+
+      margin-top: @heading-h1-large-text-short-margin-top;
+      margin-bottom: @heading-h1-large-text-short-margin-bottom;
+
+    }
+
+    &.short-top {
+
+      margin-top: @heading-h1-large-text-short-margin-top;
+
+    }
+
+    &.short-bottom {
+
+      margin-bottom: @heading-h1-large-text-short-margin-bottom;
+
+    }
+
+
+
+    /* -----------------------------------------------------------------------------
+    Tall
+    ----------------------------------------------------------------------------- */
+
+    &.tall {
+
+      margin-top: @heading-h1-large-text-tall-margin-top;
+      margin-bottom: @heading-h1-large-text-tall-margin-bottom;
+
+    }
+
+    &.tall-top {
+
+      margin-top: @heading-h1-large-text-tall-margin-top;
+
+    }
+
+    &.tall-bottom {
+
+      margin-bottom: @heading-h1-large-text-tall-margin-bottom;
+
+    }
+
+
+
+    /* -----------------------------------------------------------------------------
+    Text Decoration (Line)
+    ----------------------------------------------------------------------------- */
+
+    &.decorate-line {
+
+      &:after {
+
+        width: @heading-h1-large-text-line-height;
+
+      }
+
+      &.text-align-center {
+
+        &:after {
+
+          margin-left: -(@heading-h1-large-text-line-height / 2);
+
+        }
+
+      }
+
+      &.decorate-line-underline {
+
+        padding-bottom: @heading-h1-large-text-margin-bottom;
+
+        &.decorate-line-short {
+
+          padding-bottom: (@heading-h1-large-text-short-margin-bottom);
+
+        }
+
+        &.decorate-line-tall {
+
+          padding-bottom: (@heading-h1-large-text-tall-margin-bottom);
+
+        }
+
+      }
+
+      &.decorate-line-overline {
+
+        padding-top: @heading-h1-large-text-margin-bottom;
+
+        &.decorate-line-short {
+
+          padding-top: (@heading-h1-large-text-short-margin-bottom);
+
+        }
+
+        &.decorate-line-tall {
+
+          padding-top: (@heading-h1-large-text-tall-margin-bottom);
+
+        }
+
+      }
+
+    }
+
+
+
+    /* -----------------------------------------------------------------------------
+    Thin
+    ----------------------------------------------------------------------------- */
+
+    &.thin {
+
+      font-weight: 100;
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@heading-h1-text-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Heading h1 Text
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  h1,
+  .h1 {
+
+    /* -----------------------------------------------------------------------------
+    Text Decoration (Line)
+    ----------------------------------------------------------------------------- */
+
+    &.decorate-line {
+
+      &:after {
+
+        width: @heading-h1-text-line-height;
+
+      }
+
+      &.text-align-center {
+
+        &:after {
+
+          margin-left: -(@heading-h1-text-line-height / 2);
+
+        }
+
+      }
+
+      &.decorate-line-underline {
+
+        padding-bottom: @heading-h1-text-margin-bottom;
+
+        &.decorate-line-short {
+
+          padding-bottom: (@heading-h1-text-short-margin-bottom);
+
+        }
+
+        &.decorate-line-tall {
+
+          padding-bottom: (@heading-h1-text-tall-margin-bottom);
+
+        }
+
+      }
+
+      &.decorate-line-overline {
+
+        padding-top: @heading-h1-text-margin-bottom;
+
+        &.decorate-line-short {
+
+          padding-top: (@heading-h1-text-short-margin-bottom);
+
+        }
+
+        &.decorate-line-tall {
+
+          padding-top: (@heading-h1-text-tall-margin-bottom);
+
+        }
+
+      }
+
+    }
+
+
+
+    /* -----------------------------------------------------------------------------
+    Thin
+    ----------------------------------------------------------------------------- */
+
+    &.thin {
+
+      font-weight: 100;
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@heading-h2-text-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Heading h2 Text
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  h2,
+  .h2 {
+
+    /* -----------------------------------------------------------------------------
+    Text Decoration (Line)
+    ----------------------------------------------------------------------------- */
+
+    &.decorate-line {
+
+      &:after {
+
+        width: @heading-h2-text-line-height;
+
+      }
+
+      &.text-align-center {
+
+        &:after {
+
+          margin-left: -(@heading-h2-text-line-height / 2);
+
+        }
+
+      }
+
+      &.decorate-line-underline {
+
+        padding-bottom: @heading-h2-text-margin-bottom;
+
+        &.decorate-line-short {
+
+          padding-bottom: (@heading-h2-text-short-margin-bottom);
+
+        }
+
+        &.decorate-line-tall {
+
+          padding-bottom: (@heading-h2-text-tall-margin-bottom);
+
+        }
+
+      }
+
+      &.decorate-line-overline {
+
+        padding-top: @heading-h2-text-margin-bottom;
+
+        &.decorate-line-short {
+
+          padding-top: (@heading-h2-text-short-margin-bottom);
+
+        }
+
+        &.decorate-line-tall {
+
+          padding-top: (@heading-h2-text-tall-margin-bottom);
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@heading-h3-text-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Heading h3 Text
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  h3,
+  .h3 {
+
+    /* -----------------------------------------------------------------------------
+    Text Decoration (Line)
+    ----------------------------------------------------------------------------- */
+
+    &.decorate-line {
+
+      &:after {
+
+        width: @heading-h3-text-line-height;
+
+      }
+
+      &.text-align-center {
+
+        &:after {
+
+          margin-left: -(@heading-h3-text-line-height / 2);
+
+        }
+
+      }
+
+      &.decorate-line-underline {
+
+        padding-bottom: @heading-h3-text-margin-bottom;
+
+        &.decorate-line-short {
+
+          padding-bottom: (@heading-h3-text-short-margin-bottom);
+
+        }
+
+        &.decorate-line-tall {
+
+          padding-bottom: (@heading-h3-text-tall-margin-bottom);
+
+        }
+
+      }
+
+      &.decorate-line-overline {
+
+        padding-top: @heading-h3-text-margin-bottom;
+
+        &.decorate-line-short {
+
+          padding-top: (@heading-h3-text-short-margin-bottom);
+
+        }
+
+        &.decorate-line-tall {
+
+          padding-top: (@heading-h3-text-tall-margin-bottom);
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@heading-h4-text-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Heading h4 Text
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  h4,
+  .h4 {
+
+    /* -----------------------------------------------------------------------------
+    Text Decoration (Line)
+    ----------------------------------------------------------------------------- */
+
+    &.decorate-line {
+
+      &:after {
+
+        width: @heading-h4-text-line-height;
+
+      }
+
+      &.text-align-center {
+
+        &:after {
+
+          margin-left: -(@heading-h4-text-line-height / 2);
+
+        }
+
+      }
+
+      &.decorate-line-underline {
+
+        padding-bottom: @heading-h4-text-margin-bottom;
+
+        &.decorate-line-short {
+
+          padding-bottom: (@heading-h4-text-short-margin-bottom);
+
+        }
+
+        &.decorate-line-tall {
+
+          padding-bottom: (@heading-h4-text-tall-margin-bottom);
+
+        }
+
+      }
+
+      &.decorate-line-overline {
+
+        padding-top: @heading-h4-text-margin-bottom;
+
+        &.decorate-line-short {
+
+          padding-top: (@heading-h4-text-short-margin-bottom);
+
+        }
+
+        &.decorate-line-tall {
+
+          padding-top: (@heading-h4-text-tall-margin-bottom);
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@heading-h5-text-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Heading h5 Text
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  h5,
+  .h5 {
+
+    /* -----------------------------------------------------------------------------
+    Light
+    ----------------------------------------------------------------------------- */
+
+    &.light {
+
+      color: rgba(255, 255, 255, 1.0);
+
+    }
+
+    /* -----------------------------------------------------------------------------
+    Text Decoration (Line)
+    ----------------------------------------------------------------------------- */
+
+    &.decorate-line {
+
+      &:after {
+
+        width: @heading-h5-text-line-height;
+
+      }
+
+      &.text-align-center {
+
+        &:after {
+
+          margin-left: -(@heading-h5-text-line-height / 2);
+
+        }
+
+      }
+
+      &.decorate-line-underline {
+
+        padding-bottom: @heading-h5-text-margin-bottom;
+
+        &.decorate-line-short {
+
+          padding-bottom: (@heading-h5-text-short-margin-bottom);
+
+        }
+
+        &.decorate-line-tall {
+
+          padding-bottom: (@heading-h5-text-tall-margin-bottom);
+
+        }
+
+      }
+
+      &.decorate-line-overline {
+
+        padding-top: @heading-h5-text-margin-bottom;
+
+        &.decorate-line-short {
+
+          padding-top: (@heading-h5-text-short-margin-bottom);
+
+        }
+
+        &.decorate-line-tall {
+
+          padding-top: (@heading-h5-text-tall-margin-bottom);
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@heading-h6-text-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Heading h6 Text
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  h6,
+  .h6 {
+
+    /* -----------------------------------------------------------------------------
+    Text Decoration (Line)
+    ----------------------------------------------------------------------------- */
+
+    &.decorate-line {
+
+      &:after {
+
+        width: @heading-h6-text-line-height;
+
+      }
+
+      &.text-align-center {
+
+        &:after {
+
+          margin-left: -(@heading-h6-text-line-height / 2);
+
+        }
+
+      }
+
+      &.decorate-line-underline {
+
+        padding-bottom: @heading-h6-text-margin-bottom;
+
+        &.decorate-line-short {
+
+          padding-bottom: (@heading-h6-text-short-margin-bottom);
+
+        }
+
+        &.decorate-line-tall {
+
+          padding-bottom: (@heading-h6-text-tall-margin-bottom);
+
+        }
+
+      }
+
+      &.decorate-line-overline {
+
+        padding-top: @heading-h6-text-margin-bottom;
+
+        &.decorate-line-short {
+
+          padding-top: (@heading-h6-text-short-margin-bottom);
+
+        }
+
+        &.decorate-line-tall {
+
+          padding-top: (@heading-h6-text-tall-margin-bottom);
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-mini-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Screen Size: Mini (@screen-mini) and above
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-mini) {
+
+    /* -----------------------------------------------------------------------------
+    --------------------------------------------------------------------------------
+
+    Text Decoration (Line)
+
+    --------------------------------------------------------------------------------
+    ----------------------------------------------------------------------------- */
+
+    /* -----------------------------------------------------------------------------
+    Line
+    ----------------------------------------------------------------------------- */
+
+    &.decorate-line {
+
+      &:after {
+
+        width: @base-spacing-unit-screen-mini * 1.0;
+
+      }
+
+      &.text-align-center {
+
+        &:after {
+
+          margin-left: -(@base-spacing-unit-screen-mini * 1.0);
+
+        }
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@body-text-enabled) and (@body-text-scale-screen-mini) {
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Body
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      p {
+
+        /* -----------------------------------------------------------------------------
+        Text Decoration (Line)
+        ----------------------------------------------------------------------------- */
+
+        &.decorate-line {
+
+          &:after {
+
+            width: (@body-text-line-height * @body-text-line-height-scale-screen-mini);
+
+          }
+
+          &.text-align-center {
+
+            &:after {
+
+              margin-left: -((@body-text-line-height * @body-text-line-height-scale-screen-mini) / 2);
+
+            }
+
+          }
+
+          &.decorate-line-underline {
+
+            padding-bottom: (@body-text-margin-bottom * @body-text-margin-bottom-scale-screen-mini);
+
+            &.decorate-line-short {
+
+              padding-bottom: (@body-text-short-margin-bottom * @body-text-margin-bottom-scale-screen-mini);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-bottom: (@body-text-tall-margin-bottom * @body-text-margin-bottom-scale-screen-mini);
+
+            }
+
+          }
+
+          &.decorate-line-overline {
+
+            padding-top: (@body-text-margin-bottom * @body-text-margin-bottom-scale-screen-mini);
+
+            &.decorate-line-short {
+
+              padding-top: (@body-text-short-margin-bottom * @body-text-margin-bottom-scale-screen-mini);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-top: (@body-text-tall-margin-bottom * @body-text-margin-bottom-scale-screen-mini);
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@heading-h1-large-text-enabled) and (@heading-h1-large-text-scale-screen-mini) {
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Heading H1 Large Text
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      .h1-large {
+
+        font-size: @heading-h1-large-text-font-size * @heading-h1-large-text-font-size-scale-screen-mini;
+        line-height: @heading-h1-large-text-line-height * @heading-h1-large-text-line-height-scale-screen-mini;
+        margin-top: @heading-h1-large-text-margin-top * @heading-h1-large-text-margin-top-scale-screen-mini;
+        margin-bottom: @heading-h1-large-text-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-mini;
+
+
+
+        /* -----------------------------------------------------------------------------
+        Short
+        ----------------------------------------------------------------------------- */
+
+        &.short {
+
+          margin-top: @heading-h1-large-text-short-margin-top * @heading-h1-large-text-margin-top-scale-screen-mini;
+          margin-bottom: @heading-h1-large-text-short-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-mini;
+
+        }
+
+        &.short-top {
+
+          margin-top: @heading-h1-large-text-short-margin-top * @heading-h1-large-text-margin-top-scale-screen-mini;
+
+        }
+
+        &.short-bottom {
+
+          margin-bottom: @heading-h1-large-text-short-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-mini;
+
+        }
+
+
+
+        /* -----------------------------------------------------------------------------
+        Tall
+        ----------------------------------------------------------------------------- */
+
+        &.tall {
+
+          margin-top: @heading-h1-large-text-tall-margin-top * @heading-h1-large-text-margin-top-scale-screen-mini;
+          margin-bottom: @heading-h1-large-text-tall-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-mini;
+
+        }
+
+        &.tall-top {
+
+          margin-top: @heading-h1-large-text-tall-margin-top * @heading-h1-large-text-margin-top-scale-screen-mini;
+
+        }
+
+        &.tall-bottom {
+
+          margin-bottom: @heading-h1-large-text-tall-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-mini;
+
+        }
+
+
+
+        /* -----------------------------------------------------------------------------
+        Text Decoration (Line)
+        ----------------------------------------------------------------------------- */
+
+        &.decorate-line {
+
+          &:after {
+
+            width: (@heading-h1-large-text-line-height * @heading-h1-large-text-line-height-scale-screen-mini);
+
+          }
+
+          &.text-align-center {
+
+            &:after {
+
+              margin-left: -((@heading-h1-large-text-line-height * @heading-h1-large-text-line-height-scale-screen-mini) / 2);
+
+            }
+
+          }
+
+          &.decorate-line-underline {
+
+            padding-bottom: (@heading-h1-large-text-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-mini);
+
+            &.decorate-line-short {
+
+              padding-bottom: (@heading-h1-large-text-short-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-mini);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-bottom: (@heading-h1-large-text-tall-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-mini);
+
+            }
+
+          }
+
+          &.decorate-line-overline {
+
+            padding-top: (@heading-h1-large-text-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-mini);
+
+            &.decorate-line-short {
+
+              padding-top: (@heading-h1-large-text-short-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-mini);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-top: (@heading-h1-large-text-tall-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-mini);
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@heading-h1-text-enabled) and (@heading-h1-text-scale-screen-mini) {
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Heading H1 Large Text
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      h1,
+      .h1 {
+
+        /* -----------------------------------------------------------------------------
+        Text Decoration (Line)
+        ----------------------------------------------------------------------------- */
+
+        &.decorate-line {
+
+          &:after {
+
+            width: (@heading-h1-text-line-height * @heading-h1-text-line-height-scale-screen-mini);
+
+          }
+
+          &.text-align-center {
+
+            &:after {
+
+              margin-left: -((@heading-h1-text-line-height * @heading-h1-text-line-height-scale-screen-mini) / 2);
+
+            }
+
+          }
+
+          &.decorate-line-underline {
+
+            padding-bottom: (@heading-h1-text-margin-bottom * @heading-h1-text-margin-bottom-scale-screen-mini);
+
+            &.decorate-line-short {
+
+              padding-bottom: (@heading-h1-text-short-margin-bottom * @heading-h1-text-margin-bottom-scale-screen-mini);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-bottom: (@heading-h1-text-tall-margin-bottom * @heading-h1-text-margin-bottom-scale-screen-mini);
+
+            }
+
+          }
+
+          &.decorate-line-overline {
+
+            padding-top: (@heading-h1-text-margin-bottom * @heading-h1-text-margin-bottom-scale-screen-mini);
+
+            &.decorate-line-short {
+
+              padding-top: (@heading-h1-text-short-margin-bottom * @heading-h1-text-margin-bottom-scale-screen-mini);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-top: (@heading-h1-text-tall-margin-bottom * @heading-h1-text-margin-bottom-scale-screen-mini);
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@heading-h2-text-enabled) and (@heading-h2-text-scale-screen-mini) {
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Heading h2 Large Text
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      h2,
+      .h2 {
+
+        /* -----------------------------------------------------------------------------
+        Text Decoration (Line)
+        ----------------------------------------------------------------------------- */
+
+        &.decorate-line {
+
+          &:after {
+
+            width: (@heading-h2-text-line-height * @heading-h2-text-line-height-scale-screen-mini);
+
+          }
+
+          &.text-align-center {
+
+            &:after {
+
+              margin-left: -((@heading-h2-text-line-height * @heading-h2-text-line-height-scale-screen-mini) / 2);
+
+            }
+
+          }
+
+          &.decorate-line-underline {
+
+            padding-bottom: (@heading-h2-text-margin-bottom * @heading-h2-text-margin-bottom-scale-screen-mini);
+
+            &.decorate-line-short {
+
+              padding-bottom: (@heading-h2-text-short-margin-bottom * @heading-h2-text-margin-bottom-scale-screen-mini);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-bottom: (@heading-h2-text-tall-margin-bottom * @heading-h2-text-margin-bottom-scale-screen-mini);
+
+            }
+
+          }
+
+          &.decorate-line-overline {
+
+            padding-top: (@heading-h2-text-margin-bottom * @heading-h2-text-margin-bottom-scale-screen-mini);
+
+            &.decorate-line-short {
+
+              padding-top: (@heading-h2-text-short-margin-bottom * @heading-h2-text-margin-bottom-scale-screen-mini);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-top: (@heading-h2-text-tall-margin-bottom * @heading-h2-text-margin-bottom-scale-screen-mini);
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@heading-h3-text-enabled) and (@heading-h3-text-scale-screen-mini) {
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Heading h3 Large Text
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      h3,
+      .h3 {
+
+        /* -----------------------------------------------------------------------------
+        Text Decoration (Line)
+        ----------------------------------------------------------------------------- */
+
+        &.decorate-line {
+
+          &:after {
+
+            width: (@heading-h3-text-line-height * @heading-h3-text-line-height-scale-screen-mini);
+
+          }
+
+          &.text-align-center {
+
+            &:after {
+
+              margin-left: -((@heading-h3-text-line-height * @heading-h3-text-line-height-scale-screen-mini) / 2);
+
+            }
+
+          }
+
+          &.decorate-line-underline {
+
+            padding-bottom: (@heading-h3-text-margin-bottom * @heading-h3-text-margin-bottom-scale-screen-mini);
+
+            &.decorate-line-short {
+
+              padding-bottom: (@heading-h3-text-short-margin-bottom * @heading-h3-text-margin-bottom-scale-screen-mini);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-bottom: (@heading-h3-text-tall-margin-bottom * @heading-h3-text-margin-bottom-scale-screen-mini);
+
+            }
+
+          }
+
+          &.decorate-line-overline {
+
+            padding-top: (@heading-h3-text-margin-bottom * @heading-h3-text-margin-bottom-scale-screen-mini);
+
+            &.decorate-line-short {
+
+              padding-top: (@heading-h3-text-short-margin-bottom * @heading-h3-text-margin-bottom-scale-screen-mini);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-top: (@heading-h3-text-tall-margin-bottom * @heading-h3-text-margin-bottom-scale-screen-mini);
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@heading-h4-text-enabled) and (@heading-h4-text-scale-screen-mini) {
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Heading h4 Large Text
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      h4,
+      .h4 {
+
+        /* -----------------------------------------------------------------------------
+        Text Decoration (Line)
+        ----------------------------------------------------------------------------- */
+
+        &.decorate-line {
+
+          &:after {
+
+            width: (@heading-h4-text-line-height * @heading-h4-text-line-height-scale-screen-mini);
+
+          }
+
+          &.text-align-center {
+
+            &:after {
+
+              margin-left: -((@heading-h4-text-line-height * @heading-h4-text-line-height-scale-screen-mini) / 2);
+
+            }
+
+          }
+
+          &.decorate-line-underline {
+
+            padding-bottom: (@heading-h4-text-margin-bottom * @heading-h4-text-margin-bottom-scale-screen-mini);
+
+            &.decorate-line-short {
+
+              padding-bottom: (@heading-h4-text-short-margin-bottom * @heading-h4-text-margin-bottom-scale-screen-mini);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-bottom: (@heading-h4-text-tall-margin-bottom * @heading-h4-text-margin-bottom-scale-screen-mini);
+
+            }
+
+          }
+
+          &.decorate-line-overline {
+
+            padding-top: (@heading-h4-text-margin-bottom * @heading-h4-text-margin-bottom-scale-screen-mini);
+
+            &.decorate-line-short {
+
+              padding-top: (@heading-h4-text-short-margin-bottom * @heading-h4-text-margin-bottom-scale-screen-mini);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-top: (@heading-h4-text-tall-margin-bottom * @heading-h4-text-margin-bottom-scale-screen-mini);
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@heading-h5-text-enabled) and (@heading-h5-text-scale-screen-mini) {
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Heading h5 Large Text
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      h5,
+      .h5 {
+
+        /* -----------------------------------------------------------------------------
+        Text Decoration (Line)
+        ----------------------------------------------------------------------------- */
+
+        &.decorate-line {
+
+          &:after {
+
+            width: (@heading-h5-text-line-height * @heading-h5-text-line-height-scale-screen-mini);
+
+          }
+
+          &.text-align-center {
+
+            &:after {
+
+              margin-left: -((@heading-h5-text-line-height * @heading-h5-text-line-height-scale-screen-mini) / 2);
+
+            }
+
+          }
+
+          &.decorate-line-underline {
+
+            padding-bottom: (@heading-h5-text-margin-bottom * @heading-h5-text-margin-bottom-scale-screen-mini);
+
+            &.decorate-line-short {
+
+              padding-bottom: (@heading-h5-text-short-margin-bottom * @heading-h5-text-margin-bottom-scale-screen-mini);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-bottom: (@heading-h5-text-tall-margin-bottom * @heading-h5-text-margin-bottom-scale-screen-mini);
+
+            }
+
+          }
+
+          &.decorate-line-overline {
+
+            padding-top: (@heading-h5-text-margin-bottom * @heading-h5-text-margin-bottom-scale-screen-mini);
+
+            &.decorate-line-short {
+
+              padding-top: (@heading-h5-text-short-margin-bottom * @heading-h5-text-margin-bottom-scale-screen-mini);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-top: (@heading-h5-text-tall-margin-bottom * @heading-h5-text-margin-bottom-scale-screen-mini);
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@heading-h6-text-enabled) and (@heading-h6-text-scale-screen-mini) {
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Heading h6 Large Text
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      h6,
+      .h6 {
+
+        /* -----------------------------------------------------------------------------
+        Text Decoration (Line)
+        ----------------------------------------------------------------------------- */
+
+        &.decorate-line {
+
+          &:after {
+
+            width: (@heading-h6-text-line-height * @heading-h6-text-line-height-scale-screen-mini);
+
+          }
+
+          &.text-align-center {
+
+            &:after {
+
+              margin-left: -((@heading-h6-text-line-height * @heading-h6-text-line-height-scale-screen-mini) / 2);
+
+            }
+
+          }
+
+          &.decorate-line-underline {
+
+            padding-bottom: (@heading-h6-text-margin-bottom * @heading-h6-text-margin-bottom-scale-screen-mini);
+
+            &.decorate-line-short {
+
+              padding-bottom: (@heading-h6-text-short-margin-bottom * @heading-h6-text-margin-bottom-scale-screen-mini);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-bottom: (@heading-h6-text-tall-margin-bottom * @heading-h6-text-margin-bottom-scale-screen-mini);
+
+            }
+
+          }
+
+          &.decorate-line-overline {
+
+            padding-top: (@heading-h6-text-margin-bottom * @heading-h6-text-margin-bottom-scale-screen-mini);
+
+            &.decorate-line-short {
+
+              padding-top: (@heading-h6-text-short-margin-bottom * @heading-h6-text-margin-bottom-scale-screen-mini);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-top: (@heading-h6-text-tall-margin-bottom * @heading-h6-text-margin-bottom-scale-screen-mini);
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-small-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Screen Size: Small (@screen-small) and above
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-small) {
+
+    /* -----------------------------------------------------------------------------
+    --------------------------------------------------------------------------------
+
+    Text Decoration (Line)
+
+    --------------------------------------------------------------------------------
+    ----------------------------------------------------------------------------- */
+
+    /* -----------------------------------------------------------------------------
+    Line
+    ----------------------------------------------------------------------------- */
+
+    &.decorate-line {
+
+      &:after {
+
+        width: @base-spacing-unit-screen-small * 1.0;
+
+      }
+
+      &.text-align-center {
+
+        &:after {
+
+          margin-left: -(@base-spacing-unit-screen-small * 1.0);
+
+        }
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@body-text-enabled) and (@body-text-scale-screen-small) {
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Body
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      p {
+
+        /* -----------------------------------------------------------------------------
+        Text Decoration (Line)
+        ----------------------------------------------------------------------------- */
+
+        &.decorate-line {
+
+          &:after {
+
+            width: (@body-text-line-height * @body-text-line-height-scale-screen-small);
+
+          }
+
+          &.text-align-center {
+
+            &:after {
+
+              margin-left: -((@body-text-line-height * @body-text-line-height-scale-screen-small) / 2);
+
+            }
+
+          }
+
+          &.decorate-line-underline {
+
+            padding-bottom: (@body-text-margin-bottom * @body-text-margin-bottom-scale-screen-small);
+
+            &.decorate-line-short {
+
+              padding-bottom: (@body-text-short-margin-bottom * @body-text-margin-bottom-scale-screen-small);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-bottom: (@body-text-tall-margin-bottom * @body-text-margin-bottom-scale-screen-small);
+
+            }
+
+          }
+
+          &.decorate-line-overline {
+
+            padding-top: (@body-text-margin-bottom * @body-text-margin-bottom-scale-screen-small);
+
+            &.decorate-line-short {
+
+              padding-top: (@body-text-short-margin-bottom * @body-text-margin-bottom-scale-screen-small);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-top: (@body-text-tall-margin-bottom * @body-text-margin-bottom-scale-screen-small);
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@heading-h1-large-text-enabled) and (@heading-h1-large-text-scale-screen-small) {
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Heading H1 Large Text
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      .h1-large {
+
+        font-size: @heading-h1-large-text-font-size * @heading-h1-large-text-font-size-scale-screen-small;
+        line-height: @heading-h1-large-text-line-height * @heading-h1-large-text-line-height-scale-screen-small;
+        margin-top: @heading-h1-large-text-margin-top * @heading-h1-large-text-margin-top-scale-screen-small;
+        margin-bottom: @heading-h1-large-text-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-small;
+
+
+
+        /* -----------------------------------------------------------------------------
+        Short
+        ----------------------------------------------------------------------------- */
+
+        &.short {
+
+          margin-top: @heading-h1-large-text-short-margin-top * @heading-h1-large-text-margin-top-scale-screen-small;
+          margin-bottom: @heading-h1-large-text-short-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-small;
+
+        }
+
+        &.short-top {
+
+          margin-top: @heading-h1-large-text-short-margin-top * @heading-h1-large-text-margin-top-scale-screen-small;
+
+        }
+
+        &.short-bottom {
+
+          margin-bottom: @heading-h1-large-text-short-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-small;
+
+        }
+
+
+
+        /* -----------------------------------------------------------------------------
+        Tall
+        ----------------------------------------------------------------------------- */
+
+        &.tall {
+
+          margin-top: @heading-h1-large-text-tall-margin-top * @heading-h1-large-text-margin-top-scale-screen-small;
+          margin-bottom: @heading-h1-large-text-tall-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-small;
+
+        }
+
+        &.tall-top {
+
+          margin-top: @heading-h1-large-text-tall-margin-top * @heading-h1-large-text-margin-top-scale-screen-small;
+
+        }
+
+        &.tall-bottom {
+
+          margin-bottom: @heading-h1-large-text-tall-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-small;
+
+        }
+
+
+
+        /* -----------------------------------------------------------------------------
+        Text Decoration (Line)
+        ----------------------------------------------------------------------------- */
+
+        &.decorate-line {
+
+          &:after {
+
+            width: (@heading-h1-large-text-line-height * @heading-h1-large-text-line-height-scale-screen-small);
+
+          }
+
+          &.text-align-center {
+
+            &:after {
+
+              margin-left: -((@heading-h1-large-text-line-height * @heading-h1-large-text-line-height-scale-screen-small) / 2);
+
+            }
+
+          }
+
+          &.decorate-line-underline {
+
+            padding-bottom: (@heading-h1-large-text-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-small);
+
+            &.decorate-line-short {
+
+              padding-bottom: (@heading-h1-large-text-short-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-small);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-bottom: (@heading-h1-large-text-tall-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-small);
+
+            }
+
+          }
+
+          &.decorate-line-overline {
+
+            padding-top: (@heading-h1-large-text-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-small);
+
+            &.decorate-line-short {
+
+              padding-top: (@heading-h1-large-text-short-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-small);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-top: (@heading-h1-large-text-tall-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-small);
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@heading-h1-text-enabled) and (@heading-h1-text-scale-screen-small) {
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Heading H1 Large Text
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      h1,
+      .h1 {
+
+        /* -----------------------------------------------------------------------------
+        Text Decoration (Line)
+        ----------------------------------------------------------------------------- */
+
+        &.decorate-line {
+
+          &:after {
+
+            width: (@heading-h1-text-line-height * @heading-h1-text-line-height-scale-screen-small);
+
+          }
+
+          &.text-align-center {
+
+            &:after {
+
+              margin-left: -((@heading-h1-text-line-height * @heading-h1-text-line-height-scale-screen-small) / 2);
+
+            }
+
+          }
+
+          &.decorate-line-underline {
+
+            padding-bottom: (@heading-h1-text-margin-bottom * @heading-h1-text-margin-bottom-scale-screen-small);
+
+            &.decorate-line-short {
+
+              padding-bottom: (@heading-h1-text-short-margin-bottom * @heading-h1-text-margin-bottom-scale-screen-small);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-bottom: (@heading-h1-text-tall-margin-bottom * @heading-h1-text-margin-bottom-scale-screen-small);
+
+            }
+
+          }
+
+          &.decorate-line-overline {
+
+            padding-top: (@heading-h1-text-margin-bottom * @heading-h1-text-margin-bottom-scale-screen-small);
+
+            &.decorate-line-short {
+
+              padding-top: (@heading-h1-text-short-margin-bottom * @heading-h1-text-margin-bottom-scale-screen-small);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-top: (@heading-h1-text-tall-margin-bottom * @heading-h1-text-margin-bottom-scale-screen-small);
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@heading-h2-text-enabled) and (@heading-h2-text-scale-screen-small) {
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Heading h2 Large Text
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      h2,
+      .h2 {
+
+        /* -----------------------------------------------------------------------------
+        Text Decoration (Line)
+        ----------------------------------------------------------------------------- */
+
+        &.decorate-line {
+
+          &:after {
+
+            width: (@heading-h2-text-line-height * @heading-h2-text-line-height-scale-screen-small);
+
+          }
+
+          &.text-align-center {
+
+            &:after {
+
+              margin-left: -((@heading-h2-text-line-height * @heading-h2-text-line-height-scale-screen-small) / 2);
+
+            }
+
+          }
+
+          &.decorate-line-underline {
+
+            padding-bottom: (@heading-h2-text-margin-bottom * @heading-h2-text-margin-bottom-scale-screen-small);
+
+            &.decorate-line-short {
+
+              padding-bottom: (@heading-h2-text-short-margin-bottom * @heading-h2-text-margin-bottom-scale-screen-small);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-bottom: (@heading-h2-text-tall-margin-bottom * @heading-h2-text-margin-bottom-scale-screen-small);
+
+            }
+
+          }
+
+          &.decorate-line-overline {
+
+            padding-top: (@heading-h2-text-margin-bottom * @heading-h2-text-margin-bottom-scale-screen-small);
+
+            &.decorate-line-short {
+
+              padding-top: (@heading-h2-text-short-margin-bottom * @heading-h2-text-margin-bottom-scale-screen-small);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-top: (@heading-h2-text-tall-margin-bottom * @heading-h2-text-margin-bottom-scale-screen-small);
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@heading-h3-text-enabled) and (@heading-h3-text-scale-screen-small) {
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Heading h3 Large Text
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      h3,
+      .h3 {
+
+        /* -----------------------------------------------------------------------------
+        Text Decoration (Line)
+        ----------------------------------------------------------------------------- */
+
+        &.decorate-line {
+
+          &:after {
+
+            width: (@heading-h3-text-line-height * @heading-h3-text-line-height-scale-screen-small);
+
+          }
+
+          &.text-align-center {
+
+            &:after {
+
+              margin-left: -((@heading-h3-text-line-height * @heading-h3-text-line-height-scale-screen-small) / 2);
+
+            }
+
+          }
+
+          &.decorate-line-underline {
+
+            padding-bottom: (@heading-h3-text-margin-bottom * @heading-h3-text-margin-bottom-scale-screen-small);
+
+            &.decorate-line-short {
+
+              padding-bottom: (@heading-h3-text-short-margin-bottom * @heading-h3-text-margin-bottom-scale-screen-small);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-bottom: (@heading-h3-text-tall-margin-bottom * @heading-h3-text-margin-bottom-scale-screen-small);
+
+            }
+
+          }
+
+          &.decorate-line-overline {
+
+            padding-top: (@heading-h3-text-margin-bottom * @heading-h3-text-margin-bottom-scale-screen-small);
+
+            &.decorate-line-short {
+
+              padding-top: (@heading-h3-text-short-margin-bottom * @heading-h3-text-margin-bottom-scale-screen-small);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-top: (@heading-h3-text-tall-margin-bottom * @heading-h3-text-margin-bottom-scale-screen-small);
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@heading-h4-text-enabled) and (@heading-h4-text-scale-screen-small) {
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Heading h4 Large Text
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      h4,
+      .h4 {
+
+        /* -----------------------------------------------------------------------------
+        Text Decoration (Line)
+        ----------------------------------------------------------------------------- */
+
+        &.decorate-line {
+
+          &:after {
+
+            width: (@heading-h4-text-line-height * @heading-h4-text-line-height-scale-screen-small);
+
+          }
+
+          &.text-align-center {
+
+            &:after {
+
+              margin-left: -((@heading-h4-text-line-height * @heading-h4-text-line-height-scale-screen-small) / 2);
+
+            }
+
+          }
+
+          &.decorate-line-underline {
+
+            padding-bottom: (@heading-h4-text-margin-bottom * @heading-h4-text-margin-bottom-scale-screen-small);
+
+            &.decorate-line-short {
+
+              padding-bottom: (@heading-h4-text-short-margin-bottom * @heading-h4-text-margin-bottom-scale-screen-small);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-bottom: (@heading-h4-text-tall-margin-bottom * @heading-h4-text-margin-bottom-scale-screen-small);
+
+            }
+
+          }
+
+          &.decorate-line-overline {
+
+            padding-top: (@heading-h4-text-margin-bottom * @heading-h4-text-margin-bottom-scale-screen-small);
+
+            &.decorate-line-short {
+
+              padding-top: (@heading-h4-text-short-margin-bottom * @heading-h4-text-margin-bottom-scale-screen-small);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-top: (@heading-h4-text-tall-margin-bottom * @heading-h4-text-margin-bottom-scale-screen-small);
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@heading-h5-text-enabled) and (@heading-h5-text-scale-screen-small) {
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Heading h5 Large Text
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      h5,
+      .h5 {
+
+        /* -----------------------------------------------------------------------------
+        Text Decoration (Line)
+        ----------------------------------------------------------------------------- */
+
+        &.decorate-line {
+
+          &:after {
+
+            width: (@heading-h5-text-line-height * @heading-h5-text-line-height-scale-screen-small);
+
+          }
+
+          &.text-align-center {
+
+            &:after {
+
+              margin-left: -((@heading-h5-text-line-height * @heading-h5-text-line-height-scale-screen-small) / 2);
+
+            }
+
+          }
+
+          &.decorate-line-underline {
+
+            padding-bottom: (@heading-h5-text-margin-bottom * @heading-h5-text-margin-bottom-scale-screen-small);
+
+            &.decorate-line-short {
+
+              padding-bottom: (@heading-h5-text-short-margin-bottom * @heading-h5-text-margin-bottom-scale-screen-small);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-bottom: (@heading-h5-text-tall-margin-bottom * @heading-h5-text-margin-bottom-scale-screen-small);
+
+            }
+
+          }
+
+          &.decorate-line-overline {
+
+            padding-top: (@heading-h5-text-margin-bottom * @heading-h5-text-margin-bottom-scale-screen-small);
+
+            &.decorate-line-short {
+
+              padding-top: (@heading-h5-text-short-margin-bottom * @heading-h5-text-margin-bottom-scale-screen-small);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-top: (@heading-h5-text-tall-margin-bottom * @heading-h5-text-margin-bottom-scale-screen-small);
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@heading-h6-text-enabled) and (@heading-h6-text-scale-screen-small) {
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Heading h6 Large Text
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      h6,
+      .h6 {
+
+        /* -----------------------------------------------------------------------------
+        Text Decoration (Line)
+        ----------------------------------------------------------------------------- */
+
+        &.decorate-line {
+
+          &:after {
+
+            width: (@heading-h6-text-line-height * @heading-h6-text-line-height-scale-screen-small);
+
+          }
+
+          &.text-align-center {
+
+            &:after {
+
+              margin-left: -((@heading-h6-text-line-height * @heading-h6-text-line-height-scale-screen-small) / 2);
+
+            }
+
+          }
+
+          &.decorate-line-underline {
+
+            padding-bottom: (@heading-h6-text-margin-bottom * @heading-h6-text-margin-bottom-scale-screen-small);
+
+            &.decorate-line-short {
+
+              padding-bottom: (@heading-h6-text-short-margin-bottom * @heading-h6-text-margin-bottom-scale-screen-small);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-bottom: (@heading-h6-text-tall-margin-bottom * @heading-h6-text-margin-bottom-scale-screen-small);
+
+            }
+
+          }
+
+          &.decorate-line-overline {
+
+            padding-top: (@heading-h6-text-margin-bottom * @heading-h6-text-margin-bottom-scale-screen-small);
+
+            &.decorate-line-short {
+
+              padding-top: (@heading-h6-text-short-margin-bottom * @heading-h6-text-margin-bottom-scale-screen-small);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-top: (@heading-h6-text-tall-margin-bottom * @heading-h6-text-margin-bottom-scale-screen-small);
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-medium-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Screen Size: Medium (@screen-medium) and above
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-medium) {
+
+    /* -----------------------------------------------------------------------------
+    --------------------------------------------------------------------------------
+
+    Text Decoration (Line)
+
+    --------------------------------------------------------------------------------
+    ----------------------------------------------------------------------------- */
+
+    /* -----------------------------------------------------------------------------
+    Line
+    ----------------------------------------------------------------------------- */
+
+    &.decorate-line {
+
+      &:after {
+
+        width: @base-spacing-unit-screen-medium * 1.0;
+
+      }
+
+      &.text-align-center {
+
+        &:after {
+
+          margin-left: -(@base-spacing-unit-screen-medium * 1.0);
+
+        }
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@body-text-enabled) and (@body-text-scale-screen-medium) {
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Body
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      p {
+
+        /* -----------------------------------------------------------------------------
+        Text Decoration (Line)
+        ----------------------------------------------------------------------------- */
+
+        &.decorate-line {
+
+          &:after {
+
+            width: (@body-text-line-height * @body-text-line-height-scale-screen-medium);
+
+          }
+
+          &.text-align-center {
+
+            &:after {
+
+              margin-left: -((@body-text-line-height * @body-text-line-height-scale-screen-medium) / 2);
+
+            }
+
+          }
+
+          &.decorate-line-underline {
+
+            padding-bottom: (@body-text-margin-bottom * @body-text-margin-bottom-scale-screen-medium);
+
+            &.decorate-line-short {
+
+              padding-bottom: (@body-text-short-margin-bottom * @body-text-margin-bottom-scale-screen-medium);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-bottom: (@body-text-tall-margin-bottom * @body-text-margin-bottom-scale-screen-medium);
+
+            }
+
+          }
+
+          &.decorate-line-overline {
+
+            padding-top: (@body-text-margin-bottom * @body-text-margin-bottom-scale-screen-medium);
+
+            &.decorate-line-short {
+
+              padding-top: (@body-text-short-margin-bottom * @body-text-margin-bottom-scale-screen-medium);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-top: (@body-text-tall-margin-bottom * @body-text-margin-bottom-scale-screen-medium);
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@heading-h1-large-text-enabled) and (@heading-h1-large-text-scale-screen-medium) {
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Heading H1 Large Text
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      .h1-large {
+
+        font-size: @heading-h1-large-text-font-size * @heading-h1-large-text-font-size-scale-screen-medium;
+        line-height: @heading-h1-large-text-line-height * @heading-h1-large-text-line-height-scale-screen-medium;
+        margin-top: @heading-h1-large-text-margin-top * @heading-h1-large-text-margin-top-scale-screen-medium;
+        margin-bottom: @heading-h1-large-text-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-medium;
+
+
+
+        /* -----------------------------------------------------------------------------
+        Short
+        ----------------------------------------------------------------------------- */
+
+        &.short {
+
+          margin-top: @heading-h1-large-text-short-margin-top * @heading-h1-large-text-margin-top-scale-screen-medium;
+          margin-bottom: @heading-h1-large-text-short-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-medium;
+
+        }
+
+        &.short-top {
+
+          margin-top: @heading-h1-large-text-short-margin-top * @heading-h1-large-text-margin-top-scale-screen-medium;
+
+        }
+
+        &.short-bottom {
+
+          margin-bottom: @heading-h1-large-text-short-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-medium;
+
+        }
+
+
+
+        /* -----------------------------------------------------------------------------
+        Tall
+        ----------------------------------------------------------------------------- */
+
+        &.tall {
+
+          margin-top: @heading-h1-large-text-tall-margin-top * @heading-h1-large-text-margin-top-scale-screen-medium;
+          margin-bottom: @heading-h1-large-text-tall-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-medium;
+
+        }
+
+        &.tall-top {
+
+          margin-top: @heading-h1-large-text-tall-margin-top * @heading-h1-large-text-margin-top-scale-screen-medium;
+
+        }
+
+        &.tall-bottom {
+
+          margin-bottom: @heading-h1-large-text-tall-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-medium;
+
+        }
+
+
+
+        /* -----------------------------------------------------------------------------
+        Text Decoration (Line)
+        ----------------------------------------------------------------------------- */
+
+        &.decorate-line {
+
+          &:after {
+
+            width: (@heading-h1-large-text-line-height * @heading-h1-large-text-line-height-scale-screen-medium);
+
+          }
+
+          &.text-align-center {
+
+            &:after {
+
+              margin-left: -((@heading-h1-large-text-line-height * @heading-h1-large-text-line-height-scale-screen-medium) / 2);
+
+            }
+
+          }
+
+          &.decorate-line-underline {
+
+            padding-bottom: (@heading-h1-large-text-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-medium);
+
+            &.decorate-line-short {
+
+              padding-bottom: (@heading-h1-large-text-short-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-medium);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-bottom: (@heading-h1-large-text-tall-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-medium);
+
+            }
+
+          }
+
+          &.decorate-line-overline {
+
+            padding-top: (@heading-h1-large-text-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-medium);
+
+            &.decorate-line-short {
+
+              padding-top: (@heading-h1-large-text-short-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-medium);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-top: (@heading-h1-large-text-tall-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-medium);
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@heading-h1-text-enabled) and (@heading-h1-text-scale-screen-medium) {
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Heading H1 Large Text
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      h1,
+      .h1 {
+
+        /* -----------------------------------------------------------------------------
+        Text Decoration (Line)
+        ----------------------------------------------------------------------------- */
+
+        &.decorate-line {
+
+          &:after {
+
+            width: (@heading-h1-text-line-height * @heading-h1-text-line-height-scale-screen-medium);
+
+          }
+
+          &.text-align-center {
+
+            &:after {
+
+              margin-left: -((@heading-h1-text-line-height * @heading-h1-text-line-height-scale-screen-medium) / 2);
+
+            }
+
+          }
+
+          &.decorate-line-underline {
+
+            padding-bottom: (@heading-h1-text-margin-bottom * @heading-h1-text-margin-bottom-scale-screen-medium);
+
+            &.decorate-line-short {
+
+              padding-bottom: (@heading-h1-text-short-margin-bottom * @heading-h1-text-margin-bottom-scale-screen-medium);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-bottom: (@heading-h1-text-tall-margin-bottom * @heading-h1-text-margin-bottom-scale-screen-medium);
+
+            }
+
+          }
+
+          &.decorate-line-overline {
+
+            padding-top: (@heading-h1-text-margin-bottom * @heading-h1-text-margin-bottom-scale-screen-medium);
+
+            &.decorate-line-short {
+
+              padding-top: (@heading-h1-text-short-margin-bottom * @heading-h1-text-margin-bottom-scale-screen-medium);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-top: (@heading-h1-text-tall-margin-bottom * @heading-h1-text-margin-bottom-scale-screen-medium);
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@heading-h2-text-enabled) and (@heading-h2-text-scale-screen-medium) {
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Heading h2 Large Text
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      h2,
+      .h2 {
+
+        /* -----------------------------------------------------------------------------
+        Text Decoration (Line)
+        ----------------------------------------------------------------------------- */
+
+        &.decorate-line {
+
+          &:after {
+
+            width: (@heading-h2-text-line-height * @heading-h2-text-line-height-scale-screen-medium);
+
+          }
+
+          &.text-align-center {
+
+            &:after {
+
+              margin-left: -((@heading-h2-text-line-height * @heading-h2-text-line-height-scale-screen-medium) / 2);
+
+            }
+
+          }
+
+          &.decorate-line-underline {
+
+            padding-bottom: (@heading-h2-text-margin-bottom * @heading-h2-text-margin-bottom-scale-screen-medium);
+
+            &.decorate-line-short {
+
+              padding-bottom: (@heading-h2-text-short-margin-bottom * @heading-h2-text-margin-bottom-scale-screen-medium);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-bottom: (@heading-h2-text-tall-margin-bottom * @heading-h2-text-margin-bottom-scale-screen-medium);
+
+            }
+
+          }
+
+          &.decorate-line-overline {
+
+            padding-top: (@heading-h2-text-margin-bottom * @heading-h2-text-margin-bottom-scale-screen-medium);
+
+            &.decorate-line-short {
+
+              padding-top: (@heading-h2-text-short-margin-bottom * @heading-h2-text-margin-bottom-scale-screen-medium);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-top: (@heading-h2-text-tall-margin-bottom * @heading-h2-text-margin-bottom-scale-screen-medium);
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@heading-h3-text-enabled) and (@heading-h3-text-scale-screen-medium) {
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Heading h3 Large Text
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      h3,
+      .h3 {
+
+        /* -----------------------------------------------------------------------------
+        Text Decoration (Line)
+        ----------------------------------------------------------------------------- */
+
+        &.decorate-line {
+
+          &:after {
+
+            width: (@heading-h3-text-line-height * @heading-h3-text-line-height-scale-screen-medium);
+
+          }
+
+          &.text-align-center {
+
+            &:after {
+
+              margin-left: -((@heading-h3-text-line-height * @heading-h3-text-line-height-scale-screen-medium) / 2);
+
+            }
+
+          }
+
+          &.decorate-line-underline {
+
+            padding-bottom: (@heading-h3-text-margin-bottom * @heading-h3-text-margin-bottom-scale-screen-medium);
+
+            &.decorate-line-short {
+
+              padding-bottom: (@heading-h3-text-short-margin-bottom * @heading-h3-text-margin-bottom-scale-screen-medium);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-bottom: (@heading-h3-text-tall-margin-bottom * @heading-h3-text-margin-bottom-scale-screen-medium);
+
+            }
+
+          }
+
+          &.decorate-line-overline {
+
+            padding-top: (@heading-h3-text-margin-bottom * @heading-h3-text-margin-bottom-scale-screen-medium);
+
+            &.decorate-line-short {
+
+              padding-top: (@heading-h3-text-short-margin-bottom * @heading-h3-text-margin-bottom-scale-screen-medium);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-top: (@heading-h3-text-tall-margin-bottom * @heading-h3-text-margin-bottom-scale-screen-medium);
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@heading-h4-text-enabled) and (@heading-h4-text-scale-screen-medium) {
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Heading h4 Large Text
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      h4,
+      .h4 {
+
+        /* -----------------------------------------------------------------------------
+        Text Decoration (Line)
+        ----------------------------------------------------------------------------- */
+
+        &.decorate-line {
+
+          &:after {
+
+            width: (@heading-h4-text-line-height * @heading-h4-text-line-height-scale-screen-medium);
+
+          }
+
+          &.text-align-center {
+
+            &:after {
+
+              margin-left: -((@heading-h4-text-line-height * @heading-h4-text-line-height-scale-screen-medium) / 2);
+
+            }
+
+          }
+
+          &.decorate-line-underline {
+
+            padding-bottom: (@heading-h4-text-margin-bottom * @heading-h4-text-margin-bottom-scale-screen-medium);
+
+            &.decorate-line-short {
+
+              padding-bottom: (@heading-h4-text-short-margin-bottom * @heading-h4-text-margin-bottom-scale-screen-medium);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-bottom: (@heading-h4-text-tall-margin-bottom * @heading-h4-text-margin-bottom-scale-screen-medium);
+
+            }
+
+          }
+
+          &.decorate-line-overline {
+
+            padding-top: (@heading-h4-text-margin-bottom * @heading-h4-text-margin-bottom-scale-screen-medium);
+
+            &.decorate-line-short {
+
+              padding-top: (@heading-h4-text-short-margin-bottom * @heading-h4-text-margin-bottom-scale-screen-medium);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-top: (@heading-h4-text-tall-margin-bottom * @heading-h4-text-margin-bottom-scale-screen-medium);
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@heading-h5-text-enabled) and (@heading-h5-text-scale-screen-medium) {
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Heading h5 Large Text
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      h5,
+      .h5 {
+
+        /* -----------------------------------------------------------------------------
+        Text Decoration (Line)
+        ----------------------------------------------------------------------------- */
+
+        &.decorate-line {
+
+          &:after {
+
+            width: (@heading-h5-text-line-height * @heading-h5-text-line-height-scale-screen-medium);
+
+          }
+
+          &.text-align-center {
+
+            &:after {
+
+              margin-left: -((@heading-h5-text-line-height * @heading-h5-text-line-height-scale-screen-medium) / 2);
+
+            }
+
+          }
+
+          &.decorate-line-underline {
+
+            padding-bottom: (@heading-h5-text-margin-bottom * @heading-h5-text-margin-bottom-scale-screen-medium);
+
+            &.decorate-line-short {
+
+              padding-bottom: (@heading-h5-text-short-margin-bottom * @heading-h5-text-margin-bottom-scale-screen-medium);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-bottom: (@heading-h5-text-tall-margin-bottom * @heading-h5-text-margin-bottom-scale-screen-medium);
+
+            }
+
+          }
+
+          &.decorate-line-overline {
+
+            padding-top: (@heading-h5-text-margin-bottom * @heading-h5-text-margin-bottom-scale-screen-medium);
+
+            &.decorate-line-short {
+
+              padding-top: (@heading-h5-text-short-margin-bottom * @heading-h5-text-margin-bottom-scale-screen-medium);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-top: (@heading-h5-text-tall-margin-bottom * @heading-h5-text-margin-bottom-scale-screen-medium);
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@heading-h6-text-enabled) and (@heading-h6-text-scale-screen-medium) {
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Heading h6 Large Text
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      h6,
+      .h6 {
+
+        /* -----------------------------------------------------------------------------
+        Text Decoration (Line)
+        ----------------------------------------------------------------------------- */
+
+        &.decorate-line {
+
+          &:after {
+
+            width: (@heading-h6-text-line-height * @heading-h6-text-line-height-scale-screen-medium);
+
+          }
+
+          &.text-align-center {
+
+            &:after {
+
+              margin-left: -((@heading-h6-text-line-height * @heading-h6-text-line-height-scale-screen-medium) / 2);
+
+            }
+
+          }
+
+          &.decorate-line-underline {
+
+            padding-bottom: (@heading-h6-text-margin-bottom * @heading-h6-text-margin-bottom-scale-screen-medium);
+
+            &.decorate-line-short {
+
+              padding-bottom: (@heading-h6-text-short-margin-bottom * @heading-h6-text-margin-bottom-scale-screen-medium);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-bottom: (@heading-h6-text-tall-margin-bottom * @heading-h6-text-margin-bottom-scale-screen-medium);
+
+            }
+
+          }
+
+          &.decorate-line-overline {
+
+            padding-top: (@heading-h6-text-margin-bottom * @heading-h6-text-margin-bottom-scale-screen-medium);
+
+            &.decorate-line-short {
+
+              padding-top: (@heading-h6-text-short-margin-bottom * @heading-h6-text-margin-bottom-scale-screen-medium);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-top: (@heading-h6-text-tall-margin-bottom * @heading-h6-text-margin-bottom-scale-screen-medium);
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-large-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Screen Size: Large (@screen-large) and above
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-large) {
+
+    /* -----------------------------------------------------------------------------
+    --------------------------------------------------------------------------------
+
+    Text Decoration (Line)
+
+    --------------------------------------------------------------------------------
+    ----------------------------------------------------------------------------- */
+
+    /* -----------------------------------------------------------------------------
+    Line
+    ----------------------------------------------------------------------------- */
+
+    &.decorate-line {
+
+      &:after {
+
+        width: @base-spacing-unit-screen-large * 1.0;
+
+      }
+
+      &.text-align-center {
+
+        &:after {
+
+          margin-left: -(@base-spacing-unit-screen-large * 1.0);
+
+        }
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@body-text-enabled) and (@body-text-scale-screen-large) {
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Body
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      p {
+
+        /* -----------------------------------------------------------------------------
+        Text Decoration (Line)
+        ----------------------------------------------------------------------------- */
+
+        &.decorate-line {
+
+          &:after {
+
+            width: (@body-text-line-height * @body-text-line-height-scale-screen-large);
+
+          }
+
+          &.text-align-center {
+
+            &:after {
+
+              margin-left: -((@body-text-line-height * @body-text-line-height-scale-screen-large) / 2);
+
+            }
+
+          }
+
+          &.decorate-line-underline {
+
+            padding-bottom: (@body-text-margin-bottom * @body-text-margin-bottom-scale-screen-large);
+
+            &.decorate-line-short {
+
+              padding-bottom: (@body-text-short-margin-bottom * @body-text-margin-bottom-scale-screen-large);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-bottom: (@body-text-tall-margin-bottom * @body-text-margin-bottom-scale-screen-large);
+
+            }
+
+          }
+
+          &.decorate-line-overline {
+
+            padding-top: (@body-text-margin-bottom * @body-text-margin-bottom-scale-screen-large);
+
+            &.decorate-line-short {
+
+              padding-top: (@body-text-short-margin-bottom * @body-text-margin-bottom-scale-screen-large);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-top: (@body-text-tall-margin-bottom * @body-text-margin-bottom-scale-screen-large);
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@heading-h1-large-text-enabled) and (@heading-h1-large-text-scale-screen-large) {
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Heading H1 Large Text
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      .h1-large {
+
+        font-size: @heading-h1-large-text-font-size * @heading-h1-large-text-font-size-scale-screen-large;
+        line-height: @heading-h1-large-text-line-height * @heading-h1-large-text-line-height-scale-screen-large;
+        margin-top: @heading-h1-large-text-margin-top * @heading-h1-large-text-margin-top-scale-screen-large;
+        margin-bottom: @heading-h1-large-text-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-large;
+
+
+
+        /* -----------------------------------------------------------------------------
+        Short
+        ----------------------------------------------------------------------------- */
+
+        &.short {
+
+          margin-top: @heading-h1-large-text-short-margin-top * @heading-h1-large-text-margin-top-scale-screen-large;
+          margin-bottom: @heading-h1-large-text-short-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-large;
+
+        }
+
+        &.short-top {
+
+          margin-top: @heading-h1-large-text-short-margin-top * @heading-h1-large-text-margin-top-scale-screen-large;
+
+        }
+
+        &.short-bottom {
+
+          margin-bottom: @heading-h1-large-text-short-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-large;
+
+        }
+
+
+
+        /* -----------------------------------------------------------------------------
+        Tall
+        ----------------------------------------------------------------------------- */
+
+        &.tall {
+
+          margin-top: @heading-h1-large-text-tall-margin-top * @heading-h1-large-text-margin-top-scale-screen-large;
+          margin-bottom: @heading-h1-large-text-tall-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-large;
+
+        }
+
+        &.tall-top {
+
+          margin-top: @heading-h1-large-text-tall-margin-top * @heading-h1-large-text-margin-top-scale-screen-large;
+
+        }
+
+        &.tall-bottom {
+
+          margin-bottom: @heading-h1-large-text-tall-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-large;
+
+        }
+
+
+
+        /* -----------------------------------------------------------------------------
+        Text Decoration (Line)
+        ----------------------------------------------------------------------------- */
+
+        &.decorate-line {
+
+          &:after {
+
+            width: (@heading-h1-large-text-line-height * @heading-h1-large-text-line-height-scale-screen-large);
+
+          }
+
+          &.text-align-center {
+
+            &:after {
+
+              margin-left: -((@heading-h1-large-text-line-height * @heading-h1-large-text-line-height-scale-screen-large) / 2);
+
+            }
+
+          }
+
+          &.decorate-line-underline {
+
+            padding-bottom: (@heading-h1-large-text-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-large);
+
+            &.decorate-line-short {
+
+              padding-bottom: (@heading-h1-large-text-short-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-large);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-bottom: (@heading-h1-large-text-tall-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-large);
+
+            }
+
+          }
+
+          &.decorate-line-overline {
+
+            padding-top: (@heading-h1-large-text-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-large);
+
+            &.decorate-line-short {
+
+              padding-top: (@heading-h1-large-text-short-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-large);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-top: (@heading-h1-large-text-tall-margin-bottom * @heading-h1-large-text-margin-bottom-scale-screen-large);
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@heading-h1-text-enabled) and (@heading-h1-text-scale-screen-large) {
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Heading H1 Large Text
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      h1,
+      .h1 {
+
+        /* -----------------------------------------------------------------------------
+        Text Decoration (Line)
+        ----------------------------------------------------------------------------- */
+
+        &.decorate-line {
+
+          &:after {
+
+            width: (@heading-h1-text-line-height * @heading-h1-text-line-height-scale-screen-large);
+
+          }
+
+          &.text-align-center {
+
+            &:after {
+
+              margin-left: -((@heading-h1-text-line-height * @heading-h1-text-line-height-scale-screen-large) / 2);
+
+            }
+
+          }
+
+          &.decorate-line-underline {
+
+            padding-bottom: (@heading-h1-text-margin-bottom * @heading-h1-text-margin-bottom-scale-screen-large);
+
+            &.decorate-line-short {
+
+              padding-bottom: (@heading-h1-text-short-margin-bottom * @heading-h1-text-margin-bottom-scale-screen-large);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-bottom: (@heading-h1-text-tall-margin-bottom * @heading-h1-text-margin-bottom-scale-screen-large);
+
+            }
+
+          }
+
+          &.decorate-line-overline {
+
+            padding-top: (@heading-h1-text-margin-bottom * @heading-h1-text-margin-bottom-scale-screen-large);
+
+            &.decorate-line-short {
+
+              padding-top: (@heading-h1-text-short-margin-bottom * @heading-h1-text-margin-bottom-scale-screen-large);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-top: (@heading-h1-text-tall-margin-bottom * @heading-h1-text-margin-bottom-scale-screen-large);
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@heading-h2-text-enabled) and (@heading-h2-text-scale-screen-large) {
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Heading h2 Large Text
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      h2,
+      .h2 {
+
+        /* -----------------------------------------------------------------------------
+        Text Decoration (Line)
+        ----------------------------------------------------------------------------- */
+
+        &.decorate-line {
+
+          &:after {
+
+            width: (@heading-h2-text-line-height * @heading-h2-text-line-height-scale-screen-large);
+
+          }
+
+          &.text-align-center {
+
+            &:after {
+
+              margin-left: -((@heading-h2-text-line-height * @heading-h2-text-line-height-scale-screen-large) / 2);
+
+            }
+
+          }
+
+          &.decorate-line-underline {
+
+            padding-bottom: (@heading-h2-text-margin-bottom * @heading-h2-text-margin-bottom-scale-screen-large);
+
+            &.decorate-line-short {
+
+              padding-bottom: (@heading-h2-text-short-margin-bottom * @heading-h2-text-margin-bottom-scale-screen-large);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-bottom: (@heading-h2-text-tall-margin-bottom * @heading-h2-text-margin-bottom-scale-screen-large);
+
+            }
+
+          }
+
+          &.decorate-line-overline {
+
+            padding-top: (@heading-h2-text-margin-bottom * @heading-h2-text-margin-bottom-scale-screen-large);
+
+            &.decorate-line-short {
+
+              padding-top: (@heading-h2-text-short-margin-bottom * @heading-h2-text-margin-bottom-scale-screen-large);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-top: (@heading-h2-text-tall-margin-bottom * @heading-h2-text-margin-bottom-scale-screen-large);
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@heading-h3-text-enabled) and (@heading-h3-text-scale-screen-large) {
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Heading h3 Large Text
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      h3,
+      .h3 {
+
+        /* -----------------------------------------------------------------------------
+        Text Decoration (Line)
+        ----------------------------------------------------------------------------- */
+
+        &.decorate-line {
+
+          &:after {
+
+            width: (@heading-h3-text-line-height * @heading-h3-text-line-height-scale-screen-large);
+
+          }
+
+          &.text-align-center {
+
+            &:after {
+
+              margin-left: -((@heading-h3-text-line-height * @heading-h3-text-line-height-scale-screen-large) / 2);
+
+            }
+
+          }
+
+          &.decorate-line-underline {
+
+            padding-bottom: (@heading-h3-text-margin-bottom * @heading-h3-text-margin-bottom-scale-screen-large);
+
+            &.decorate-line-short {
+
+              padding-bottom: (@heading-h3-text-short-margin-bottom * @heading-h3-text-margin-bottom-scale-screen-large);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-bottom: (@heading-h3-text-tall-margin-bottom * @heading-h3-text-margin-bottom-scale-screen-large);
+
+            }
+
+          }
+
+          &.decorate-line-overline {
+
+            padding-top: (@heading-h3-text-margin-bottom * @heading-h3-text-margin-bottom-scale-screen-large);
+
+            &.decorate-line-short {
+
+              padding-top: (@heading-h3-text-short-margin-bottom * @heading-h3-text-margin-bottom-scale-screen-large);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-top: (@heading-h3-text-tall-margin-bottom * @heading-h3-text-margin-bottom-scale-screen-large);
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@heading-h4-text-enabled) and (@heading-h4-text-scale-screen-large) {
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Heading h4 Large Text
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      h4,
+      .h4 {
+
+        /* -----------------------------------------------------------------------------
+        Text Decoration (Line)
+        ----------------------------------------------------------------------------- */
+
+        &.decorate-line {
+
+          &:after {
+
+            width: (@heading-h4-text-line-height * @heading-h4-text-line-height-scale-screen-large);
+
+          }
+
+          &.text-align-center {
+
+            &:after {
+
+              margin-left: -((@heading-h4-text-line-height * @heading-h4-text-line-height-scale-screen-large) / 2);
+
+            }
+
+          }
+
+          &.decorate-line-underline {
+
+            padding-bottom: (@heading-h4-text-margin-bottom * @heading-h4-text-margin-bottom-scale-screen-large);
+
+            &.decorate-line-short {
+
+              padding-bottom: (@heading-h4-text-short-margin-bottom * @heading-h4-text-margin-bottom-scale-screen-large);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-bottom: (@heading-h4-text-tall-margin-bottom * @heading-h4-text-margin-bottom-scale-screen-large);
+
+            }
+
+          }
+
+          &.decorate-line-overline {
+
+            padding-top: (@heading-h4-text-margin-bottom * @heading-h4-text-margin-bottom-scale-screen-large);
+
+            &.decorate-line-short {
+
+              padding-top: (@heading-h4-text-short-margin-bottom * @heading-h4-text-margin-bottom-scale-screen-large);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-top: (@heading-h4-text-tall-margin-bottom * @heading-h4-text-margin-bottom-scale-screen-large);
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@heading-h5-text-enabled) and (@heading-h5-text-scale-screen-large) {
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Heading h5 Large Text
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      h5,
+      .h5 {
+
+        /* -----------------------------------------------------------------------------
+        Text Decoration (Line)
+        ----------------------------------------------------------------------------- */
+
+        &.decorate-line {
+
+          &:after {
+
+            width: (@heading-h5-text-line-height * @heading-h5-text-line-height-scale-screen-large);
+
+          }
+
+          &.text-align-center {
+
+            &:after {
+
+              margin-left: -((@heading-h5-text-line-height * @heading-h5-text-line-height-scale-screen-large) / 2);
+
+            }
+
+          }
+
+          &.decorate-line-underline {
+
+            padding-bottom: (@heading-h5-text-margin-bottom * @heading-h5-text-margin-bottom-scale-screen-large);
+
+            &.decorate-line-short {
+
+              padding-bottom: (@heading-h5-text-short-margin-bottom * @heading-h5-text-margin-bottom-scale-screen-large);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-bottom: (@heading-h5-text-tall-margin-bottom * @heading-h5-text-margin-bottom-scale-screen-large);
+
+            }
+
+          }
+
+          &.decorate-line-overline {
+
+            padding-top: (@heading-h5-text-margin-bottom * @heading-h5-text-margin-bottom-scale-screen-large);
+
+            &.decorate-line-short {
+
+              padding-top: (@heading-h5-text-short-margin-bottom * @heading-h5-text-margin-bottom-scale-screen-large);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-top: (@heading-h5-text-tall-margin-bottom * @heading-h5-text-margin-bottom-scale-screen-large);
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@heading-h6-text-enabled) and (@heading-h6-text-scale-screen-large) {
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Heading h6 Large Text
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      h6,
+      .h6 {
+
+        /* -----------------------------------------------------------------------------
+        Text Decoration (Line)
+        ----------------------------------------------------------------------------- */
+
+        &.decorate-line {
+
+          &:after {
+
+            width: (@heading-h6-text-line-height * @heading-h6-text-line-height-scale-screen-large);
+
+          }
+
+          &.text-align-center {
+
+            &:after {
+
+              margin-left: -((@heading-h6-text-line-height * @heading-h6-text-line-height-scale-screen-large) / 2);
+
+            }
+
+          }
+
+          &.decorate-line-underline {
+
+            padding-bottom: (@heading-h6-text-margin-bottom * @heading-h6-text-margin-bottom-scale-screen-large);
+
+            &.decorate-line-short {
+
+              padding-bottom: (@heading-h6-text-short-margin-bottom * @heading-h6-text-margin-bottom-scale-screen-large);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-bottom: (@heading-h6-text-tall-margin-bottom * @heading-h6-text-margin-bottom-scale-screen-large);
+
+            }
+
+          }
+
+          &.decorate-line-overline {
+
+            padding-top: (@heading-h6-text-margin-bottom * @heading-h6-text-margin-bottom-scale-screen-large);
+
+            &.decorate-line-short {
+
+              padding-top: (@heading-h6-text-short-margin-bottom * @heading-h6-text-margin-bottom-scale-screen-large);
+
+            }
+
+            &.decorate-line-tall {
+
+              padding-top: (@heading-h6-text-tall-margin-bottom * @heading-h6-text-margin-bottom-scale-screen-large);
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-resolution-2x-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Screen Resolution: 2x
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-resolution-3x-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Screen Resolution: 3x
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 3) {
+
+  }
+
+}

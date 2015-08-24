@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+
+<html lang="en-US" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#" class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths cssmask">
+
+  <!-- =================================================
+  BEGIN: Head
+  ================================================== -->
+
+  <head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <!-- =================================================
+    BEGIN: Standard Tags
+    ================================================== -->
+
+    <title>Mesos 101</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <!--[if lt IE 9]>
+      <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- =================================================
+    END: Standard Tags
+    ================================================== -->
+
+    <!-- =================================================
+    BEGIN: Mobile Tags
+    ================================================== -->
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <!-- =================================================
+    END: Mobile Tags
+    ================================================== -->
+
+    <!-- =================================================
+    BEGIN: Icons
+    ================================================== -->
+
+    <!-- BEGIN: FAV ICON -->
+
+    <link rel="icon" href="../assets/images/components/icons/favicon.ico">
+
+    <!--[if IE]>
+      <link rel="icon shortcut" href="../assets/images/components/icons/favicon.ico">
+    <![endif]-->
+
+    <!-- END: FAV ICON -->
+
+    <!-- BEGIN: APPLE iOS TOUCH ICONS -->
+
+    <link rel="apple-touch-icon" href="../assets/images/components/icons/favicon-apple-57x57.png?_v=1435170329v2">
+    <link rel="apple-touch-icon" sizes="72x72" href="../assets/images/components/icons/favicon-apple-72x72.png?_v=1435170329v2">
+    <link rel="apple-touch-icon" sizes="114x114" href="../assets/images/components/icons/favicon-apple-114x114.png?_v=1435170329v2">
+    <link rel="apple-touch-icon" sizes="144x144" href="../assets/images/components/icons/favicon-apple-144x144.png?_v=1435170329v2">
+    <link rel="apple-touch-icon-precomposed" href="../assets/images/components/icons/favicon-apple-57x57.png?_v=1435170329v2">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/images/components/icons/favicon-apple-72x72.png?_v=1435170329v2">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/images/components/icons/favicon-apple-114x114.png?_v=1435170329v2">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/images/components/icons/favicon-apple-144x144.png?_v=1435170329v2">
+
+    <!-- END: APPLE iOS TOUCH ICONS -->
+
+    <!-- BEGIN: APPLE iOS7+ TOUCH ICONS -->
+
+    <link rel="apple-touch-icon" sizes="60x60" href="../assets/images/components/icons/favicon-apple-60x60.png?_v=1435170329v2">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/images/components/icons/favicon-apple-76x76.png?_v=1435170329v2">
+    <link rel="apple-touch-icon" sizes="120x120" href="../assets/images/components/icons/favicon-apple-120x120.png?_v=1435170329v2">
+    <link rel="apple-touch-icon" sizes="152x152" href="../assets/images/components/icons/favicon-apple-152x152.png?_v=1435170329v2">
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="../assets/images/components/icons/favicon-apple-60x60.png?_v=1435170329v2">
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="../assets/images/components/icons/favicon-apple-76x76.png?_v=1435170329v2">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="../assets/images/components/icons/favicon-apple-120x120.png?_v=1435170329v2">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../assets/images/components/icons/favicon-apple-152x152.png?_v=1435170329v2">
+
+    <!-- END: APPLE iOS7+ TOUCH ICONS -->
+
+    <!-- =================================================
+    END: Icons
+    ================================================== -->
+
+    <link rel="stylesheet" id="mesosphere-stylesheet-css" href="../assets/css/styles.css" type="text/css" media="all">
+    <script type="text/javascript" src="../assets/js/libs/jquery/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../assets/js/libs/modernizr/modernizr.min.js"></script>
+    <script type="text/javascript" src="../assets/js/libs/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../assets/js/libs/backstretch/jquery.backstretch.min.js"></script>
+    <script type="text/javascript" src="../assets/js/libs/perfect-scrollbar-master/perfect-scrollbar.min.js"></script>
+    <script type="text/javascript" src="../assets/js/libs/perfect-scrollbar-master/perfect-scrollbar.with-mousewheel.min.js"></script>
+    <script type="text/javascript" src="../assets/js/libs/carousel/jquery.carousel.js"></script>
+    <script type="text/javascript" src="../assets/js/libs/google-code-prettify/prettify.js"></script>
+
+    <!-- =================================================
+    BEGIN: Fonts
+    ================================================== -->
+
+    <!-- =================================================
+    END: Fonts
+    ================================================== -->
+
+  </head>
+
+  <!-- =================================================
+  END: Head
+  ================================================== -->
+
+  <!-- =================================================
+  BEGIN: Body
+  ================================================== -->
+
+  <body class="page-template-page-usb-setup">
+
+    <!-- =================================================
+    BEGIN: Canvas
+    ================================================== -->
+
+    <div id="canvas" class="template-page-platform-setup page-template-page-usb-setup" style="display: block;">
+
+      <!-- =================================================
+      BEGIN: Header
+      ================================================== -->
+
+      <header id="header" class="">
+
+        <div class="container container-fluid container-pod container-pod-short">
+
+          <div class="header-inner">
+
+            <!-- =================================================
+            BEGIN: Header Logo
+            ================================================== -->
+
+            <div class="header-logo ">
+
+              <span class="header-logo-mark">
+              </span>
+
+              <span class="header-logo-type">
+              </span>
+
+              <a href="https://mesosphere.com/"><span>Mesosphere</span></a>
+
+            </div>
+
+            <!-- =================================================
+            END: Header Logo
+            ================================================== -->
+
+            <!-- =================================================
+            BEGIN: Header Actions
+            ================================================== -->
+
+            <div class="header-actions">
+
+              <div class="button-collection flush-bottom">
+
+                <a href="https://mesosphere.com/product/" class="button button-rounded button-primary hide">Get Started</a>
+
+                <a href="https://mesosphere.com/" class="button button-rounded button-primary button-stroke">
+                  Visit Mesosphere.com <svg class="icon-glyph-sprite icon-glyph-sprite-mini icon-glyph-sprite-style-purple"><use xlink:href="#mesosphere-icons-mini-arrow-right"></use></svg>
+                </a>
+
+              </div>
+
+            </div>
+
+            <!-- =================================================
+            END: Header Actions
+            ================================================== -->
+
+            <!-- =================================================
+            BEGIN: Header Navigation
+            ================================================== -->
+
+            <div class="header-navigation  header-navigation-dark hide">
+
+              <ul id="menu-header-menu" class="nav top-nav clearfix">
+
+                <li id="menu-item-2097" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2097"><a href="https://mesosphere.com/learn/">Learn</a></li>
+                <li id="menu-item-2112" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2112"><a href="https://mesosphere.com/product/">Product</a></li>
+                <li id="menu-item-2074" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2074"><a target="_blank" href="http://docs.mesosphere.com/">Documentation</a></li>
+                <li id="menu-item-2096" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2096"><a href="https://mesosphere.com/blog/">Blog</a></li>
+
+              </ul>
+
+            </div>
+
+            <!-- =================================================
+            END: Header Navigation
+            ================================================== -->
+
+          </div>
+
+        </div>
+
+      </header>
+
+      <!-- =================================================
+      END: Header
+      ================================================== -->
+
+      <!-- =================================================
+      BEGIN: Page
+      ================================================== -->
+
+      <div id="page">
+
+        <!-- =================================================
+        BEGIN: Page Header
+        ================================================== -->
+
+        <div id="page-header" class="canvas-pod  page-header-fill canvas-pod-light page-header-fill-light center">
+
+          <div id="page-header-inner" class="">
+
+            <div class="container container-pod ">
+
+              <div class="row">
+
+                <div class="page-header-content column-12">
+
+                  <!-- =================================================
+                  BEGIN: Page Header Headline
+                  ================================================== -->
+
+                  <div class="row">
+
+                  <div class="column-12 column-mini-8 column-mini-offset-2 column-small-8 column-small-offset-2 column-medium-8 column-medium-offset-2 column-large-8 column-large-offset-2">
+
+                    <div class="page-header-image" style="background-image:none;">
+                      <img src="../assets/images/components/icons/mesos-logo.jpg" />
+                    </div>
+
+                    <h1 class="page-header-headline short-top h2 short-bottom">
+
+                      Apache Mesos 101
+
+                    </h1>
+
+                  </div>
+
+                  </div>
+
+                  <!-- =================================================
+                  END: Page Header Headline
+                  ================================================== -->
+
+                  <!-- =================================================
+                  BEGIN: Page Header Description
+                  ================================================== -->
+
+                  <div class="row">
+
+                    <!-- Header Description -->
+
+                  </div>
+
+                  <!-- =================================================
+                  END: Page Header Description
+                  ================================================== -->
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- =================================================
+        END: Page Header
+        ================================================== -->
+
+        <!-- =================================================
+        BEGIN: Page Content
+        ================================================== -->
+
+        <div id="page-content">
+
+                    <div
+                      class="column-large-6 column-large-offset-3"
+                      style="text-align: left;">
+
+                      <h3>General concepts</h3>
+
+                      <h4>Components</h4>
+                      <dl>
+                        <dt>Master</dt>
+                        <dd>
+                          One of a quorum of processes responsible for
+                          resource aggregation and allocation. Makes
+                          resource offers to schedulers. Only one master
+                          is active at a time.
+                        </dd>
+                        <dt>Allocator</dt>
+                        <dd>
+                          Pluggable part of the master responsible for
+                          forming resource offers. The default allocator
+                          implements DRF (dominant resource fairness).
+                        </dd>
+                        <dt>Slave</dt>
+                        <dd>
+                          Local agent that runs on every worker node.
+                          Responsible for announcing node-local resources,
+                          monitoring running processes and brokering
+                          communication between executors and the active
+                          master.
+                        </dd>
+                        <dt>Framework</dt>
+                        <dd>
+                          Implements application-specific scheduling
+                          and execution logic. Consists of two parts:
+                          the scheduler and (optionally) a custom executor.
+                        </dd>
+                        <dt>Scheduler</dt>
+                        <dd>
+                         Part of a framework that registers with the master
+                         and launches tasks using resource offers it
+                         receives. Has fine-grained control over how tasks
+                         execute on the slave via the TaskInfo protobuf
+                         message.
+                        </dd>
+                        <dt>Executor</dt>
+                        <dd>
+                          Part of a framework that is responsible for launching
+                          tasks. Mesos provides a CommandExecutor that knows
+                          how to execute
+                          <code>/bin/sh -c &lt;your-command&gt;</code>.
+                          <br />
+                          <br />
+                          Tasks do not have to be full-blown processes! They
+                          could be urls, text snippets, signal data, etc.
+                        </dd>
+                        <dt>Containerizer</dt>
+                        <dd>
+                          Pluggable part of the slave that is responsible for
+                          setting up the container around the executor&rsquo;s
+                          process hierarchy. Mesos ships with two of these:
+                          the Mesos containerizer and the Docker
+                          containerizer).
+                        </dd>
+                        <dt>Isolator</dt>
+                        <dd>
+                          Pluggable part of the Mesos containerizer responsible
+                          for monitoring resource usage and enforcing that the
+                          executor process hierarchy usage does not exceed the
+                          resources allocated to it.
+                          <br />
+                          <br />
+                          For example, the <code>cgroups/mem</code> isolator
+                          sets up <code>memory.limit_in_bytes</code>
+                          appropriately, relying on the linux kernel to kill
+                          executor hierarchies that overflow their allocations.
+                        </dd>
+                      </dl>
+
+                      <h4>Two-level scheduling</h4>
+                      <p>
+                        Mesos delegates application-specific scheduling
+                        decisions to sub-schedulers called Frameworks.
+                        The Mesos master ensures that each framework gets
+                        a fair share of the total cluster&rsquo;s resouces,
+                        potentially modified by the framework role weights.
+                      </p>
+
+                      <h4>Resource offers</h4>
+
+                      <p>
+                        In order to do work on the cluster, schedulers need
+                        to accept one or more resource offers from the master.
+                        <br />
+                        <br />
+                        Resource offers look like this:
+                      </p>
+
+                      <pre class="prettyprint">
+/**
+ * Describes some resources available on a slave. An offer only
+ * contains resources from a single slave.
+ */
+message Offer {
+  required OfferID id = 1;
+  required FrameworkID framework_id = 2;
+  required SlaveID slave_id = 3;
+  required string hostname = 4;
+  repeated Resource resources = 5;
+  repeated Attribute attributes = 7;
+  repeated ExecutorID executor_ids = 6;
+}
+                      </pre>
+
+                      <p>
+                        Resources in the offer look like this:
+                      </p>
+
+                      <pre class="prettyprint">
+/**
+ * Describes a resource on a machine. A resource can take on one of
+ * three types: scalar (double), a list of finite and discrete ranges
+ * (e.g., [1-10, 20-30]), or a set of items. A resource is described
+ * using the standard protocol buffer "union" trick.
+ */
+message Resource {
+  required string name = 1;
+  required Value.Type type = 2;
+  optional Value.Scalar scalar = 3;
+  optional Value.Ranges ranges = 4;
+  optional Value.Set set = 5;
+  optional string role = 6 [default = "*"];
+}
+                      </pre>
+
+                      <h3>The scheduler interface</h3>
+
+                      <p>
+                        See the <a target="blank" href="https://github.com/mesosphere/mesos-go">Mesos-Go native language bindings</a> on GitHub.
+                      </p>
+
+                      <pre class="prettyprint">
+type ExampleScheduler struct{}
+
+func (sched *ExampleScheduler) Registered(driver sched.SchedulerDriver, frameworkId *mesos.FrameworkID, masterInfo *mesos.MasterInfo) {
+}
+
+func (sched *ExampleScheduler) Reregistered(driver sched.SchedulerDriver, masterInfo *mesos.MasterInfo) {
+}
+
+func (sched *ExampleScheduler) Disconnected(sched.SchedulerDriver) {}
+
+func (sched *ExampleScheduler) ResourceOffers(driver sched.SchedulerDriver, offers []*mesos.Offer) {
+	for _, offer := range offers {
+		// launch or decline
+	}
+}
+
+func (sched *ExampleScheduler) StatusUpdate(driver sched.SchedulerDriver, status *mesos.TaskStatus) {
+	log.Infoln("Status update: task", status.TaskId.GetValue(), " is in state ", status.State.Enum().String())
+}
+
+func (sched *ExampleScheduler) OfferRescinded(sched.SchedulerDriver, *mesos.OfferID) {
+}
+
+func (sched *ExampleScheduler) FrameworkMessage(sched.SchedulerDriver, *mesos.ExecutorID, *mesos.SlaveID, string) {
+}
+
+func (sched *ExampleScheduler) SlaveLost(sched.SchedulerDriver, *mesos.SlaveID) {
+}
+
+func (sched *ExampleScheduler) ExecutorLost(sched.SchedulerDriver, *mesos.ExecutorID, *mesos.SlaveID, int) {
+}
+
+func (sched *ExampleScheduler) Error(driver sched.SchedulerDriver, err string) {
+}
+                      </pre>
+
+                      <h3>Beyond the basics</h3>
+
+                      <p>
+                        See the <a target="blank" href="http://mesos.apache.org/documentation/latest/">Mesos documentation</a> landing page for advanced
+                        topics:
+                      </p>
+
+                      <ul>
+                        <li>Framework authorization</li>
+                        <li>Using the docker containerizer</li>
+                        <li>Task reconciliation</li>
+                        <li>Extending Mesos with Modules</li>
+                        <li>Configuring and operating a master quorum</li>
+                      </ul>
+
+                      <h3>Over the horizon</h3>
+
+                      <ul>
+                        <li><a target="blank" href="https://docs.google.com/document/d/1pUnElxHy1uWfHY_FOvvRC73QaOGgdXE0OXN-gbxdXA0#">Oversubscription</a></li>
+                        <li>Better support for stateful frameworks:
+                          <ul>
+                            <li><a target="blank" href="https://issues.apache.org/jira/browse/MESOS-1554">Persistent Volumes</a>
+                            <li><a target="blank" href="https://issues.apache.org/jira/browse/MESOS-1588">Disk Isolation</a>
+                            <li><a target="blank" href="https://issues.apache.org/jira/browse/MESOS-2018">Dynamic Reservations</a>
+                          </ul>
+                        </li>
+                      </ul>
+
+                      <h3>What to do next?</h3>
+
+                      <ul>
+                        <li>Check out the Golang version of the <a target="blank" href="https://github.com/mesosphere/RENDLER/tree/master/go">RENDLER</a>!</li>
+                      </ul>
+                    </div>
+
+        </div>
+
+        <!-- =================================================
+        END: Page Content
+        ================================================== -->
+
+      </div>
+
+      <!-- =================================================
+      END: Page
+      ================================================== -->
+
+      <!-- =================================================
+      BEGIN: Footer
+      ================================================== -->
+
+      <footer id="footer" class="canvas-pod canvas-pod-dark">
+
+        <!-- =================================================
+        BEGIN: Footer Signup
+        ================================================== -->
+
+        <div class="footer-signup container container-pod hide">
+
+          <span class="h2 inverse text-align-center flush-top short">
+
+            Put Your Datacenter On Autopilot.
+
+          </span>
+
+          <div class="button-collection button-collection-align-horizontal-center flush-bottom">
+
+            <a href="https://mesosphere.com/product/" class="button button-jumbo button-rounded button-primary">
+
+            Get Started Today
+
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- =================================================
+        END: Footer Signup
+        ================================================== -->
+
+        <!-- =================================================
+        BEGIN: Footer Navigation
+        ================================================== -->
+
+        <div class="footer-navigation container container-pod">
+
+          <div class="row">
+
+            <div class="column-small-10 column-small-offset-1">
+
+            <!-- =================================================
+            BEGIN: Footer Navigation Menu
+            ================================================== -->
+
+            <ul id="menu-footer-menu" class="footer-navigation-menu row"><li id="nav-menu-item-2075" class="main-menu-item footer-navigation-menu column-small-3 column-overflow column-overflow-short  menu-item-even menu-item-depth-0 menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="https://mesosphere.com/amazon/setup/#" class="menu-link main-menu-link h5 footer-navigation-menu-header inverse flush-top">Mesosphere</a>
+              <ul class="sub-menu footer-navigation-menu-list list-unstyled inverse flush-bottom menu-depth-1">
+                <li id="nav-menu-item-2088" class="sub-menu-item footer-navigation-menu-list-item  menu-item-odd menu-item-depth-1 menu-item menu-item-type-post_type menu-item-object-page"><a href="https://mesosphere.com/about/" class="menu-link sub-menu-link">About</a></li>
+                <li id="nav-menu-item-2090" class="sub-menu-item footer-navigation-menu-list-item  menu-item-odd menu-item-depth-1 menu-item menu-item-type-post_type menu-item-object-page"><a href="https://mesosphere.com/careers/" class="menu-link sub-menu-link">Careers</a></li>
+                <li id="nav-menu-item-2089" class="sub-menu-item footer-navigation-menu-list-item  menu-item-odd menu-item-depth-1 menu-item menu-item-type-post_type menu-item-object-page"><a href="https://mesosphere.com/blog/" class="menu-link sub-menu-link">Blog</a></li>
+                <li id="nav-menu-item-2091" class="sub-menu-item footer-navigation-menu-list-item  menu-item-odd menu-item-depth-1 menu-item menu-item-type-post_type menu-item-object-page"><a href="https://mesosphere.com/contact/" class="menu-link sub-menu-link">Contact</a></li>
+                <li id="nav-menu-item-2072" class="sub-menu-item footer-navigation-menu-list-item  menu-item-odd menu-item-depth-1 menu-item menu-item-type-custom menu-item-object-custom"><a href="https://mesosphere.com/press/" class="menu-link sub-menu-link">Press</a></li>
+              </ul>
+              </li>
+              <li id="nav-menu-item-2076" class="main-menu-item footer-navigation-menu column-small-3 column-overflow column-overflow-short  menu-item-even menu-item-depth-0 menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="https://mesosphere.com/amazon/setup/#" class="menu-link main-menu-link h5 footer-navigation-menu-header inverse flush-top">Product</a>
+              <ul class="sub-menu footer-navigation-menu-list list-unstyled inverse flush-bottom menu-depth-1">
+                <li id="nav-menu-item-2093" class="sub-menu-item footer-navigation-menu-list-item  menu-item-odd menu-item-depth-1 menu-item menu-item-type-post_type menu-item-object-page"><a href="https://mesosphere.com/learn/" class="menu-link sub-menu-link">Learn</a></li>
+                <li id="nav-menu-item-2111" class="sub-menu-item footer-navigation-menu-list-item  menu-item-odd menu-item-depth-1 menu-item menu-item-type-post_type menu-item-object-page"><a href="https://mesosphere.com/product/" class="menu-link sub-menu-link">Product</a></li>
+                <li id="nav-menu-item-2092" class="sub-menu-item footer-navigation-menu-list-item  menu-item-odd menu-item-depth-1 menu-item menu-item-type-post_type menu-item-object-page"><a href="https://mesosphere.com/downloads/" class="menu-link sub-menu-link">Downloads</a></li>
+              </ul>
+              </li>
+              <li id="nav-menu-item-2077" class="main-menu-item footer-navigation-menu column-small-3 column-overflow column-overflow-short  menu-item-even menu-item-depth-0 menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="https://mesosphere.com/amazon/setup/#" class="menu-link main-menu-link h5 footer-navigation-menu-header inverse flush-top">Resources</a>
+              <ul class="sub-menu footer-navigation-menu-list list-unstyled inverse flush-bottom menu-depth-1">
+                <li id="nav-menu-item-2070" class="sub-menu-item footer-navigation-menu-list-item  menu-item-odd menu-item-depth-1 menu-item menu-item-type-custom menu-item-object-custom"><a target="_blank" href="http://docs.mesosphere.com/" class="menu-link sub-menu-link">Documentation</a></li>
+                <li id="nav-menu-item-2078" class="sub-menu-item footer-navigation-menu-list-item  menu-item-odd menu-item-depth-1 menu-item menu-item-type-custom menu-item-object-custom"><a target="_blank" href="https://support.mesosphere.com/hc/en-us" class="menu-link sub-menu-link">Help Desk</a></li>
+                <li id="nav-menu-item-2079" class="sub-menu-item footer-navigation-menu-list-item  menu-item-odd menu-item-depth-1 menu-item menu-item-type-custom menu-item-object-custom"><a target="_blank" href="http://ask.mesosphere.com/" class="menu-link sub-menu-link">Community Support</a></li>
+                <li id="nav-menu-item-2095" class="sub-menu-item footer-navigation-menu-list-item  menu-item-odd menu-item-depth-1 menu-item menu-item-type-post_type menu-item-object-page"><a href="https://mesosphere.com/case-studies/" class="menu-link sub-menu-link">Case Studies</a></li>
+              </ul>
+              </li>
+              <li id="nav-menu-item-2080" class="main-menu-item footer-navigation-menu column-small-3 column-overflow column-overflow-short  menu-item-even menu-item-depth-0 menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="https://mesosphere.com/amazon/setup/#" class="menu-link main-menu-link h5 footer-navigation-menu-header inverse flush-top">Connect</a>
+              <ul class="sub-menu footer-navigation-menu-list list-unstyled inverse flush-bottom menu-depth-1">
+                <li id="nav-menu-item-2081" class="sub-menu-item footer-navigation-menu-list-item  menu-item-odd menu-item-depth-1 menu-item menu-item-type-custom menu-item-object-custom"><a target="_blank" href="https://twitter.com/mesosphere" class="menu-link sub-menu-link">Twitter</a></li>
+                <li id="nav-menu-item-2082" class="sub-menu-item footer-navigation-menu-list-item  menu-item-odd menu-item-depth-1 menu-item menu-item-type-custom menu-item-object-custom"><a target="_blank" href="https://www.facebook.com/pages/Mesosphere/493275120756820" class="menu-link sub-menu-link">Facebook</a></li>
+                <li id="nav-menu-item-2083" class="sub-menu-item footer-navigation-menu-list-item  menu-item-odd menu-item-depth-1 menu-item menu-item-type-custom menu-item-object-custom"><a target="_blank" href="https://instagram.com/mesospherehq/" class="menu-link sub-menu-link">Instagram</a></li>
+                <li id="nav-menu-item-2084" class="sub-menu-item footer-navigation-menu-list-item  menu-item-odd menu-item-depth-1 menu-item menu-item-type-custom menu-item-object-custom"><a target="_blank" href="https://www.crunchbase.com/organization/mesosphere" class="menu-link sub-menu-link">Crunchbase</a></li>
+              </ul>
+              </li>
+
+            </ul>
+            <!-- =================================================
+            END: Footer Navigation Menu
+            ================================================== -->
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- =================================================
+        END: Footer Navigation
+        ================================================== -->
+
+        <!-- =================================================
+        BEGIN: Footer Disclaimer
+        ================================================== -->
+
+        <div class="footer-disclaimer container container-pod container-pod-short ">
+
+          <div class="footer-disclaimer-menu">
+
+            <ul class="list-unstyled list-inline inverse flush-bottom">
+
+            <li>
+
+              © 2015 Mesosphere, Inc. All Rights Reserved.
+
+            </li>
+
+            <li>
+
+              <a href="https://mesosphere.com/terms/">
+
+              Terms Of Service
+
+              </a>
+
+            </li>
+
+            <li>
+
+              <a href="https://mesosphere.com/privacy/">
+
+              Privacy Policy
+
+              </a>
+
+            </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+        <!-- =================================================
+        END: Footer Disclaimer
+        ================================================== -->
+
+      </footer>
+
+      <!-- =================================================
+      END: Footer
+      ================================================== -->
+
+      <!-- =================================================
+      BEGIN: Mesosphere Icons
+      ================================================== -->
+
+      <svg xmlns="http://www.w3.org/2000/svg" style="display: none;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+
+        <!-- =================================================
+        BEGIN: Definitions
+        ================================================== -->
+
+        <defs>
+          <linearGradient id="gradient-horizontal-purple-to-pink">
+            <stop offset="0%" stop-color="#9351e5" />
+            <stop offset="100%" stop-color="#ef468b" />
+          </linearGradient>
+        </defs>
+
+        <!-- =================================================
+        END: Definitions
+        ================================================== -->
+
+        <!-- =================================================
+        BEGIN: Mesosphere Icons (Mini)
+        ================================================== -->
+
+        <!-- Icon (Mini): Square -->
+
+        <symbol id="mesosphere-icons-mini-square" viewBox="0 0 16 16">
+          <rect id="Rectangle-1" sketch:type="MSShapeGroup" x="0" y="0" width="16" height="16"></rect>
+        </symbol>
+
+        <!-- Icon (Mini): Circle -->
+
+        <symbol id="mesosphere-icons-mini-circle" viewBox="0 0 16 16">
+          <circle id="Oval-1" sketch:type="MSShapeGroup" cx="8" cy="8" r="8"></circle>
+        </symbol>
+
+        <!-- Icon (Mini): Triangle -->
+
+        <symbol id="mesosphere-icons-mini-triangle" viewBox="0 0 16 16">
+          <polygon id="Triangle-1" sketch:type="MSShapeGroup" points="8 1 16 14 0 14 "></polygon>
+        </symbol>
+
+        <!-- Icon (Mini): Arrow Up -->
+
+        <symbol id="mesosphere-icons-mini-arrow-up" viewBox="0 0 16 16">
+          <g id="Arrow" sketch:type="MSLayerGroup" transform="translate(4.000000, 1.000000)">
+            <rect id="Rectangle-2" sketch:type="MSShapeGroup" x="4" y="2" width="1" height="12"></rect>
+            <path d="M2,2 L3,2 L3,7 L2,7 L2,2 L2,2 Z M3,3 L3,2 L7,2 L7,3 L3,3 L3,3 Z" id="Rectangle-3" sketch:type="MSShapeGroup" transform="translate(4.500000, 4.500000) rotate(-315.000000) translate(-4.500000, -4.500000) "></path>
+          </g>
+        </symbol>
+
+        <!-- Icon (Mini): Arrow Down -->
+
+        <symbol id="mesosphere-icons-mini-arrow-down" viewBox="0 0 16 16">
+          <g id="Arrow" sketch:type="MSLayerGroup" transform="translate(8.500000, 7.500000) rotate(-180.000000) translate(-8.500000, -7.500000) translate(4.000000, -0.000000)">
+            <rect id="Rectangle-2" sketch:type="MSShapeGroup" x="4" y="2" width="1" height="12"></rect>
+            <path d="M2,2 L3,2 L3,7 L2,7 L2,2 L2,2 Z M3,3 L3,2 L7,2 L7,3 L3,3 L3,3 Z" id="Rectangle-3" sketch:type="MSShapeGroup" transform="translate(4.500000, 4.500000) rotate(-315.000000) translate(-4.500000, -4.500000) "></path>
+          </g>
+        </symbol>
+
+        <!-- Icon (Mini): Arrow Left -->
+
+        <symbol id="mesosphere-icons-mini-arrow-left" viewBox="0 0 16 16">
+          <g id="Arrow" sketch:type="MSLayerGroup" transform="translate(8.000000, 7.500000) rotate(-90.000000) translate(-8.000000, -7.500000) translate(3.500000, 0.500000)">
+            <rect id="Rectangle-2" sketch:type="MSShapeGroup" x="4" y="2" width="1" height="12"></rect>
+            <path d="M2,2 L3,2 L3,7 L2,7 L2,2 L2,2 Z M3,3 L3,2 L7,2 L7,3 L3,3 L3,3 Z" id="Rectangle-3" sketch:type="MSShapeGroup" transform="translate(4.500000, 4.500000) rotate(-315.000000) translate(-4.500000, -4.500000) "></path>
+          </g>
+        </symbol>
+
+        <!-- Icon (Mini): Arrow Right -->
+
+        <symbol id="mesosphere-icons-mini-arrow-right" viewBox="0 0 16 16">
+          <g id="Arrow" sketch:type="MSLayerGroup" transform="translate(8.000000, 7.500000) rotate(90.000000) translate(-8.000000, -7.500000) translate(3.500000, 0.500000)">
+            <rect id="Rectangle-2" sketch:type="MSShapeGroup" x="4" y="2" width="1" height="12"></rect>
+            <path d="M2,2 L3,2 L3,7 L2,7 L2,2 L2,2 Z M3,3 L3,2 L7,2 L7,3 L3,3 L3,3 Z" id="Rectangle-3" sketch:type="MSShapeGroup" transform="translate(4.500000, 4.500000) rotate(-315.000000) translate(-4.500000, -4.500000) "></path>
+          </g>
+        </symbol>
+
+        <!-- =================================================
+        END: Mesosphere Icons (Mini)
+        ================================================== -->
+
+        <!-- =================================================
+        BEGIN: Mesosphere Icons (Small)
+        ================================================== -->
+
+        <!-- Icon (Small): Square -->
+
+        <symbol id="mesosphere-icons-small-square" viewBox="0 0 24 24">
+          <rect id="Rectangle-1" x="0" y="0" width="24" height="24"></rect>
+        </symbol>
+
+        <!-- Icon (Small): Circle -->
+
+        <symbol id="mesosphere-icons-small-circle" viewBox="0 0 24 24">
+          <circle id="Oval-1" cx="12" cy="12" r="12"></circle>
+        </symbol>
+
+        <!-- Icon (Small): Triangle -->
+
+        <symbol id="mesosphere-icons-small-triangle" viewBox="0 0 24 24">
+          <circle id="Oval-1" cx="12" cy="12" r="12"></circle>
+        </symbol>
+
+        <!-- Icon (Small): Arrow Up -->
+
+        <symbol id="mesosphere-icons-small-arrow-up" viewBox="0 0 24 24">
+          <path d="M16.6464466,7.35355339 L17.3535534,6.64644661 L12.5,1.79289322 L7.64644661,6.64644661 L8.35355339,7.35355339 L12,3.70710678 L12,23 L13,23 L13,3.70710678 L16.6464466,7.35355339 Z" id="Shape" sketch:type="MSShapeGroup"></path>
+        </symbol>
+
+        <!-- Icon (Small): Arrow Down -->
+
+        <symbol id="mesosphere-icons-small-arrow-down" viewBox="0 0 24 24">
+          <path d="M16.6464466,7.35355339 L17.3535534,6.64644661 L12.5,1.79289322 L7.64644661,6.64644661 L8.35355339,7.35355339 L12,3.70710678 L12,23 L13,23 L13,3.70710678 L16.6464466,7.35355339 Z" id="Shape" sketch:type="MSShapeGroup" transform="translate(12.500000, 12.396447) rotate(-180.000000) translate(-12.500000, -12.396447) "></path>
+        </symbol>
+
+        <!-- Icon (Small): Arrow Left -->
+
+        <symbol id="mesosphere-icons-small-arrow-left" viewBox="0 0 24 24">
+          <path d="M16.6464466,7.35355339 L17.3535534,6.64644661 L12.3964466,1.89644661 L7.64644661,6.64644661 L8.35355339,7.35355339 L11.8964466,3.89644661 L11.8964466,22.8964466 L12.8964466,22.8964466 L12.8964466,3.89644661 L16.6464466,7.35355339 Z" id="Shape" sketch:type="MSShapeGroup" transform="translate(12.500000, 12.396447) rotate(-90.000000) translate(-12.500000, -12.396447) "></path>
+        </symbol>
+
+        <!-- Icon (Small): Arrow Right -->
+
+        <symbol id="mesosphere-icons-small-arrow-right" viewBox="0 0 24 24">
+          <path d="M15.6464466,7.35355339 L16.3535534,6.64644661 L11.3964466,1.89644661 L6.64644661,6.64644661 L7.35355339,7.35355339 L10.8964466,3.89644661 L10.8964466,22.8964466 L11.8964466,22.8964466 L11.8964466,3.89644661 L15.6464466,7.35355339 Z" id="Shape" sketch:type="MSShapeGroup" transform="translate(11.500000, 12.396447) scale(-1, 1) rotate(-90.000000) translate(-11.500000, -12.396447) "></path>
+        </symbol>
+
+        <!-- =================================================
+        END: Mesosphere Icons (Small)
+        ================================================== -->
+
+      </svg>
+
+      <!-- =================================================
+      END: Mesosphere Icons
+      ================================================== -->
+
+    </div>
+
+    <!-- =================================================
+    END: Canvas
+    ================================================== -->
+
+    <!-- =================================================
+    BEGIN: Canvas Sidebar Toggle
+    ================================================== -->
+
+    <a class="canvas-sidebar-toggle  canvas-sidebar-toggle-dark" href="#">
+    </a>
+
+    <!-- =================================================
+    END: Canvas Sidebar Toggle
+    ================================================== -->
+
+    <!-- =================================================
+    BEGIN: Canvas Sidebar
+    ================================================== -->
+
+    <div id="canvas-sidebar">
+
+      <div id="canvas-sidebar-scrollable" class="container-scrollable ps-container">
+
+      <div class="canvas-sidebar-content">
+
+        <div class="container container-pod container-pod-short">
+
+        <!-- =================================================
+        BEGIN: Canvas Sidebar Navigation
+        ================================================== -->
+
+        <div class="canvas-sidebar-navigation">
+
+          <ul id="menu-mobile-menu" class="list-unstyled"><li id="menu-item-2104" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2104"><a href="https://mesosphere.com/learn/">Learn</a></li>
+            <li id="menu-item-2113" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2113"><a href="https://mesosphere.com/product/">Product</a></li>
+            <li id="menu-item-2071" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2071"><a href="https://docs.mesosphere.com/">Documentation</a></li>
+            <li id="menu-item-2100" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2100"><a href="https://mesosphere.com/blog/">Blog</a></li>
+            <li id="menu-item-2103" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2103"><a href="https://mesosphere.com/downloads/">Downloads</a></li>
+            <li id="menu-item-2099" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2099"><a href="https://mesosphere.com/about/">About</a></li>
+            <li id="menu-item-2102" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2102"><a href="https://mesosphere.com/contact/">Contact</a></li>
+            <li id="menu-item-2101" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2101"><a href="https://mesosphere.com/careers/">Careers</a></li>
+            <li id="menu-item-2073" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2073"><a href="https://mesosphere.com/press/">Press</a></li>
+          </ul>
+        </div>
+
+        <!-- =================================================
+        END: Canvas Sidebar Navigation
+        ================================================== -->
+
+        </div>
+
+      </div>
+
+      <div class="ps-scrollbar-x-rail" style="width: 2560px; display: none; left: 0px; bottom: 3px;"><div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; height: 1341px; display: none; right: 3px;"><div class="ps-scrollbar-y" style="top: 0px; height: 0px;"></div></div></div>
+
+    </div>
+
+    <!-- =================================================
+    END: Canvas Sidebar
+    ================================================== -->
+
+    <!-- =================================================
+    BEGIN: Javascripts
+    ================================================== -->
+
+    <script type="text/javascript" src="../assets/js/libs/retina-1.3.0/retina.min.js"></script>
+    <script type="text/javascript" src="../assets/js/scripts.js"></script>
+
+    <!-- =================================================
+    END: Javascripts
+    ================================================== -->
+
+  </body>
+
+  <!-- =================================================
+  END: Body
+  ================================================== -->
+
+</html>
+

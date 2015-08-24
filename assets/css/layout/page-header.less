@@ -1,0 +1,608 @@
+/* ----------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+
+template.less
+
+-------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+/* ----------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+
+Variables
+
+-------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------- */
+
+@page-header-video-action-size:                                                 80px;
+@page-header-video-action-scale:                                                1.0;
+@page-header-video-action-scale-screen-mini:                                    1.0;
+@page-header-video-action-scale-screen-small:                                   1.2;
+@page-header-video-action-scale-screen-medium:                                  1.4;
+@page-header-video-action-scale-screen-large:                                   1.6;
+@page-header-video-action-icon-offset:                                          0.15;
+
+
+
+/* ----------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+
+Page Header
+
+-------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------- */
+
+#page-header {
+
+  color: @gold;
+  margin-top: -@header-height;
+  text-align: center;
+  overflow: hidden;
+
+
+
+  #page-header-inner {
+
+    padding-top: @header-height;
+    padding-bottom: @header-container-padding-vertical;
+
+  }
+
+  /* ----------------------------------------------------------------------------------------------------
+  Page Header Background Video
+  ---------------------------------------------------------------------------------------------------- */
+
+  #page-header-background-video {
+
+    position: absolute !important;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    video {
+
+      .opacity(0.2);
+      display: none;
+      .background-size(cover);
+      background-color: transparent;
+      background-repeat: no-repeat;
+
+    }
+
+    #page-header-background-video-swf {
+
+      position: absolute !important;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      .opacity(0.2);
+      display: none;
+
+    }
+
+  }
+
+
+
+  /* ----------------------------------------------------------------------------------------------------
+  Page Header Image
+  ---------------------------------------------------------------------------------------------------- */
+
+  .page-header-image {
+
+    margin-left: auto;
+    margin-right: auto;
+
+    img {
+
+      max-width: 100%;
+
+    }
+
+  }
+
+
+
+  /* ----------------------------------------------------------------------------------------------------
+  Page Header Video
+  ---------------------------------------------------------------------------------------------------- */
+
+  .page-header-video {
+
+    display: inline-block;
+    margin: 0 auto;
+    margin-bottom: @base-spacing-unit;
+
+    .page-header-video-action {
+
+      position: relative;
+      display: block;
+      width: @page-header-video-action-size * @page-header-video-action-scale;
+      height: @page-header-video-action-size * @page-header-video-action-scale;
+      cursor: pointer;
+
+      .page-header-video-action-border {
+
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-image: url("@{path-images}components/icons/icon-ring.svg");
+        .background-size(100% 100%);
+        .transition(e('all 0.2s ease'));
+
+      }
+
+      .page-header-video-action-icon {
+
+        display: block;
+        width: 0;
+        height: 0;
+        line-height: 0px;
+        border-style: solid;
+        border-width: ((@page-header-video-action-size * @page-header-video-action-scale) * 0.2) 0 ((@page-header-video-action-size * @page-header-video-action-scale) * 0.2) ((@page-header-video-action-size * @page-header-video-action-scale) * 0.3);
+        border-color: transparent transparent transparent @white;
+        _border-color: #000000 #000000 #000000 @white;
+        _filter: progid:DXImageTransform.Microsoft.Chroma(color='@white');
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -((2 * ((@page-header-video-action-size * @page-header-video-action-scale) * 0.2)) * 0.5);
+        margin-left: -((((@page-header-video-action-size * @page-header-video-action-scale) * 0.3) * 0.5) - (((@page-header-video-action-size * @page-header-video-action-scale) * 0.3) * @page-header-video-action-icon-offset));
+
+      }
+
+      .page-header-video-action-label {
+
+        display: none;
+
+      }
+
+    }
+
+    .page-header-video-label {
+
+      display: none;
+
+    }
+
+    &:hover {
+
+      .page-header-video-action {
+
+        .page-header-video-action-border {
+
+          .scale(1.1, 1.1);
+
+        }
+
+      }
+
+    }
+
+  }
+
+
+
+  /* ----------------------------------------------------------------------------------------------------
+  Page Header Promotion
+  ---------------------------------------------------------------------------------------------------- */
+
+  #page-header-footer {
+
+    background: rgba(0, 0, 0, 0.25);
+
+    a {
+
+      text-decoration: none;
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+/* ----------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+
+No Video
+
+-------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------- */
+
+html.no-video {
+
+  .load-video {
+
+    video {
+
+      display: none;
+
+    }
+
+    object {
+
+      display: none;
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-mini-enabled) {
+
+  /* ----------------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------------
+
+  Screen Size: Mini (@screen-mini) and above
+
+  -------------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-mini) {
+
+    /* ----------------------------------------------------------------------------------------------------
+    -------------------------------------------------------------------------------------------------------
+
+    Page Header
+
+    -------------------------------------------------------------------------------------------------------
+    ---------------------------------------------------------------------------------------------------- */
+
+    #page-header {
+
+      margin-top: -@header-height-screen-mini;
+
+      #page-header-inner {
+
+        padding-top: @header-height-screen-mini;
+        padding-bottom: @header-container-padding-vertical-screen-mini;
+
+        &.fill-vertical {
+
+          height: 10000px;
+
+        }
+
+      }
+
+
+
+      &.left {
+
+        .page-header-headline,
+        .page-header-description {
+
+          text-align: left;
+
+        }
+
+      }
+
+
+
+      &.center {
+
+        .page-header-headline,
+        .page-header-description {
+
+          text-align: center;
+
+        }
+
+      }
+
+
+
+      &.right {
+
+        .page-header-headline,
+        .page-header-description {
+
+          text-align: left;
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-small-enabled) {
+
+  /* ----------------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------------
+
+  Screen Size: Small (@screen-small) and above
+
+  -------------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-small) {
+
+    /* ----------------------------------------------------------------------------------------------------
+    -------------------------------------------------------------------------------------------------------
+
+    Page Header
+
+    -------------------------------------------------------------------------------------------------------
+    ---------------------------------------------------------------------------------------------------- */
+
+    #page-header {
+
+      margin-top: -@header-height-screen-small;
+
+      #page-header-inner {
+
+        padding-top: @header-height-screen-small;
+        padding-bottom: @header-container-padding-vertical-screen-small;
+
+      }
+
+
+
+      /* ----------------------------------------------------------------------------------------------------
+      Page Header Background Video
+      ---------------------------------------------------------------------------------------------------- */
+
+      #page-header-background-video {
+
+        video {
+
+          display: block;
+
+        }
+
+      }
+
+
+
+      /* ----------------------------------------------------------------------------------------------------
+      Page Header Video
+      ---------------------------------------------------------------------------------------------------- */
+
+      .page-header-video {
+
+        margin-bottom: @base-spacing-unit-screen-small;
+
+        .page-header-video-action {
+
+          width: @page-header-video-action-size * @page-header-video-action-scale-screen-small;
+          height: @page-header-video-action-size * @page-header-video-action-scale-screen-small;
+
+          .page-header-video-action-icon {
+
+            border-width: ((@page-header-video-action-size * @page-header-video-action-scale-screen-small) * 0.2) 0 ((@page-header-video-action-size * @page-header-video-action-scale-screen-small) * 0.2) ((@page-header-video-action-size * @page-header-video-action-scale-screen-small) * 0.3);
+            margin-top: -((2 * ((@page-header-video-action-size * @page-header-video-action-scale-screen-small) * 0.2)) * 0.5);
+            margin-left: -((((@page-header-video-action-size * @page-header-video-action-scale-screen-small) * 0.3) * 0.5) - (((@page-header-video-action-size * @page-header-video-action-scale-screen-small) * 0.3) * @page-header-video-action-icon-offset));
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+
+    /* ----------------------------------------------------------------------------------------------------
+    -------------------------------------------------------------------------------------------------------
+
+    No Video
+
+    -------------------------------------------------------------------------------------------------------
+    ---------------------------------------------------------------------------------------------------- */
+
+    html.no-video {
+
+      .load-video {
+
+        video {
+
+          display: none;
+
+        }
+
+        object {
+
+          display: block !important;
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-medium-enabled) {
+
+  /* ----------------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------------
+
+  Screen Size: Medium (@screen-medium) and above
+
+  -------------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-medium) {
+
+    /* ----------------------------------------------------------------------------------------------------
+    -------------------------------------------------------------------------------------------------------
+
+    Page Header
+
+    -------------------------------------------------------------------------------------------------------
+    ---------------------------------------------------------------------------------------------------- */
+
+    #page-header {
+
+      margin-top: -@header-height-screen-medium;
+
+      #page-header-inner {
+
+        padding-top: @header-height-screen-medium;
+        padding-bottom: @header-container-padding-vertical-screen-medium;
+
+      }
+
+
+
+      /* ----------------------------------------------------------------------------------------------------
+      Page Header Video
+      ---------------------------------------------------------------------------------------------------- */
+
+      .page-header-video {
+
+        margin-bottom: @base-spacing-unit-screen-medium;
+
+        .page-header-video-action {
+
+          width: @page-header-video-action-size * @page-header-video-action-scale-screen-medium;
+          height: @page-header-video-action-size * @page-header-video-action-scale-screen-medium;
+
+          .page-header-video-action-icon {
+
+            border-width: ((@page-header-video-action-size * @page-header-video-action-scale-screen-medium) * 0.2) 0 ((@page-header-video-action-size * @page-header-video-action-scale-screen-medium) * 0.2) ((@page-header-video-action-size * @page-header-video-action-scale-screen-medium) * 0.3);
+            margin-top: -((2 * ((@page-header-video-action-size * @page-header-video-action-scale-screen-medium) * 0.2)) * 0.5);
+            margin-left: -((((@page-header-video-action-size * @page-header-video-action-scale-screen-medium) * 0.3) * 0.5) - (((@page-header-video-action-size * @page-header-video-action-scale-screen-medium) * 0.3) * @page-header-video-action-icon-offset));
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-large-enabled) {
+
+  /* ----------------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------------
+
+  Screen Size: Large (@screen-large) and above
+
+  -------------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-large) {
+
+    /* ----------------------------------------------------------------------------------------------------
+    -------------------------------------------------------------------------------------------------------
+
+    Page Header
+
+    -------------------------------------------------------------------------------------------------------
+    ---------------------------------------------------------------------------------------------------- */
+
+    #page-header {
+
+      margin-top: -@header-height-screen-large;
+
+      #page-header-inner {
+
+        padding-top: @header-height-screen-large;
+        padding-bottom: @header-container-padding-vertical-screen-large;
+
+      }
+
+
+
+      /* ----------------------------------------------------------------------------------------------------
+      Page Header Video
+      ---------------------------------------------------------------------------------------------------- */
+
+      .page-header-video {
+
+        margin-bottom: @base-spacing-unit-screen-large;
+
+        .page-header-video-action {
+
+          width: @page-header-video-action-size * @page-header-video-action-scale-screen-large;
+          height: @page-header-video-action-size * @page-header-video-action-scale-screen-large;
+
+          .page-header-video-action-icon {
+
+            border-width: ((@page-header-video-action-size * @page-header-video-action-scale-screen-large) * 0.2) 0 ((@page-header-video-action-size * @page-header-video-action-scale-screen-large) * 0.2) ((@page-header-video-action-size * @page-header-video-action-scale-screen-large) * 0.3);
+            margin-top: -((2 * ((@page-header-video-action-size * @page-header-video-action-scale-screen-large) * 0.2)) * 0.5);
+            margin-left: -((((@page-header-video-action-size * @page-header-video-action-scale-screen-large) * 0.3) * 0.5) - (((@page-header-video-action-size * @page-header-video-action-scale-screen-large) * 0.3) * @page-header-video-action-icon-offset));
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-resolution-2x-enabled) {
+
+  /* ----------------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------------
+
+  Screen Resolution: 2x
+
+  -------------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------------- */
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+
+  }
+
+}

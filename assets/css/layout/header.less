@@ -1,0 +1,1173 @@
+/* -----------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+layout/header.less
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+----------------------------------------------------------------------------- */
+
+
+
+
+
+
+/* -----------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+Variables
+
+--------------------------------------------------------------------------------
+----------------------------------------------------------------------------- */
+
+
+
+/* -----------------------------------------------------------------------------
+Header Size
+----------------------------------------------------------------------------- */
+
+@header-height:                                                                 @button-height + (2 * @header-container-padding-vertical);
+@header-height-screen-mini:                                                     floor(@button-height * @button-height-scale-screen-mini) + (2 * @header-container-padding-vertical-screen-mini);
+@header-height-screen-small:                                                    floor(@button-height * @button-height-scale-screen-small) + (2 * @header-container-padding-vertical-screen-small);
+@header-height-screen-medium:                                                   floor(@button-height * @button-height-scale-screen-medium) + (2 * @header-container-padding-vertical-screen-medium);
+@header-height-screen-large:                                                    floor(@button-height * @button-height-scale-screen-large) + (2 * @header-container-padding-vertical-screen-large);
+
+// Container Padding
+
+@header-container-padding-vertical:                                             @container-pod-short-padding-vertical * 0.75;
+@header-container-padding-vertical-screen-mini:                                 @container-pod-short-padding-vertical-screen-mini * 0.75;
+@header-container-padding-vertical-screen-small:                                @container-pod-short-padding-vertical-screen-small * 0.75;
+@header-container-padding-vertical-screen-medium:                               @container-pod-short-padding-vertical-screen-medium * 0.75;
+@header-container-padding-vertical-screen-large:                                @container-pod-short-padding-vertical-screen-large * 0.75;
+
+
+
+/* -----------------------------------------------------------------------------
+Header Logo
+----------------------------------------------------------------------------- */
+
+@header-logo-image-width:                                                       50px;
+@header-logo-image-height:                                                      36px;
+@header-logo-offset:                                                            4px;
+
+// Header Logo Responsive Scaling
+
+@header-logo-scale:                                                             0.8;
+@header-logo-scale-screen-mini:                                                 0.8;
+@header-logo-scale-screen-small:                                                0.7;
+@header-logo-scale-screen-medium:                                               0.9;
+@header-logo-scale-screen-large:                                                0.9;
+
+
+
+/* -----------------------------------------------------------------------------
+Header Logo Mark
+----------------------------------------------------------------------------- */
+
+@header-logo-mark-image-width:                                                  50px;
+@header-logo-mark-image-height:                                                 36px;
+
+
+
+/* -----------------------------------------------------------------------------
+Header Logo Type
+----------------------------------------------------------------------------- */
+
+@header-logo-type-image-width:                                                  206px;
+@header-logo-type-image-height:                                                 25px;
+@header-logo-type-offset:                                                       16px;
+
+
+
+/* -----------------------------------------------------------------------------
+Header Navigation Links Styling
+----------------------------------------------------------------------------- */
+
+@header-navigation-link-text-color:                                             @body-text-color;
+@header-navigation-link-text-font-family:                                       @font-family-sans-serif-primary;
+@header-navigation-link-text-font-size:                                         @button-text-font-size;
+@header-navigation-link-text-font-style:                                        @button-default-text-font-style;
+@header-navigation-link-text-font-weight:                                       @button-default-text-font-weight;
+@header-navigation-link-text-line-height:                                       @button-height;
+@header-navigation-link-text-transform:                                         normal;
+@header-navigation-link-text-shadow:                                            @button-default-text-shadow;
+
+
+
+/* -----------------------------------------------------------------------------
+Header Navigation Links
+----------------------------------------------------------------------------- */
+
+@header-navigation-link-text-link-text-color:                                   ~`color_lightness("@{neutral}", 40)`;
+@header-navigation-link-text-link-text-decoration:                              none;
+
+@header-navigation-link-text-link-hover-text-color:                             ~`color_lightness("@{neutral}", 80)`;
+@header-navigation-link-text-link-hover-text-decoration:                        none;
+
+@header-navigation-link-text-link-active-text-color:                            ~`color_lightness("@{neutral}", 60)`;
+@header-navigation-link-text-link-active-text-decoration:                       none;
+
+@header-navigation-link-text-link-selected-text-color:                          ~`color_lightness("@{neutral}", 100)`;
+@header-navigation-link-text-link-selected-text-decoration:                     none;
+
+
+
+/* -----------------------------------------------------------------------------
+Header Navigation (Dark) Links
+----------------------------------------------------------------------------- */
+
+@header-navigation-dark-link-text-color:                                        @body-text-color;
+@header-navigation-dark-link-text-link-text-color:                              ~`color_lightness("@{purple}", 0)`;
+@header-navigation-dark-link-text-link-hover-text-color:                        ~`color_lightness("@{neutral}", 0)`;
+@header-navigation-dark-link-text-link-active-text-color:                       ~`color_lightness("@{purple}", 0)`;
+@header-navigation-dark-link-text-link-selected-text-color:                     ~`color_lightness("@{neutral}", 40)`;
+
+
+
+/* -----------------------------------------------------------------------------
+Header Navigation Links
+----------------------------------------------------------------------------- */
+
+@header-navigation-link-text-font-size-scale-screen-mini:                       @body-text-font-size-scale-screen-mini;
+@header-navigation-link-text-font-size-scale-screen-small:                      @body-text-font-size-scale-screen-small;
+@header-navigation-link-text-font-size-scale-screen-medium:                     @body-text-font-size-scale-screen-medium;
+@header-navigation-link-text-font-size-scale-screen-large:                      @body-text-font-size-scale-screen-large;
+
+@header-navigation-link-text-line-height-scale-screen-mini:                     @button-height-scale-screen-mini;
+@header-navigation-link-text-line-height-scale-screen-small:                    @button-height-scale-screen-small;
+@header-navigation-link-text-line-height-scale-screen-medium:                   @button-height-scale-screen-medium;
+@header-navigation-link-text-line-height-scale-screen-large:                    @button-height-scale-screen-large;
+
+
+
+
+
+
+/* -----------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+Header
+
+--------------------------------------------------------------------------------
+----------------------------------------------------------------------------- */
+
+#header {
+
+  .clearfix();
+  position: relative;
+  height: @header-height;
+  width: 100%;
+  text-align: center;
+  z-index: @z-index-header;
+  background: none;
+  //overflow: hidden;
+
+  .container-pod {
+
+    padding-top: @header-container-padding-vertical;
+    padding-bottom: @header-container-padding-vertical;
+
+  }
+
+
+
+  .header-inner {
+
+    position: relative;
+
+  }
+
+
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Header Logo
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  .header-logo {
+
+    .clearfix();
+    position: absolute;
+    display: block;
+    margin: 0 auto;
+    top: ((@button-height - (@header-logo-image-height * @header-logo-scale)) / 2) + (@header-logo-offset * @header-logo-scale);
+    left: 50%;
+    margin-left: -((@header-logo-image-width * @header-logo-scale) / 2);
+
+    .header-logo-mark {
+
+      display: block;
+      width: @header-logo-mark-image-width * @header-logo-scale;
+      height: @header-logo-mark-image-height * @header-logo-scale;
+      background-image: url("@{path-images}layout/header/header-logo-color-dark-mark.png");
+      .background-size(100% 100%);
+      float: left;
+      .transition(e('transform 0.5s ease, opacity 0.5s ease'));
+      .translateY(0px);
+      background-repeat: no-repeat;
+
+    }
+
+    .header-logo-type {
+
+      display: none;
+      width: @header-logo-type-image-width * @header-logo-scale;
+      height: @header-logo-type-image-height * @header-logo-scale;
+      background-image: url("@{path-images}layout/header/header-logo-color-dark-type.png");
+      .background-size(100% 100%);
+      float: left;
+      margin-left: @header-logo-type-offset;
+      background-repeat: no-repeat;
+
+    }
+
+    a {
+
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+
+      span {
+
+        display: none;
+
+      }
+
+    }
+
+    &.header-logo-color-light {
+
+      .header-logo-mark {
+
+        background-image: url("@{path-images}layout/header/header-logo-color-light-mark.png");
+
+      }
+
+      .header-logo-type {
+
+        background-image: url("@{path-images}layout/header/header-logo-color-light-type.png");
+
+      }
+
+    }
+
+    &.header-logo-flat-light {
+
+      .opacity(0.3);
+
+      .header-logo-mark {
+
+        background-image: url("@{path-images}layout/header/header-logo-flat-light-mark.png");
+
+      }
+
+      .header-logo-type {
+
+        background-image: url("@{path-images}layout/header/header-logo-flat-light-type.png");
+
+      }
+
+      &:hover {
+
+        .opacity(1.0);
+
+      }
+
+    }
+
+    &.header-logo-flat-dark {
+
+      .opacity(0.3);
+
+      .header-logo-mark {
+
+        background-image: url("@{path-images}layout/header/header-logo-flat-dark-mark.png");
+
+      }
+
+      .header-logo-type {
+
+        background-image: url("@{path-images}layout/header/header-logo-flat-dark-type.png");
+
+      }
+
+      &:hover {
+
+        .opacity(1.0);
+
+      }
+
+    }
+
+    &:hover {
+
+      .header-logo-mark {
+
+        .translateY(-3px);
+
+      }
+
+      /*
+      .animation(
+
+        e('header-logo-hover 1.5s 0s infinite normal both ease-in-out');
+
+      );
+      */
+
+    }
+
+  }
+
+
+
+
+
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Header Navigation
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  .header-navigation {
+
+    display: none;
+    margin: 0 auto;
+    .clearfix();
+
+    ul {
+
+      list-style: none;
+      margin: 0px;
+      .clearfix();
+
+      li {
+
+        margin: 0px;
+        float: left;
+        margin: 0px (@base-spacing-unit * 0.5) 0px 0px;
+        text-rendering: optimizelegibility;
+        font-family: @header-navigation-link-text-font-family;
+        font-size: @header-navigation-link-text-font-size;
+        font-weight: @header-navigation-link-text-font-weight;
+        font-style: @header-navigation-link-text-font-style;
+        line-height: @button-height;
+        text-transform: @header-navigation-link-text-transform;
+        color: @header-navigation-link-text-color;
+        text-shadow: @header-navigation-link-text-shadow;
+        padding-left: 0px;
+        position: relative;
+
+        a {
+
+          display: block;
+          line-height: @button-height;
+          color: @header-navigation-link-text-link-text-color;
+          text-decoration: @header-navigation-link-text-link-text-decoration;
+          //.translateY(0px);
+          //.transition(e('transform 0.5s ease'));
+
+          &:hover {
+
+            color: @header-navigation-link-text-link-hover-text-color;
+            text-decoration: @header-navigation-link-text-link-hover-text-decoration;
+
+          }
+
+          &:active {
+
+            color: @header-navigation-link-text-link-active-text-color;
+            text-decoration: @header-navigation-link-text-link-active-text-decoration;
+
+          }
+
+        }
+
+        &:before {
+
+          display: none;
+          content: '';
+          position: absolute;
+          top: -@header-container-padding-vertical;
+          bottom: auto;
+          left: 0px;
+          width: 100%;
+          height: 2px;
+          background: @purple;
+          #gradient > .horizontal(@purple, @pink);
+          .border-radius(0px);
+
+        }
+
+        &:hover {
+
+          a {
+
+            //.translateY(-3px);
+
+          }
+
+        }
+
+        &:last-child {
+
+          margin-right: 0px;
+
+        }
+
+        &.current_page_item  {
+
+          a {
+
+            color: @header-navigation-link-text-link-selected-text-color;
+            text-decoration: @header-navigation-link-text-link-selected-text-decoration;
+
+          }
+
+          &:before {
+
+            display: block;
+
+          }
+
+        }
+
+      }
+
+    }
+
+    &.header-navigation-dark {
+
+      ul {
+
+        li {
+
+          color: @header-navigation-dark-link-text-color;
+
+          a {
+
+            color: @header-navigation-dark-link-text-link-text-color;
+
+            &:hover {
+
+              color: @header-navigation-dark-link-text-link-hover-text-color;
+
+            }
+
+            &:active {
+
+              color: @header-navigation-dark-link-text-link-active-text-color;
+
+            }
+
+            &.current_page_item  {
+
+              a {
+
+                color: @header-navigation-dark-link-text-link-selected-text-color;
+
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Header Actions
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  .header-actions {
+
+    display: none;
+
+  }
+
+
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Header (Fill)
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  &.header-fill {
+
+    background: @canvas-pod-dark-background-color;
+
+    &.header-fill-light {
+
+      background: @white;
+
+    }
+
+    &.header-fill-dark {
+
+      background: @canvas-pod-dark-background-color;
+
+    }
+
+  }
+
+}
+
+
+
+@-webkit-keyframes header-logo-hover { .header-logo-hover(); }
+@-moz-keyframes header-logo-hover { .header-logo-hover(); }
+@-ms-keyframes header-logo-hover { .header-logo-hover(); }
+@-o-keyframes header-logo-hover { .header-logo-hover(); }
+@keyframes header-logo-hover { .header-logo-hover(); }
+
+/* ----------------------------------------------------------------------------------------------------
+KEYFRAMES: Browser (Bitly) App Link Route Focus
+---------------------------------------------------------------------------------------------------- */
+
+.header-logo-hover() {
+
+	0% {
+
+    .translateY(0px);
+
+	}
+
+	50% {
+
+    .translateY(-5px);
+
+	}
+
+	0% {
+
+    .translateY(0px);
+
+	}
+
+}
+
+
+
+
+& when (@screen-mini-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Screen Size: Mini (@screen-mini) and above
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-mini) {
+
+    /* -----------------------------------------------------------------------------
+    --------------------------------------------------------------------------------
+
+    Header
+
+    --------------------------------------------------------------------------------
+    ----------------------------------------------------------------------------- */
+
+    #header {
+
+      .container-pod {
+
+        padding-top: @header-container-padding-vertical-screen-mini;
+        padding-bottom: @header-container-padding-vertical-screen-mini;
+
+      }
+
+
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Header Logo
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      .header-logo {
+
+        top: ((floor(@button-height * @button-height-scale-screen-mini) - (@header-logo-mark-image-height * @header-logo-scale-screen-mini)) / 2) + (@header-logo-offset * @header-logo-scale-screen-mini);
+        margin-left: -((@header-logo-mark-image-width * @header-logo-scale-screen-mini) / 2);
+
+        .header-logo-mark {
+
+          width: @header-logo-mark-image-width * @header-logo-scale-screen-mini;
+          height: @header-logo-mark-image-height * @header-logo-scale-screen-mini;
+
+        }
+
+        .header-logo-type {
+
+          width: @header-logo-type-image-width * @header-logo-scale-screen-mini;
+          height: @header-logo-type-image-height * @header-logo-scale-screen-mini;
+          margin-left: @header-logo-type-offset * @header-logo-scale-screen-mini;
+
+        }
+
+      }
+
+
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Header Navigation
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      .header-navigation {
+
+        ul {
+
+          li {
+
+            margin: 0px (@base-spacing-unit-screen-mini * 0.5) 0px 0px;
+            font-size: floor(@header-navigation-link-text-font-size * @header-navigation-link-text-font-size-scale-screen-mini);
+            line-height: floor(@button-height * @button-height-scale-screen-mini);
+
+            a {
+
+              line-height: floor(@button-height * @button-height-scale-screen-mini);
+
+            }
+
+            &:before {
+
+              top: -@header-container-padding-vertical-screen-mini;
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-small-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Screen Size: Small (@screen-small) and above
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-small) {
+
+    /* -----------------------------------------------------------------------------
+    --------------------------------------------------------------------------------
+
+    Header
+
+    --------------------------------------------------------------------------------
+    ----------------------------------------------------------------------------- */
+
+    #header {
+
+      height: auto;
+
+
+
+      .container-pod {
+
+        padding-top: @header-container-padding-vertical-screen-small;
+        padding-bottom: @header-container-padding-vertical-screen-small;
+
+      }
+
+
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Header Logo
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      .header-logo {
+
+        top: ((floor(@button-height * @button-height-scale-screen-small) - (@header-logo-mark-image-height * @header-logo-scale-screen-small)) / 2) + (@header-logo-offset * @header-logo-scale-screen-small);
+        left: 0px;
+        margin-left: 0px;
+
+        .header-logo-mark {
+
+          width: @header-logo-mark-image-width * @header-logo-scale-screen-small;
+          height: @header-logo-mark-image-height * @header-logo-scale-screen-small;
+
+        }
+
+        .header-logo-type {
+
+          display: block;
+          width: @header-logo-type-image-width * @header-logo-scale-screen-small;
+          height: @header-logo-type-image-height * @header-logo-scale-screen-small;
+          margin-left: @header-logo-type-offset * @header-logo-scale-screen-small;
+
+        }
+
+      }
+
+
+
+
+
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Header Actions
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      .header-actions {
+
+        display: block;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+
+      }
+
+
+
+
+
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Header Navigation
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      .header-navigation {
+
+        display: table;
+
+        ul {
+
+          li {
+
+            margin: 0px (@base-spacing-unit-screen-small * 0.75) 0px 0px;
+            font-size: floor(@header-navigation-link-text-font-size * @header-navigation-link-text-font-size-scale-screen-small);
+            line-height: floor(@button-height * @button-height-scale-screen-small);
+
+            a {
+
+              line-height: floor(@button-height * @button-height-scale-screen-small);
+
+            }
+
+            &:before {
+
+              top: -@header-container-padding-vertical-screen-small;
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-medium-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Screen Size: Medium (@screen-medium) and above
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-medium) {
+
+    /* -----------------------------------------------------------------------------
+    --------------------------------------------------------------------------------
+
+    Header
+
+    --------------------------------------------------------------------------------
+    ----------------------------------------------------------------------------- */
+
+    #header {
+
+      .container-pod {
+
+        padding-top: @header-container-padding-vertical-screen-medium;
+        padding-bottom: @header-container-padding-vertical-screen-medium;
+
+      }
+
+
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Header Logo
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      .header-logo {
+
+        top: ((floor(@button-height * @button-height-scale-screen-medium) - (@header-logo-mark-image-height * @header-logo-scale-screen-medium)) / 2) + (@header-logo-offset * @header-logo-scale-screen-medium);
+
+        .header-logo-mark {
+
+          width: @header-logo-mark-image-width * @header-logo-scale-screen-medium;
+          height: @header-logo-mark-image-height * @header-logo-scale-screen-medium;
+
+        }
+
+        .header-logo-type {
+
+          width: @header-logo-type-image-width * @header-logo-scale-screen-medium;
+          height: @header-logo-type-image-height * @header-logo-scale-screen-medium;
+          margin-left: @header-logo-type-offset * @header-logo-scale-screen-medium;
+
+        }
+
+      }
+
+
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Header Navigation
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      .header-navigation {
+
+        ul {
+
+          li {
+
+            margin: 0px (@base-spacing-unit-screen-medium * 0.75) 0px 0px;
+            font-size: floor(@header-navigation-link-text-font-size * @header-navigation-link-text-font-size-scale-screen-medium);
+            line-height: floor(@button-height * @button-height-scale-screen-medium);
+
+            a {
+
+              line-height: floor(@button-height * @button-height-scale-screen-medium);
+
+            }
+
+            &:before {
+
+              top: -@header-container-padding-vertical-screen-medium;
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-large-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Screen Size: Large (@screen-large) and above
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-large) {
+
+    /* -----------------------------------------------------------------------------
+    --------------------------------------------------------------------------------
+
+    Header
+
+    --------------------------------------------------------------------------------
+    ----------------------------------------------------------------------------- */
+
+    #header {
+
+      .container-pod {
+
+        padding-top: @header-container-padding-vertical-screen-large;
+        padding-bottom: @header-container-padding-vertical-screen-large;
+
+      }
+
+
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Header Logo
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      .header-logo {
+
+        top: ((floor(@button-height * @button-height-scale-screen-large) - (@header-logo-mark-image-height * @header-logo-scale-screen-large)) / 2) + (@header-logo-offset * @header-logo-scale-screen-large);
+
+        .header-logo-mark {
+
+          width: @header-logo-mark-image-width * @header-logo-scale-screen-large;
+          height: @header-logo-mark-image-height * @header-logo-scale-screen-large;
+
+        }
+
+        .header-logo-type {
+
+          width: @header-logo-type-image-width * @header-logo-scale-screen-large;
+          height: @header-logo-type-image-height * @header-logo-scale-screen-large;
+          margin-left: @header-logo-type-offset * @header-logo-scale-screen-large;
+
+        }
+
+      }
+
+
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Header Navigation
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      .header-navigation {
+
+        ul {
+
+          li {
+
+            margin: 0px (@base-spacing-unit-screen-large * 1.0) 0px 0px;
+            font-size: floor(@header-navigation-link-text-font-size * @header-navigation-link-text-font-size-scale-screen-large);
+            line-height: floor(@button-height * @button-height-scale-screen-large);
+
+            a {
+
+              line-height: floor(@button-height * @button-height-scale-screen-large);
+
+            }
+
+            &:before {
+
+              top: -@header-container-padding-vertical-screen-large;
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-resolution-2x-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Screen Resolution: 2x
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+
+    /* -----------------------------------------------------------------------------
+    --------------------------------------------------------------------------------
+
+    Header
+
+    --------------------------------------------------------------------------------
+    ----------------------------------------------------------------------------- */
+
+    #header {
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Header Logo
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      .header-logo {
+
+        .header-logo-mark {
+
+          background-image: url("@{path-images}layout/header/header-logo-color-dark-mark@2x.png");
+
+        }
+
+        .header-logo-type {
+
+          background-image: url("@{path-images}layout/header/header-logo-color-dark-type@2x.png");
+
+        }
+
+        &.header-logo-color-light {
+
+          .header-logo-mark {
+
+            background-image: url("@{path-images}layout/header/header-logo-color-light-mark@2x.png");
+
+          }
+
+          .header-logo-type {
+
+            background-image: url("@{path-images}layout/header/header-logo-color-light-type@2x.png");
+
+          }
+
+        }
+
+        &.header-logo-flat-light {
+
+          .header-logo-mark {
+
+            background-image: url("@{path-images}layout/header/header-logo-flat-light-mark@2x.png");
+
+          }
+
+          .header-logo-type {
+
+            background-image: url("@{path-images}layout/header/header-logo-flat-light-type@2x.png");
+
+          }
+
+        }
+
+        &.header-logo-flat-dark {
+
+          .header-logo-mark {
+
+            background-image: url("@{path-images}layout/header/header-logo-flat-dark-mark@2x.png");
+
+          }
+
+          .header-logo-type {
+
+            background-image: url("@{path-images}layout/header/header-logo-flat-dark-type@2x.png");
+
+          }
+
+        }
+
+      }
+
+
+
+      /* -----------------------------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+      Header (Inverse)
+
+      --------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------- */
+
+      &.header-inverse {
+
+        /* -----------------------------------------------------------------------------
+        --------------------------------------------------------------------------------
+
+        Header Logo
+
+        --------------------------------------------------------------------------------
+        ----------------------------------------------------------------------------- */
+
+        .header-logo {
+
+          //background-image: url("@{path-images}layout/header/header-logo-inverse@2x.png");
+
+        }
+
+      }
+
+    }
+
+  }
+
+}

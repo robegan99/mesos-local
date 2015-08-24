@@ -1,0 +1,445 @@
+/* -----------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+template.less
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+----------------------------------------------------------------------------- */
+
+
+
+
+
+
+/* -----------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+Platform Setup Page
+
+--------------------------------------------------------------------------------
+----------------------------------------------------------------------------- */
+
+#canvas.template-page-platform-setup {
+
+  #page-header {
+
+    .page-header-image {
+
+      max-width: 300px;
+
+    }
+
+  }
+
+  .instruction-steps {
+
+    margin-bottom: -(2 * @container-pod-padding-vertical);
+
+    .instruction-step {
+
+      margin-bottom: 2 * @container-pod-padding-vertical;
+      position: relative;
+
+      .instruction-step-arrow {
+
+        display: block;
+        width: 1px;
+        height: @container-pod-padding-vertical;
+        position: absolute;
+        top: -(@container-pod-padding-vertical + (@container-pod-padding-vertical * 0.5));
+        left: 50%;
+        background: @neutral;
+        .opacity(0.2);
+
+        &:before {
+
+          content: '';
+          display: block;
+          width: 1px;
+          height: 10px;
+          background: @neutral;
+          .rotate(45deg);
+          position: absolute;
+          bottom: -1px;
+          left: 4px;
+
+        }
+
+        &:after {
+
+          content: '';
+          display: block;
+          width: 1px;
+          height: 10px;
+          background: @neutral;
+          .rotate(-45deg);
+          position: absolute;
+          bottom: -1px;
+          right: 4px;
+
+        }
+
+      }
+
+      &:first-child {
+
+        .instruction-step-arrow {
+
+          height: @container-pod-padding-vertical + @header-container-padding-vertical;
+          top: -(@container-pod-padding-vertical + @header-container-padding-vertical + (@container-pod-padding-vertical * 0.5));
+
+        }
+
+      }
+
+      &:last-child {
+
+        .step-count {
+
+          display: block;
+          width: @heading-h1-large-text-line-height * 1.2;
+          height: @heading-h1-large-text-line-height * 1.2;
+          .background-size(100% 100%);
+          background-image: url("@{path-images}views/platform-setup/step-complete.png");
+          margin-left: auto;
+          margin-right: auto;
+          .background-clip(padding-box);
+
+          span {
+
+            display: none;
+
+          }
+
+          &:after {
+
+            display: none !important;
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-mini-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Screen Size: Mini (@screen-mini) and above
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-mini) {
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-small-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Screen Size: Small (@screen-small) and above
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-small) {
+
+    /* -----------------------------------------------------------------------------
+    --------------------------------------------------------------------------------
+
+    Platform Setup Page
+
+    --------------------------------------------------------------------------------
+    ----------------------------------------------------------------------------- */
+
+    #canvas.template-page-platform-setup {
+
+      .instruction-steps {
+
+        margin-bottom: -(2 * @container-pod-padding-vertical-screen-small);
+
+        .instruction-step {
+
+          margin-bottom: 2 * @container-pod-padding-vertical-screen-small;
+
+          .instruction-step-arrow {
+
+            height: @container-pod-padding-vertical-screen-small;
+            top: -(@container-pod-padding-vertical-screen-small + (@container-pod-padding-vertical-screen-small * 0.5));
+
+          }
+
+          &:first-child {
+
+            .instruction-step-arrow {
+
+              height: @container-pod-padding-vertical-screen-small + @header-container-padding-vertical-screen-small;
+              top: -(@container-pod-padding-vertical-screen-small + @header-container-padding-vertical-screen-small + (@container-pod-padding-vertical-screen-small * 0.5));
+
+            }
+
+          }
+
+          &:last-child {
+
+            .step-count {
+
+              width: @heading-h1-large-text-line-height * @heading-h1-large-text-line-height-scale-screen-small * 1.2;
+              height: @heading-h1-large-text-line-height * @heading-h1-large-text-line-height-scale-screen-small * 1.2;
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-medium-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Screen Size: Medium (@screen-medium) and above
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-medium) {
+
+    /* -----------------------------------------------------------------------------
+    --------------------------------------------------------------------------------
+
+    Platform Setup Page
+
+    --------------------------------------------------------------------------------
+    ----------------------------------------------------------------------------- */
+
+    #canvas.template-page-platform-setup {
+
+      .instruction-steps {
+
+        margin-bottom: -(2 * @container-pod-padding-vertical-screen-medium);
+
+        .instruction-step {
+
+          margin-bottom: 2 * @container-pod-padding-vertical-screen-medium;
+
+          .instruction-step-arrow {
+
+            height: @container-pod-padding-vertical-screen-medium;
+            top: -(@container-pod-padding-vertical-screen-medium + (@container-pod-padding-vertical-screen-medium * 0.5));
+
+          }
+
+          &:first-child {
+
+            .instruction-step-arrow {
+
+              height: @container-pod-padding-vertical-screen-medium + @header-container-padding-vertical-screen-medium;
+              top: -(@container-pod-padding-vertical-screen-medium + @header-container-padding-vertical-screen-medium + (@container-pod-padding-vertical-screen-medium * 0.5));
+
+            }
+
+          }
+
+          &:last-child {
+
+            .step-count {
+
+              width: @heading-h1-large-text-line-height * @heading-h1-large-text-line-height-scale-screen-medium * 1.2;
+              height: @heading-h1-large-text-line-height * @heading-h1-large-text-line-height-scale-screen-medium * 1.2;
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-large-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Screen Size: Large (@screen-large) and above
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-large) {
+
+    /* -----------------------------------------------------------------------------
+    --------------------------------------------------------------------------------
+
+    Platform Setup Page
+
+    --------------------------------------------------------------------------------
+    ----------------------------------------------------------------------------- */
+
+    #canvas.template-page-platform-setup {
+
+      .instruction-steps {
+
+        margin-bottom: -(2 * @container-pod-padding-vertical-screen-large);
+
+        .instruction-step {
+
+          margin-bottom: 2 * @container-pod-padding-vertical-screen-large;
+
+          .instruction-step-arrow {
+
+            height: @container-pod-padding-vertical-screen-large;
+            top: -(@container-pod-padding-vertical-screen-large + (@container-pod-padding-vertical-screen-large * 0.5));
+
+          }
+
+          &:first-child {
+
+            .instruction-step-arrow {
+
+              height: @container-pod-padding-vertical-screen-large + @header-container-padding-vertical-screen-large;
+              top: -(@container-pod-padding-vertical-screen-large + @header-container-padding-vertical-screen-large + (@container-pod-padding-vertical-screen-large * 0.5));
+
+            }
+
+          }
+
+          &:last-child {
+
+            .step-count {
+
+              width: @heading-h1-large-text-line-height * @heading-h1-large-text-line-height-scale-screen-large * 1.2;
+              height: @heading-h1-large-text-line-height * @heading-h1-large-text-line-height-scale-screen-large * 1.2;
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-resolution-2x-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Screen Resolution: 2x
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+
+    /* -----------------------------------------------------------------------------
+    --------------------------------------------------------------------------------
+
+    Platform Setup Page
+
+    --------------------------------------------------------------------------------
+    ----------------------------------------------------------------------------- */
+
+    #canvas.template-page-platform-setup {
+
+      .instruction-steps {
+
+        .instruction-step {
+
+          &:last-child {
+
+            .step-count {
+
+              background-image: url("@{path-images}views/platform-setup/step-complete@2x.png");
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-resolution-3x-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Screen Resolution: 3x
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 3) {
+
+  }
+
+}

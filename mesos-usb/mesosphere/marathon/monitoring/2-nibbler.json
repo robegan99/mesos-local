@@ -1,0 +1,10 @@
+{
+  "id": "/monitoring/nibbler",
+  "instances": 1,
+  "cpus": 0.25,
+  "mem": 64,
+  "uris": [
+    "/home/vagrant/mesos-usb/mesosphere/nibbler/slave-collect.py"
+  ],
+  "cmd": "python slave-collect.py --influxdb-name=mesos"
+}

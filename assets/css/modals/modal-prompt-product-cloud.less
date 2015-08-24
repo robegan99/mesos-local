@@ -1,0 +1,379 @@
+/* -----------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+modals/modal-get-started.less
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+----------------------------------------------------------------------------- */
+
+
+
+
+
+
+/* -----------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+Modal (Get Started)
+
+--------------------------------------------------------------------------------
+----------------------------------------------------------------------------- */
+
+#modal-prompt-product-cloud {
+
+  .modal-get-started-platforms {
+
+    .modal-get-started-platform {
+
+      position: relative;
+
+      a {
+
+        &:hover {
+
+          text-decoration: none;
+
+          .modal-get-started-platform-logo {
+
+            .box-shadow(inset 0px 0px 0px 1px @purple);
+
+          }
+
+          .modal-get-started-platform-title  {
+
+            color: @purple;
+            .opacity(1.0);
+
+          }
+
+        }
+
+      }
+
+      &.modal-get-started-platform-amazon {
+
+        a {
+
+          .modal-get-started-platform-logo {
+
+            .box-shadow(inset 0px 0px 0px 1px @green);
+
+          }
+
+          &:hover {
+
+            .modal-get-started-platform-logo {
+
+              .box-shadow(inset 0px 0px 0px 1px @green);
+
+            }
+
+            .modal-get-started-platform-title  {
+
+              color: @green;
+
+            }
+
+          }
+
+        }
+
+      }
+
+      .label-wrapper {
+
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        display: block;
+        width: 100%;
+        text-align: center;
+
+      }
+
+      .label {
+
+        background: ~`color_lightness("@{neutral}", 90)`;
+        display: inline-block;
+        margin: 0 auto;
+        font-size: 0.8em;
+        position: relative;
+        top: -1 * @body-text-line-height * 0.5;
+        padding: 0px (@body-text-line-height * 0.5);
+        .border-radius(@body-text-line-height * 0.5);
+        color: ~`color_lightness("@{neutral}", 40)`;
+
+        &.label-primary {
+
+          color: @white;
+          background: @purple;
+
+        }
+
+        &.label-success {
+
+          color: @white;
+          background: @green;
+          font-weight: 400;
+
+        }
+
+      }
+
+      .modal-get-started-platform-logo {
+
+        width: 100%;
+        height: auto;
+        .box-shadow(inset 0px 0px 0px 1px ~`color_lightness("@{neutral}", 90)`);
+        .border-radius(6px);
+        padding: @grid-gutter-width * 0.5;
+
+      }
+
+      .modal-get-started-platform-title {
+
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        .opacity(0.5);
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-mini-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Screen Size: Mini (@screen-mini) and above
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-mini) {
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-small-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Screen Size: Small (@screen-small) and above
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-small) {
+
+    /* -----------------------------------------------------------------------------
+    --------------------------------------------------------------------------------
+
+    Modal (Get Started)
+
+    --------------------------------------------------------------------------------
+    ----------------------------------------------------------------------------- */
+
+    #modal-prompt-product-cloud {
+
+      .modal-get-started-platforms {
+
+        .modal-get-started-platform {
+
+          .modal-get-started-platform-logo {
+
+            //height: 140px;
+            padding: @grid-gutter-width-screen-small * 0.25;
+
+          }
+
+          .label {
+
+            .border-radius(@body-text-line-height * @body-text-line-height-scale-screen-small * 0.5);
+            top: -1 * @body-text-line-height * @body-text-line-height-scale-screen-small * 0.5;
+            padding: 0px (@body-text-line-height * @body-text-line-height-scale-screen-small * 0.5);
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-medium-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Screen Size: Medium (@screen-medium) and above
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-medium) {
+
+    /* -----------------------------------------------------------------------------
+    --------------------------------------------------------------------------------
+
+    Modal (Get Started)
+
+    --------------------------------------------------------------------------------
+    ----------------------------------------------------------------------------- */
+
+    #modal-prompt-product-cloud {
+
+      .modal-get-started-platforms {
+
+        .modal-get-started-platform {
+
+          .modal-get-started-platform-logo {
+
+            //height: 180px;
+            padding: @grid-gutter-width-screen-medium * 0.25;
+
+          }
+
+          .label {
+
+            .border-radius(@body-text-line-height * @body-text-line-height-scale-screen-medium * 0.5);
+            top: -1 * @body-text-line-height * @body-text-line-height-scale-screen-medium * 0.5;
+            padding: 0px (@body-text-line-height * @body-text-line-height-scale-screen-medium * 0.5);
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-large-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Screen Size: Large (@screen-large) and above
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-large) {
+
+    /* -----------------------------------------------------------------------------
+    --------------------------------------------------------------------------------
+
+    Modal (Get Started)
+
+    --------------------------------------------------------------------------------
+    ----------------------------------------------------------------------------- */
+
+    #modal-prompt-product-cloud {
+
+      .modal-get-started-platforms {
+
+        .modal-get-started-platform {
+
+          .modal-get-started-platform-logo {
+
+            //height: 200px;
+            padding: @grid-gutter-width-screen-large * 0.25;
+
+          }
+
+          .label {
+
+            .border-radius(@body-text-line-height * @body-text-line-height-scale-screen-large * 0.5);
+            top: -1 * @body-text-line-height * @body-text-line-height-scale-screen-large * 0.5;
+            padding: 0px (@body-text-line-height * @body-text-line-height-scale-screen-large * 0.5);
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-resolution-2x-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Screen Resolution: 2x
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-resolution-3x-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Screen Resolution: 3x
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 3) {
+
+  }
+
+}

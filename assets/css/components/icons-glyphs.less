@@ -1,0 +1,1848 @@
+/* ----------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+
+views/components/icon-glyphs.less
+
+-------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+/* ----------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+
+Variables
+
+-------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------- */
+
+
+
+/* ----------------------------------------------------------------------------------------------------
+icon-glyph (Mini)
+---------------------------------------------------------------------------------------------------- */
+
+@icon-glyph-mini-enabled:                                                       true;
+
+@icon-glyph-mini-width:                                                         16px;
+@icon-glyph-mini-height:                                                        16px;
+@icon-glyph-mini-glyph-offset:                                                  0px;
+
+@icon-glyph-mini-screen-mini-enabled:                                           true;
+@icon-glyph-mini-screen-small-enabled:                                          true;
+@icon-glyph-mini-screen-medium-enabled:                                         true;
+@icon-glyph-mini-screen-large-enabled:                                          true;
+
+@icon-glyph-mini-scale:                                                         1.0;
+@icon-glyph-mini-scale-screen-mini:                                             1.0;
+@icon-glyph-mini-scale-screen-small:                                            1.0;
+@icon-glyph-mini-scale-screen-medium:                                           1.0;
+@icon-glyph-mini-scale-screen-large:                                            1.0;
+
+
+
+/* ----------------------------------------------------------------------------------------------------
+icon-glyph (small)
+---------------------------------------------------------------------------------------------------- */
+
+@icon-glyph-small-enabled:                                                      true;
+
+@icon-glyph-small-width:                                                        24px;
+@icon-glyph-small-height:                                                       24px;
+@icon-glyph-small-glyph-offset:                                                 0px;
+
+@icon-glyph-small-screen-mini-enabled:                                          true;
+@icon-glyph-small-screen-small-enabled:                                         true;
+@icon-glyph-small-screen-medium-enabled:                                        true;
+@icon-glyph-small-screen-large-enabled:                                         true;
+
+@icon-glyph-small-scale:                                                        1.0;
+@icon-glyph-small-scale-screen-mini:                                            1.0;
+@icon-glyph-small-scale-screen-small:                                           1.0;
+@icon-glyph-small-scale-screen-medium:                                          1.0;
+@icon-glyph-small-scale-screen-large:                                           1.0;
+
+
+
+/* ----------------------------------------------------------------------------------------------------
+icon-glyph (medium)
+---------------------------------------------------------------------------------------------------- */
+
+@icon-glyph-medium-enabled:                                                     true;
+
+@icon-glyph-medium-width:                                                       32px;
+@icon-glyph-medium-height:                                                      32px;
+@icon-glyph-medium-glyph-offset:                                                0px;
+
+@icon-glyph-medium-screen-mini-enabled:                                         true;
+@icon-glyph-medium-screen-small-enabled:                                        true;
+@icon-glyph-medium-screen-medium-enabled:                                       true;
+@icon-glyph-medium-screen-large-enabled:                                        true;
+
+@icon-glyph-medium-scale:                                                       1.0;
+@icon-glyph-medium-scale-screen-mini:                                           1.0;
+@icon-glyph-medium-scale-screen-small:                                          1.2;
+@icon-glyph-medium-scale-screen-medium:                                         1.3;
+@icon-glyph-medium-scale-screen-large:                                          1.5;
+
+
+
+/* ----------------------------------------------------------------------------------------------------
+icon-glyph (Large)
+---------------------------------------------------------------------------------------------------- */
+
+@icon-glyph-large-enabled:                                                      true;
+
+@icon-glyph-large-width:                                                        48px;
+@icon-glyph-large-height:                                                       48px;
+@icon-glyph-large-glyph-offset:                                                 0px;
+
+@icon-glyph-large-screen-mini-enabled:                                          true;
+@icon-glyph-large-screen-small-enabled:                                         true;
+@icon-glyph-large-screen-medium-enabled:                                        true;
+@icon-glyph-large-screen-large-enabled:                                         true;
+
+@icon-glyph-large-scale:                                                        1.0;
+@icon-glyph-large-scale-screen-mini:                                            1.0;
+@icon-glyph-large-scale-screen-small:                                           1.1;
+@icon-glyph-large-scale-screen-medium:                                          1.2;
+@icon-glyph-large-scale-screen-large:                                           1.2;
+
+
+
+/* ----------------------------------------------------------------------------------------------------
+icon-glyph (Jumbo)
+---------------------------------------------------------------------------------------------------- */
+
+@icon-glyph-jumbo-enabled:                                                      true;
+
+@icon-glyph-jumbo-width:                                                        80px;
+@icon-glyph-jumbo-height:                                                       80px;
+@icon-glyph-jumbo-glyph-offset:                                                 0px;
+
+@icon-glyph-jumbo-screen-mini-enabled:                                          true;
+@icon-glyph-jumbo-screen-small-enabled:                                         true;
+@icon-glyph-jumbo-screen-medium-enabled:                                        true;
+@icon-glyph-jumbo-screen-large-enabled:                                         true;
+
+@icon-glyph-jumbo-scale:                                                        1.0;
+@icon-glyph-jumbo-scale-screen-mini:                                            1.0;
+@icon-glyph-jumbo-scale-screen-small:                                           1.1;
+@icon-glyph-jumbo-scale-screen-medium:                                          1.2;
+@icon-glyph-jumbo-scale-screen-large:                                           1.2;
+
+
+
+
+
+
+/* ----------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+
+Icon Glyph Sprite
+
+-------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------- */
+
+.icon-glyph-sprite {
+
+  fill: currentColor;
+  .ie7-restore-right-whitespace();
+  display: inline-block;
+  vertical-align: middle;
+
+
+
+  /* ----------------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------------
+
+  Icon Positioning
+
+  -------------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------------- */
+
+  &.icon-glyph-sprite-center {
+
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+
+  }
+
+
+
+  /* ----------------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------------
+
+  Icon Styles
+
+  -------------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------------- */
+
+  &.icon-glyph-sprite-style-black {
+
+    color: @black;
+
+  }
+
+  &.icon-glyph-sprite-style-white {
+
+    color: @white;
+
+  }
+
+  &.icon-glyph-sprite-style-neutral {
+
+    color: @neutral;
+
+  }
+
+  &.icon-glyph-sprite-style-purple {
+
+    color: @purple;
+
+  }
+
+  &.icon-glyph-sprite-style-purple-light {
+
+    color: ~`color_lightness("@{purple}", 80)`;
+
+  }
+
+  &.icon-glyph-sprite-style-pink {
+
+    color: @pink;
+
+  }
+
+  &.icon-glyph-sprite-style-blue {
+
+    color: @blue;
+
+  }
+
+  &.icon-glyph-sprite-style-green {
+
+    color: @green;
+
+  }
+
+  &.icon-glyph-sprite-style-red {
+
+    color: @red;
+
+  }
+
+  &.icon-glyph-sprite-style-gradient {
+
+    position: relative;
+
+    &.icon-glyph-sprite-style-gradient-vertical {
+
+      &::after {
+
+        content: 'c';
+        width: 100%;
+        z-index: 2;
+        position: absolute;
+        left: 0;
+        top: 0;
+        -webkit-mask-image: -webkit-gradient(
+            linear,
+            left top, left bottom,
+            from(rgba(0, 0, 0, 1)),
+            color-stop(100%, rgba(0, 0, 0, 0))
+        );
+
+      }
+
+    }
+
+    &.icon-glyph-sprite-style-gradient-purple-to-pink {
+
+      &::before {
+
+        color: @purple;
+
+      }
+
+      &::after {
+
+        color: @pink;
+
+      }
+
+    }
+
+  }
+
+  &.icon-glyph-sprite-style-gradient-horizontal-purple-to-pink {
+
+    //#gradient > .horizontal(@purple, @pink);
+    fill: url(#gradient-horizontal-purple-to-pink);
+
+  }
+
+}
+
+
+
+
+
+
+/* ----------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+
+icon-glyphs
+
+-------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------- */
+
+@charset "UTF-8";
+
+@font-face {
+
+  font-family: "mesosphere-iconset";
+  src: url("@{path-fonts}mesosphere-iconset/mesosphere-iconset.eot");
+  src: url("@{path-fonts}mesosphere-iconset/mesosphere-iconset.eot?#iefix") format("embedded-opentype"),
+      url("@{path-fonts}mesosphere-iconset/mesosphere-iconset.woff") format("woff"),
+      url("@{path-fonts}mesosphere-iconset/mesosphere-iconset.ttf") format("truetype"),
+      url("@{path-fonts}mesosphere-iconset/mesosphere-iconset.svg#mesosphere-iconset") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+.icon-glyph {
+
+  .ie7-restore-right-whitespace();
+  display: inline-block;
+  vertical-align: bottom;
+  background-position: 0px 0px;
+  background-repeat: no-repeat;
+  //.box-shadow(inset 0px 0px 0px 1px rgba(0, 0, 0, 0.1));
+
+  &:before,
+  &:after {
+
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    speak: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    //vertical-align: text-bottom;
+
+  }
+
+
+
+  /* ----------------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------------
+
+  Icon Positioning
+
+  -------------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------------- */
+
+  &.icon-glyph-center {
+
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+
+  }
+
+
+
+  /* ----------------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------------
+
+  Icon Styles
+
+  -------------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------------- */
+
+  &.icon-glyph-style-black {
+
+    color: @black;
+
+  }
+
+  &.icon-glyph-style-white {
+
+    color: @white;
+
+  }
+
+  &.icon-glyph-style-neutral {
+
+    color: @neutral;
+
+  }
+
+  &.icon-glyph-style-purple {
+
+    color: @purple;
+
+  }
+
+  &.icon-glyph-style-blue {
+
+    color: @blue;
+
+  }
+
+  &.icon-glyph-style-green {
+
+    color: @green;
+
+  }
+
+  &.icon-glyph-style-red {
+
+    color: @red;
+
+  }
+
+  &.icon-glyph-style-gradient {
+
+    -webkit-text-fill-color: transparent;
+    .background-clip(text);
+
+    &.icon-glyph-style-gradient-purple-to-pink {
+
+      color: @purple !important;
+      background-image: -webkit-linear-gradient(top, @purple 0, @pink 100%);
+      background-image: -webkit-linear-gradient(top, @purple 0, @pink 100%);
+      background-image: -webkit-linear-gradient(top, @purple @pink, #333 100%);
+      background-image: -webkit-linear-gradient(top, @purple @pink, #333 100%);
+
+      &.icon-glyph-style-gradient-horizontal {
+
+        background-image: -webkit-linear-gradient(left,@purple 0, @pink 100%);
+        background-image: -webkit-linear-gradient(left, @purple 0, @pink 100%);
+        background-image: -webkit-linear-gradient(left, @purple @pink, #333 100%);
+        background-image: -webkit-linear-gradient(left, @purple @pink, #333 100%);
+        background-repeat: repeat-x;
+
+      }
+
+    }
+
+    /*
+
+    position: relative;
+
+    &.icon-glyph-style-gradient-vertical {
+
+      &:after {
+
+        content: 'c';
+        width: 100%;
+        z-index: 2;
+        position: absolute;
+        left: 0;
+        top: 0;
+        -webkit-mask-image: -webkit-gradient(
+            linear,
+            left top, left bottom,
+            from(rgba(0, 0, 0, 1)),
+            color-stop(100%, rgba(0, 0, 0, 0))
+        );
+
+      }
+
+    }
+
+    &.icon-glyph-style-gradient-purple-to-pink {
+
+      &:before {
+
+        color: @purple;
+
+      }
+
+      &:after {
+
+        color: @pink;
+
+      }
+
+    }
+
+    */
+
+  }
+
+  /* ----------------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------------
+
+  Mesosphere Icons
+
+  -------------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------------- */
+
+  &.icon-glyph-mesosphere-icons {
+
+    &:before,
+    &:after {
+
+      font-family: "mesosphere-iconset" !important;
+
+    }
+
+    /* ----------------------------------------------------------------------------------------------------
+    -------------------------------------------------------------------------------------------------------
+
+    Icon Definitions
+
+    -------------------------------------------------------------------------------------------------------
+    ---------------------------------------------------------------------------------------------------- */
+
+    &.icon-glyph-circle:before {
+
+      content: "a";
+
+    }
+
+    &.icon-glyph-triangle:before {
+
+      content: "b";
+
+    }
+
+    &.icon-glyph-ring-check:before {
+
+      content: "c";
+
+    }
+
+    &.icon-glyph-check:before {
+
+      content: "d";
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@icon-glyph-mini-enabled) {
+
+  /* ----------------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------------
+
+  Icon Glyphs (Mini)
+
+  -------------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------------- */
+
+  .icon-glyph.icon-glyph-mini {
+
+    font-size: floor(@icon-glyph-mini-height* @icon-glyph-mini-scale);
+    line-height: floor(@icon-glyph-mini-height* @icon-glyph-mini-scale);
+    width: floor(@icon-glyph-mini-width * @icon-glyph-mini-scale);
+    height: floor(@icon-glyph-mini-height * @icon-glyph-mini-scale);
+
+    &:before {
+
+      line-height: floor(floor(@icon-glyph-mini-height * @icon-glyph-mini-scale) + (@icon-glyph-mini-glyph-offset * @icon-glyph-mini-scale));
+
+    }
+
+  }
+
+
+
+  /* ----------------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------------
+
+  Icon Glyphs Sprite (Mini)
+
+  -------------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------------- */
+
+  .icon-glyph-sprite.icon-glyph-sprite-mini {
+
+    width: floor(@icon-glyph-mini-width * @icon-glyph-mini-scale);
+    height: floor(@icon-glyph-mini-height * @icon-glyph-mini-scale);
+
+  }
+
+}
+
+
+
+
+
+
+& when (@icon-glyph-small-enabled) {
+
+  /* ----------------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------------
+
+  Icon Glyphs (Small)
+
+  -------------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------------- */
+
+  .icon-glyph.icon-glyph-small {
+
+    font-size: floor(@icon-glyph-small-height* @icon-glyph-small-scale);
+    line-height: floor(@icon-glyph-small-height* @icon-glyph-small-scale);
+    width: floor(@icon-glyph-small-width * @icon-glyph-small-scale);
+    height: floor(@icon-glyph-small-height * @icon-glyph-small-scale);
+
+    &:before {
+
+      line-height: floor(floor(@icon-glyph-small-height * @icon-glyph-small-scale) + (@icon-glyph-small-glyph-offset * @icon-glyph-small-scale));
+
+    }
+
+  }
+
+
+
+  /* ----------------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------------
+
+  Icon Glyphs Sprite (Small)
+
+  -------------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------------- */
+
+  .icon-glyph-sprite.icon-glyph-sprite-small {
+
+    width: floor(@icon-glyph-small-width * @icon-glyph-small-scale);
+    height: floor(@icon-glyph-small-height * @icon-glyph-small-scale);
+
+  }
+
+}
+
+
+
+
+
+
+& when (@icon-glyph-medium-enabled) {
+
+  /* ----------------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------------
+
+  Icon Glyphs (Medium)
+
+  -------------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------------- */
+
+  .icon-glyph.icon-glyph-medium {
+
+    font-size: floor(@icon-glyph-medium-height* @icon-glyph-medium-scale);
+    line-height: floor(@icon-glyph-medium-height* @icon-glyph-medium-scale);
+    width: floor(@icon-glyph-medium-width * @icon-glyph-medium-scale);
+    height: floor(@icon-glyph-medium-height * @icon-glyph-medium-scale);
+
+    &:before {
+
+      line-height: floor(floor(@icon-glyph-medium-height * @icon-glyph-medium-scale) + (@icon-glyph-medium-glyph-offset * @icon-glyph-medium-scale));
+
+    }
+
+  }
+
+
+
+  /* ----------------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------------
+
+  Icon Glyphs Sprite (Medium)
+
+  -------------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------------- */
+
+  .icon-glyph-sprite.icon-glyph-sprite-medium {
+
+    width: floor(@icon-glyph-medium-width * @icon-glyph-medium-scale);
+    height: floor(@icon-glyph-medium-height * @icon-glyph-medium-scale);
+
+  }
+
+}
+
+
+
+
+
+
+& when (@icon-glyph-large-enabled) {
+
+  /* ----------------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------------
+
+  Icon Glyphs (Large)
+
+  -------------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------------- */
+
+  .icon-glyph.icon-glyph-large {
+
+    font-size: floor(@icon-glyph-large-height* @icon-glyph-large-scale);
+    line-height: floor(@icon-glyph-large-height* @icon-glyph-large-scale);
+    width: floor(@icon-glyph-large-width * @icon-glyph-large-scale);
+    height: floor(@icon-glyph-large-height * @icon-glyph-large-scale);
+
+    &:before {
+
+      line-height: floor(floor(@icon-glyph-large-height * @icon-glyph-large-scale) + (@icon-glyph-large-glyph-offset * @icon-glyph-large-scale));
+
+    }
+
+  }
+
+
+
+  /* ----------------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------------
+
+  Icon Glyphs Sprite (Large)
+
+  -------------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------------- */
+
+  .icon-glyph-sprite.icon-glyph-sprite-large {
+
+    width: floor(@icon-glyph-large-width * @icon-glyph-large-scale);
+    height: floor(@icon-glyph-large-height * @icon-glyph-large-scale);
+
+  }
+
+}
+
+
+
+
+
+
+& when (@icon-glyph-jumbo-enabled) {
+
+  /* ----------------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------------
+
+  Icon Glyphs (Jumbo)
+
+  -------------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------------- */
+
+  .icon-glyph.icon-glyph-jumbo {
+
+    font-size: floor(@icon-glyph-jumbo-height* @icon-glyph-jumbo-scale);
+    line-height: floor(@icon-glyph-jumbo-height* @icon-glyph-jumbo-scale);
+    width: floor(@icon-glyph-jumbo-width * @icon-glyph-jumbo-scale);
+    height: floor(@icon-glyph-jumbo-height * @icon-glyph-jumbo-scale);
+
+    &:before {
+
+      line-height: floor(floor(@icon-glyph-jumbo-height * @icon-glyph-jumbo-scale) + (@icon-glyph-jumbo-glyph-offset * @icon-glyph-jumbo-scale));
+
+    }
+
+  }
+
+
+
+  /* ----------------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------------
+
+  Icon Glyphs Sprite (Jumbo)
+
+  -------------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------------- */
+
+  .icon-glyph-sprite.icon-glyph-sprite-jumbo {
+
+    width: floor(@icon-glyph-jumbo-width * @icon-glyph-jumbo-scale);
+    height: floor(@icon-glyph-jumbo-height * @icon-glyph-jumbo-scale);
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-mini-enabled) {
+
+  /* ----------------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------------
+
+  Screen Size: Mini (@screen-mini) and above
+
+  -------------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-mini) {
+
+    & when (@icon-glyph-mini-enabled) and (@icon-glyph-mini-screen-mini-enabled) {
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph (Mini)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph.icon-glyph-mini {
+
+        font-size: floor(@icon-glyph-mini-height* @icon-glyph-mini-scale-screen-mini);
+        line-height: floor(@icon-glyph-mini-height* @icon-glyph-mini-scale-screen-mini);
+        width: floor(@icon-glyph-mini-width * @icon-glyph-mini-scale-screen-mini);
+        height: floor(@icon-glyph-mini-height * @icon-glyph-mini-scale-screen-mini);
+
+        &:before {
+
+          line-height: floor(floor(@icon-glyph-mini-height * @icon-glyph-mini-scale-screen-mini) + (@icon-glyph-mini-glyph-offset * @icon-glyph-mini-scale-screen-mini));
+
+        }
+
+      }
+
+
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph Sprite (Mini)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph-sprite.icon-glyph-sprite-mini {
+
+        width: floor(@icon-glyph-mini-width * @icon-glyph-mini-scale-screen-mini);
+        height: floor(@icon-glyph-mini-height * @icon-glyph-mini-scale-screen-mini);
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@icon-glyph-small-enabled) and (@icon-glyph-small-screen-mini-enabled) {
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph (Small)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph.icon-glyph-small {
+
+        font-size: floor(@icon-glyph-small-height* @icon-glyph-small-scale-screen-mini);
+        line-height: floor(@icon-glyph-small-height* @icon-glyph-small-scale-screen-mini);
+        width: floor(@icon-glyph-small-width * @icon-glyph-small-scale-screen-mini);
+        height: floor(@icon-glyph-small-height * @icon-glyph-small-scale-screen-mini);
+
+        &:before {
+
+          line-height: floor(floor(@icon-glyph-small-height * @icon-glyph-small-scale-screen-mini) + (@icon-glyph-small-glyph-offset * @icon-glyph-small-scale-screen-mini));
+
+        }
+
+      }
+
+
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph Sprite (Small)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph-sprite.icon-glyph-sprite-small {
+
+        width: floor(@icon-glyph-small-width * @icon-glyph-small-scale-screen-mini);
+        height: floor(@icon-glyph-small-height * @icon-glyph-small-scale-screen-mini);
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@icon-glyph-medium-enabled) and (@icon-glyph-medium-screen-mini-enabled) {
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph (Medium)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph.icon-glyph-medium {
+
+        font-size: floor(@icon-glyph-medium-height* @icon-glyph-medium-scale-screen-mini);
+        line-height: floor(@icon-glyph-medium-height* @icon-glyph-medium-scale-screen-mini);
+        width: floor(@icon-glyph-medium-width * @icon-glyph-medium-scale-screen-mini);
+        height: floor(@icon-glyph-medium-height * @icon-glyph-medium-scale-screen-mini);
+
+        &:before {
+
+          line-height: floor(floor(@icon-glyph-medium-height * @icon-glyph-medium-scale-screen-mini) + (@icon-glyph-medium-glyph-offset * @icon-glyph-medium-scale-screen-mini));
+
+        }
+
+      }
+
+
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph Sprite (Medium)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph-sprite.icon-glyph-sprite-medium {
+
+        width: floor(@icon-glyph-medium-width * @icon-glyph-medium-scale-screen-mini);
+        height: floor(@icon-glyph-medium-height * @icon-glyph-medium-scale-screen-mini);
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@icon-glyph-large-enabled) and (@icon-glyph-large-screen-mini-enabled) {
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph (Large)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph.icon-glyph-large {
+
+        font-size: floor(@icon-glyph-large-height* @icon-glyph-large-scale-screen-mini);
+        line-height: floor(@icon-glyph-large-height* @icon-glyph-large-scale-screen-mini);
+        width: floor(@icon-glyph-large-width * @icon-glyph-large-scale-screen-mini);
+        height: floor(@icon-glyph-large-height * @icon-glyph-large-scale-screen-mini);
+
+        &:before {
+
+          line-height: floor(floor(@icon-glyph-large-height * @icon-glyph-large-scale-screen-mini) + (@icon-glyph-large-glyph-offset * @icon-glyph-large-scale-screen-mini));
+
+        }
+
+      }
+
+
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph Sprite (Large)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph-sprite.icon-glyph-sprite-large {
+
+        width: floor(@icon-glyph-large-width * @icon-glyph-large-scale-screen-mini);
+        height: floor(@icon-glyph-large-height * @icon-glyph-large-scale-screen-mini);
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@icon-glyph-jumbo-enabled) and (@icon-glyph-jumbo-screen-mini-enabled) {
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph (Jumbo)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph.icon-glyph-jumbo {
+
+        font-size: floor(@icon-glyph-jumbo-height* @icon-glyph-jumbo-scale-screen-mini);
+        line-height: floor(@icon-glyph-jumbo-height* @icon-glyph-jumbo-scale-screen-mini);
+        width: floor(@icon-glyph-jumbo-width * @icon-glyph-jumbo-scale-screen-mini);
+        height: floor(@icon-glyph-jumbo-height * @icon-glyph-jumbo-scale-screen-mini);
+
+        &:before {
+
+          line-height: floor(floor(@icon-glyph-jumbo-height * @icon-glyph-jumbo-scale-screen-mini) + (@icon-glyph-jumbo-glyph-offset * @icon-glyph-jumbo-scale-screen-mini));
+
+        }
+
+      }
+
+
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph Sprite (Jumbo)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph-sprite.icon-glyph-sprite-jumbo {
+
+        width: floor(@icon-glyph-jumbo-width * @icon-glyph-jumbo-scale-screen-mini);
+        height: floor(@icon-glyph-jumbo-height * @icon-glyph-jumbo-scale-screen-mini);
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-small-enabled) {
+
+  /* ----------------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------------
+
+  Screen Size: Small (@screen-small) and above
+
+  -------------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-small) {
+
+    & when (@icon-glyph-mini-enabled) and (@icon-glyph-mini-screen-small-enabled) {
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph (Mini)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph.icon-glyph-mini {
+
+        font-size: floor(@icon-glyph-mini-height* @icon-glyph-mini-scale-screen-small);
+        line-height: floor(@icon-glyph-mini-height* @icon-glyph-mini-scale-screen-small);
+        width: floor(@icon-glyph-mini-width * @icon-glyph-mini-scale-screen-small);
+        height: floor(@icon-glyph-mini-height * @icon-glyph-mini-scale-screen-small);
+
+        &:before {
+
+          line-height: floor(floor(@icon-glyph-mini-height * @icon-glyph-mini-scale-screen-small) + (@icon-glyph-mini-glyph-offset * @icon-glyph-mini-scale-screen-small));
+
+        }
+
+      }
+
+
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph Sprite (Mini)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph-sprite.icon-glyph-sprite-mini {
+
+        width: floor(@icon-glyph-mini-width * @icon-glyph-mini-scale-screen-small);
+        height: floor(@icon-glyph-mini-height * @icon-glyph-mini-scale-screen-small);
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@icon-glyph-small-enabled) and (@icon-glyph-small-screen-small-enabled) {
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph (Small)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph.icon-glyph-small {
+
+        font-size: floor(@icon-glyph-small-height* @icon-glyph-small-scale-screen-small);
+        line-height: floor(@icon-glyph-small-height* @icon-glyph-small-scale-screen-small);
+        width: floor(@icon-glyph-small-width * @icon-glyph-small-scale-screen-small);
+        height: floor(@icon-glyph-small-height * @icon-glyph-small-scale-screen-small);
+
+        &:before {
+
+          line-height: floor(floor(@icon-glyph-small-height * @icon-glyph-small-scale-screen-small) + (@icon-glyph-small-glyph-offset * @icon-glyph-small-scale-screen-small));
+
+        }
+
+      }
+
+
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph Sprite (Small)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph-sprite.icon-glyph-sprite-small {
+
+        width: floor(@icon-glyph-small-width * @icon-glyph-small-scale-screen-small);
+        height: floor(@icon-glyph-small-height * @icon-glyph-small-scale-screen-small);
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@icon-glyph-medium-enabled) and (@icon-glyph-medium-screen-small-enabled) {
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph (Medium)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph.icon-glyph-medium {
+
+        font-size: floor(@icon-glyph-medium-height* @icon-glyph-medium-scale-screen-small);
+        line-height: floor(@icon-glyph-medium-height* @icon-glyph-medium-scale-screen-small);
+        width: floor(@icon-glyph-medium-width * @icon-glyph-medium-scale-screen-small);
+        height: floor(@icon-glyph-medium-height * @icon-glyph-medium-scale-screen-small);
+
+        &:before {
+
+          line-height: floor(floor(@icon-glyph-medium-height * @icon-glyph-medium-scale-screen-small) + (@icon-glyph-medium-glyph-offset * @icon-glyph-medium-scale-screen-small));
+
+        }
+
+      }
+
+
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph Sprite (Medium)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph-sprite.icon-glyph-sprite-medium {
+
+        width: floor(@icon-glyph-medium-width * @icon-glyph-medium-scale-screen-small);
+        height: floor(@icon-glyph-medium-height * @icon-glyph-medium-scale-screen-small);
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@icon-glyph-large-enabled) and (@icon-glyph-large-screen-small-enabled) {
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph (Large)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph.icon-glyph-large {
+
+        font-size: floor(@icon-glyph-large-height* @icon-glyph-large-scale-screen-small);
+        line-height: floor(@icon-glyph-large-height* @icon-glyph-large-scale-screen-small);
+        width: floor(@icon-glyph-large-width * @icon-glyph-large-scale-screen-small);
+        height: floor(@icon-glyph-large-height * @icon-glyph-large-scale-screen-small);
+
+        &:before {
+
+          line-height: floor(floor(@icon-glyph-large-height * @icon-glyph-large-scale-screen-small) + (@icon-glyph-large-glyph-offset * @icon-glyph-large-scale-screen-small));
+
+        }
+
+      }
+
+
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph Sprite (Large)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph-sprite.icon-glyph-sprite-large {
+
+        width: floor(@icon-glyph-large-width * @icon-glyph-large-scale-screen-small);
+        height: floor(@icon-glyph-large-height * @icon-glyph-large-scale-screen-small);
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@icon-glyph-jumbo-enabled) and (@icon-glyph-jumbo-screen-small-enabled) {
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph (Jumbo)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph.icon-glyph-jumbo {
+
+        font-size: floor(@icon-glyph-jumbo-height* @icon-glyph-jumbo-scale-screen-small);
+        line-height: floor(@icon-glyph-jumbo-height* @icon-glyph-jumbo-scale-screen-small);
+        width: floor(@icon-glyph-jumbo-width * @icon-glyph-jumbo-scale-screen-small);
+        height: floor(@icon-glyph-jumbo-height * @icon-glyph-jumbo-scale-screen-small);
+
+        &:before {
+
+          line-height: floor(floor(@icon-glyph-jumbo-height * @icon-glyph-jumbo-scale-screen-small) + (@icon-glyph-jumbo-glyph-offset * @icon-glyph-jumbo-scale-screen-small));
+
+        }
+
+      }
+
+
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph Sprite (Jumbo)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph-sprite.icon-glyph-sprite-jumbo {
+
+        width: floor(@icon-glyph-jumbo-width * @icon-glyph-jumbo-scale-screen-small);
+        height: floor(@icon-glyph-jumbo-height * @icon-glyph-jumbo-scale-screen-small);
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-medium-enabled) {
+
+  /* ----------------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------------
+
+  Screen Size: Medium (@screen-medium) and above
+
+  -------------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-medium) {
+
+    & when (@icon-glyph-mini-enabled) and (@icon-glyph-mini-screen-medium-enabled) {
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph (Mini)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph.icon-glyph-mini {
+
+        font-size: floor(@icon-glyph-mini-height* @icon-glyph-mini-scale-screen-medium);
+        line-height: floor(@icon-glyph-mini-height* @icon-glyph-mini-scale-screen-medium);
+        width: floor(@icon-glyph-mini-width * @icon-glyph-mini-scale-screen-medium);
+        height: floor(@icon-glyph-mini-height * @icon-glyph-mini-scale-screen-medium);
+
+        &:before {
+
+          line-height: floor(floor(@icon-glyph-mini-height * @icon-glyph-mini-scale-screen-medium) + (@icon-glyph-mini-glyph-offset * @icon-glyph-mini-scale-screen-medium));
+
+        }
+
+      }
+
+
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph Sprite (Mini)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph-sprite.icon-glyph-sprite-mini {
+
+        width: floor(@icon-glyph-mini-width * @icon-glyph-mini-scale-screen-medium);
+        height: floor(@icon-glyph-mini-height * @icon-glyph-mini-scale-screen-medium);
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@icon-glyph-small-enabled) and (@icon-glyph-small-screen-medium-enabled) {
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph (Small)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph.icon-glyph-small {
+
+        font-size: floor(@icon-glyph-small-height* @icon-glyph-small-scale-screen-medium);
+        line-height: floor(@icon-glyph-small-height* @icon-glyph-small-scale-screen-medium);
+        width: floor(@icon-glyph-small-width * @icon-glyph-small-scale-screen-medium);
+        height: floor(@icon-glyph-small-height * @icon-glyph-small-scale-screen-medium);
+
+        &:before {
+
+          line-height: floor(floor(@icon-glyph-small-height * @icon-glyph-small-scale-screen-medium) + (@icon-glyph-small-glyph-offset * @icon-glyph-small-scale-screen-medium));
+
+        }
+
+      }
+
+
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph Sprite (Small)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph-sprite.icon-glyph-sprite-small {
+
+        width: floor(@icon-glyph-small-width * @icon-glyph-small-scale-screen-medium);
+        height: floor(@icon-glyph-small-height * @icon-glyph-small-scale-screen-medium);
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@icon-glyph-medium-enabled) and (@icon-glyph-medium-screen-medium-enabled) {
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph (Medium)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph.icon-glyph-medium {
+
+        font-size: floor(@icon-glyph-medium-height* @icon-glyph-medium-scale-screen-medium);
+        line-height: floor(@icon-glyph-medium-height* @icon-glyph-medium-scale-screen-medium);
+        width: floor(@icon-glyph-medium-width * @icon-glyph-medium-scale-screen-medium);
+        height: floor(@icon-glyph-medium-height * @icon-glyph-medium-scale-screen-medium);
+
+        &:before {
+
+          line-height: floor(floor(@icon-glyph-medium-height * @icon-glyph-medium-scale-screen-medium) + (@icon-glyph-medium-glyph-offset * @icon-glyph-medium-scale-screen-medium));
+
+        }
+
+      }
+
+
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph Sprite (Medium)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph-sprite.icon-glyph-sprite-medium {
+
+        width: floor(@icon-glyph-medium-width * @icon-glyph-medium-scale-screen-medium);
+        height: floor(@icon-glyph-medium-height * @icon-glyph-medium-scale-screen-medium);
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@icon-glyph-large-enabled) and (@icon-glyph-large-screen-medium-enabled) {
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph (Large)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph.icon-glyph-large {
+
+        font-size: floor(@icon-glyph-large-height* @icon-glyph-large-scale-screen-medium);
+        line-height: floor(@icon-glyph-large-height* @icon-glyph-large-scale-screen-medium);
+        width: floor(@icon-glyph-large-width * @icon-glyph-large-scale-screen-medium);
+        height: floor(@icon-glyph-large-height * @icon-glyph-large-scale-screen-medium);
+
+        &:before {
+
+          line-height: floor(floor(@icon-glyph-large-height * @icon-glyph-large-scale-screen-medium) + (@icon-glyph-large-glyph-offset * @icon-glyph-large-scale-screen-medium));
+
+        }
+
+      }
+
+
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph Sprite (Large)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph-sprite.icon-glyph-sprite-large {
+
+        width: floor(@icon-glyph-large-width * @icon-glyph-large-scale-screen-medium);
+        height: floor(@icon-glyph-large-height * @icon-glyph-large-scale-screen-medium);
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@icon-glyph-jumbo-enabled) and (@icon-glyph-jumbo-screen-medium-enabled) {
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph (Jumbo)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph.icon-glyph-jumbo {
+
+        font-size: floor(@icon-glyph-jumbo-height* @icon-glyph-jumbo-scale-screen-medium);
+        line-height: floor(@icon-glyph-jumbo-height* @icon-glyph-jumbo-scale-screen-medium);
+        width: floor(@icon-glyph-jumbo-width * @icon-glyph-jumbo-scale-screen-medium);
+        height: floor(@icon-glyph-jumbo-height * @icon-glyph-jumbo-scale-screen-medium);
+
+        &:before {
+
+          line-height: floor(floor(@icon-glyph-jumbo-height * @icon-glyph-jumbo-scale-screen-medium) + (@icon-glyph-jumbo-glyph-offset * @icon-glyph-jumbo-scale-screen-medium));
+
+        }
+
+      }
+
+
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph Sprite (Jumbo)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph-sprite.icon-glyph-sprite-jumbo {
+
+        width: floor(@icon-glyph-jumbo-width * @icon-glyph-jumbo-scale-screen-medium);
+        height: floor(@icon-glyph-jumbo-height * @icon-glyph-jumbo-scale-screen-medium);
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-large-enabled) {
+
+  /* ----------------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------------
+
+  Screen Size: large (@screen-large) and above
+
+  -------------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-large) {
+
+    & when (@icon-glyph-mini-enabled) and (@icon-glyph-mini-screen-large-enabled) {
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph (Mini)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph.icon-glyph-mini {
+
+        font-size: floor(@icon-glyph-mini-height* @icon-glyph-mini-scale-screen-large);
+        line-height: floor(@icon-glyph-mini-height* @icon-glyph-mini-scale-screen-large);
+        width: floor(@icon-glyph-mini-width * @icon-glyph-mini-scale-screen-large);
+        height: floor(@icon-glyph-mini-height * @icon-glyph-mini-scale-screen-large);
+
+        &:before {
+
+          line-height: floor(floor(@icon-glyph-mini-height * @icon-glyph-mini-scale-screen-large) + (@icon-glyph-mini-glyph-offset * @icon-glyph-mini-scale-screen-large));
+
+        }
+
+      }
+
+
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph Sprite (Mini)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph-sprite.icon-glyph-sprite-mini {
+
+        width: floor(@icon-glyph-mini-width * @icon-glyph-mini-scale-screen-large);
+        height: floor(@icon-glyph-mini-height * @icon-glyph-mini-scale-screen-large);
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@icon-glyph-small-enabled) and (@icon-glyph-small-screen-large-enabled) {
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph (Small)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph.icon-glyph-small {
+
+        font-size: floor(@icon-glyph-small-height* @icon-glyph-small-scale-screen-large);
+        line-height: floor(@icon-glyph-small-height* @icon-glyph-small-scale-screen-large);
+        width: floor(@icon-glyph-small-width * @icon-glyph-small-scale-screen-large);
+        height: floor(@icon-glyph-small-height * @icon-glyph-small-scale-screen-large);
+
+        &:before {
+
+          line-height: floor(floor(@icon-glyph-small-height * @icon-glyph-small-scale-screen-large) + (@icon-glyph-small-glyph-offset * @icon-glyph-small-scale-screen-large));
+
+        }
+
+      }
+
+
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph Sprite (Small)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph-sprite.icon-glyph-sprite-small {
+
+        width: floor(@icon-glyph-small-width * @icon-glyph-small-scale-screen-large);
+        height: floor(@icon-glyph-small-height * @icon-glyph-small-scale-screen-large);
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@icon-glyph-medium-enabled) and (@icon-glyph-medium-screen-large-enabled) {
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph (Medium)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph.icon-glyph-medium {
+
+        font-size: floor(@icon-glyph-medium-height* @icon-glyph-medium-scale-screen-large);
+        line-height: floor(@icon-glyph-medium-height* @icon-glyph-medium-scale-screen-large);
+        width: floor(@icon-glyph-medium-width * @icon-glyph-medium-scale-screen-large);
+        height: floor(@icon-glyph-medium-height * @icon-glyph-medium-scale-screen-large);
+
+        &:before {
+
+          line-height: floor(floor(@icon-glyph-medium-height * @icon-glyph-medium-scale-screen-large) + (@icon-glyph-medium-glyph-offset * @icon-glyph-medium-scale-screen-large));
+
+        }
+
+      }
+
+
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph Sprite (Medium)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph-sprite.icon-glyph-sprite-medium {
+
+        width: floor(@icon-glyph-medium-width * @icon-glyph-medium-scale-screen-large);
+        height: floor(@icon-glyph-medium-height * @icon-glyph-medium-scale-screen-large);
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@icon-glyph-large-enabled) and (@icon-glyph-large-screen-large-enabled) {
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph (Large)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph.icon-glyph-large {
+
+        font-size: floor(@icon-glyph-large-height* @icon-glyph-large-scale-screen-large);
+        line-height: floor(@icon-glyph-large-height* @icon-glyph-large-scale-screen-large);
+        width: floor(@icon-glyph-large-width * @icon-glyph-large-scale-screen-large);
+        height: floor(@icon-glyph-large-height * @icon-glyph-large-scale-screen-large);
+
+        &:before {
+
+          line-height: floor(floor(@icon-glyph-large-height * @icon-glyph-large-scale-screen-large) + (@icon-glyph-large-glyph-offset * @icon-glyph-large-scale-screen-large));
+
+        }
+
+      }
+
+
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph Sprite (Large)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph-sprite.icon-glyph-sprite-large {
+
+        width: floor(@icon-glyph-large-width * @icon-glyph-large-scale-screen-large);
+        height: floor(@icon-glyph-large-height * @icon-glyph-large-scale-screen-large);
+
+      }
+
+    }
+
+
+
+
+
+
+    & when (@icon-glyph-jumbo-enabled) and (@icon-glyph-jumbo-screen-large-enabled) {
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph (Jumbo)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph.icon-glyph-jumbo {
+
+        font-size: floor(@icon-glyph-jumbo-height* @icon-glyph-jumbo-scale-screen-large);
+        line-height: floor(@icon-glyph-jumbo-height* @icon-glyph-jumbo-scale-screen-large);
+        width: floor(@icon-glyph-jumbo-width * @icon-glyph-jumbo-scale-screen-large);
+        height: floor(@icon-glyph-jumbo-height * @icon-glyph-jumbo-scale-screen-large);
+
+        &:before {
+
+          line-height: floor(floor(@icon-glyph-jumbo-height * @icon-glyph-jumbo-scale-screen-large) + (@icon-glyph-jumbo-glyph-offset * @icon-glyph-jumbo-scale-screen-large));
+
+        }
+
+      }
+
+
+
+      /* ----------------------------------------------------------------------------------------------------
+      -------------------------------------------------------------------------------------------------------
+
+      Icon Glyph Sprite (Jumbo)
+
+      -------------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------- */
+
+      .icon-glyph-sprite.icon-glyph-sprite-jumbo {
+
+        width: floor(@icon-glyph-jumbo-width * @icon-glyph-jumbo-scale-screen-large);
+        height: floor(@icon-glyph-jumbo-height * @icon-glyph-jumbo-scale-screen-large);
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-resolution-2x-enabled) {
+
+  /* ----------------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------------
+
+  Screen Resolution: 2x
+
+  -------------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------------- */
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+
+  }
+
+}

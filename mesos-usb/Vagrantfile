@@ -1,0 +1,43 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+
+  config.vm.box = "mesoscon"
+  config.vm.box_download_checksum_type = "md5"
+  config.vm.box_download_checksum = "0cdf03a6a5d664b81c3c1a4435f8ca48"
+  config.vm.box_url = "http://maven.openx.org:8081/artifactory/vagrant-boxes/mesos/mesoscon.box"
+
+  # Create a private network, which allows host-only access to the machine
+  # using a specific IP.
+  config.vm.network :private_network, ip: "10.141.141.10"
+
+  # Enable agent forwarding.
+  config.ssh.forward_agent = true
+
+  # Package/Halt without updating the ssh key
+  config.ssh.insert_key = false
+
+  # Use the default vagrant private key
+  # http://superuser.com/questions/745881/how-to-authenticate-to-a-vm-using-vagrant-up/745998#745998
+  config.ssh.private_key_path = "~/.vagrant.d/insecure_private_key"
+
+  # Share an additional folder to the guest VM. The first argument is
+  # the path on the host to the actual folder. The second argument is
+  # the path on the guest to mount the folder. And the optional third
+  # argument is a set of non-required options.
+  config.vm.synced_folder ".", "/vagrant", :disabled => true
+  config.vm.synced_folder "./mesosphere", "/home/vagrant/mesos-usb/mesosphere"
+  config.vm.synced_folder "./rendler", "/home/vagrant/hostfiles/"
+
+  # Provider-specific configuration
+  config.vm.provider :virtualbox do |vb|
+    vb.customize ["modifyvm", :id, "--ioapic", "on"]
+    vb.customize ["modifyvm", :id, "--cpus", "2"]
+    vb.customize ["modifyvm", :id, "--memory", "8192"]
+  end
+
+end

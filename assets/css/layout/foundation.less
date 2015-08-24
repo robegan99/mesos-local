@@ -1,0 +1,1119 @@
+/* ----------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+
+layout/foundation.less
+
+-------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+/* ----------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+
+Canvas
+
+-------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------- */
+
+#canvas {
+
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  //overflow: hidden;
+  .transition(e('left 0.3s ease, margin-left 0.3s ease'));
+  z-index: @z-index-canvas;
+
+}
+
+
+
+
+
+
+/* ----------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+
+JS Positioning Classes
+
+-------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------- */
+
+.center-vertical {
+
+  position: absolute;
+  top: 100000px;
+
+}
+
+.fit-content {
+
+  width: 100%;
+
+}
+
+
+
+
+
+
+/* ----------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+
+Text Selection
+
+-------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------- */
+
+.unselectable {
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+}
+
+
+
+
+
+
+/* ----------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+
+Canvas Pod
+
+-------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------- */
+
+.canvas-pod {
+
+  &.canvas-pod-darker {
+
+    background: ~`color_lightness("@{neutral}", -40)`;
+
+  }
+
+  &.canvas-pod-color {
+
+    &.canvas-pod-color-purple {
+
+      background: @purple;
+
+    }
+
+  }
+
+  &.canvas-pod-gradient-vertical-green-to-purple {
+
+    @color-1: ~`color_lightness("@{green}", 0)`;
+    @color-2: ~`color_lightness("@{purple}", 0)`;
+
+    #gradient > .vertical(@color-1, @color-2);
+
+  }
+
+  &.canvas-pod-gradient-vertical-purple-to-green {
+
+    @color-1: ~`color_lightness("@{purple}", 0)`;
+    @color-2: ~`color_lightness("@{green}", 0)`;
+
+    #gradient > .vertical(@color-1, @color-2);
+
+  }
+
+  &.canvas-pod-gradient-horizontal-green-to-purple {
+
+    @color-1: ~`color_lightness("@{green}", 0)`;
+    @color-2: ~`color_lightness("@{purple}", 0)`;
+
+    #gradient > .horizontal(@color-1, @color-2);
+
+  }
+
+  &.canvas-pod-gradient-horizontal-purple-to-green {
+
+    @color-1: ~`color_lightness("@{purple}", 0)`;
+    @color-2: ~`color_lightness("@{green}", 0)`;
+
+    #gradient > .horizontal(@color-1, @color-2);
+
+  }
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+
+  Canvas Pod Background
+
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  .canvas-pod-background {
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+
+    &.canvas-pod-background-horizontal-align-left {
+
+      img {
+
+        left: 0px !important;
+        right: auto !important;
+
+      }
+
+    }
+
+    &.canvas-pod-background-horizontal-align-right {
+
+      img {
+
+        left: auto !important;
+        right: 0px !important;
+
+      }
+
+    }
+
+    &.canvas-pod-background-vertical-align-top {
+
+      img {
+
+        top: 0px !important;
+        bottom: auto !important;
+
+      }
+
+    }
+
+    &.canvas-pod-background-vertical-align-bottom {
+
+      img {
+
+        top: auto !important;
+        bottom: 0px !important;
+
+      }
+
+    }
+
+  }
+
+  &.canvas-pod-patterned {
+
+    &.canvas-pod-patterned-isometric-grid {
+
+      background-image: url("@{path-images}layout/canvas/canvas-pod-patterned-isometric-grid.png");
+      .background-size(144px 84px);
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+/* -----------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+Row Pod
+
+--------------------------------------------------------------------------------
+----------------------------------------------------------------------------- */
+
+.row-pod {
+
+  &.row-pod-shorter {
+
+    padding-top: @container-pod-short-padding-vertical * 0.75;
+    padding-bottom: @container-pod-short-padding-vertical * 0.75;
+
+  }
+
+  &.row-pod-taller {
+
+    padding-top: @container-pod-tall-padding-vertical * 1.5;
+    padding-bottom: @container-pod-tall-padding-vertical * 1.5;
+
+  }
+
+}
+
+
+
+
+
+
+/* -----------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+Compress
+
+--------------------------------------------------------------------------------
+----------------------------------------------------------------------------- */
+
+.column-flush {
+
+  float: none;
+  padding-left: 0px;
+  padding-right: 0px;
+
+}
+
+
+
+
+
+
+/* -----------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+Layout
+
+--------------------------------------------------------------------------------
+----------------------------------------------------------------------------- */
+
+
+.vertically-align-center {
+
+  position: absolute;
+  top: 50%;
+  .translateY(-50%);
+
+}
+
+
+
+
+
+
+/* ----------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+
+Borders
+
+-------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------- */
+
+.border {
+
+  position: relative;
+
+  .edge {
+
+    display: block;
+    position: absolute;
+    background: @border-color;
+
+    &.edge-top {
+
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 1px;
+
+    }
+
+    &.edge-right {
+
+      top: 0px;
+      right: 0px;
+      width: 1px;
+      height: 100%;
+
+    }
+
+    &.edge-bottom {
+
+      bottom: 0px;
+      left: 0px;
+      width: 100%;
+      height: 1px;
+
+    }
+
+    &.edge-left {
+
+      top: 0px;
+      left: 0px;
+      width: 1px;
+      height: 100%;
+
+    }
+
+  }
+
+
+
+  &.border-gradient-horizontal-purple-to-pink {
+
+    .edge {
+
+      &.edge-top {
+
+        #gradient > .horizontal(@purple, @pink);
+
+      }
+
+      &.edge-right {
+
+        background: @pink;
+
+      }
+
+      &.edge-bottom {
+
+        #gradient > .horizontal(@purple, @pink);
+
+      }
+
+      &.edge-left {
+
+        background: @purple;
+
+      }
+
+    }
+
+  }
+
+
+}
+
+
+
+
+
+
+/* -----------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+Row Crosshairs
+
+--------------------------------------------------------------------------------
+----------------------------------------------------------------------------- */
+
+.row-crosshairs {
+
+  [class^="column-"] {
+
+    position: relative;
+    margin-top: @grid-gutter-width * 0.5;
+    margin-bottom: @grid-gutter-width * 0.5;
+
+    .row-crosshairs-item-corner {
+
+      display: block !important;
+      position: absolute;
+
+      &:before {
+
+        content: '';
+        display: block;
+        width: @base-spacing-unit * 0.5;
+        height: 1px;
+        position: absolute;
+        background: ~`color_lightness("@{neutral}", 80)`;
+
+      }
+
+      &:after {
+
+        content: '';
+        display: block;
+        width: 1px;
+        height: @base-spacing-unit * 0.5;;
+        position: absolute;
+        background: ~`color_lightness("@{neutral}", 80)`;
+
+      }
+
+    }
+
+    .row-crosshairs-item-corner-top-left {
+
+      top: -(@grid-gutter-width * 0.5);
+      left: 0px;
+
+      &:before {
+
+        left: -(@base-spacing-unit * 0.5) * 0.5;
+
+      }
+
+      &:after {
+
+        top: -(@base-spacing-unit * 0.5) * 0.5;
+
+      }
+
+    }
+
+    .row-crosshairs-item-corner-top-right {
+
+      top: -(@grid-gutter-width * 0.5);
+      right: 0px;
+
+      &:before {
+
+        right: -(@base-spacing-unit * 0.5) * 0.5;
+
+      }
+
+      &:after {
+
+        top: -(@base-spacing-unit * 0.5) * 0.5;
+
+      }
+
+    }
+
+    .row-crosshairs-item-corner-bottom-left {
+
+      bottom: -(@grid-gutter-width * 0.5);
+      left: 0px;
+
+      &:before {
+
+        left: -(@base-spacing-unit * 0.5) * 0.5;
+
+      }
+
+      &:after {
+
+        bottom: -(@base-spacing-unit * 0.5) * 0.5;
+
+      }
+
+    }
+
+    .row-crosshairs-item-corner-bottom-right {
+
+      bottom: -(@grid-gutter-width * 0.5);
+      right: 0px;
+
+      &:before {
+
+        right: -(@base-spacing-unit * 0.5) * 0.5;
+
+      }
+
+      &:after {
+
+        bottom: -(@base-spacing-unit * 0.5) * 0.5;
+
+      }
+
+    }
+
+  }
+
+  &.row-crosshairs-gradient {
+
+    [class^="column-"] {
+
+      .row-crosshairs-item-corner {
+
+        &:before {
+
+          #gradient > .horizontal(@purple, @pink);
+
+        }
+
+        &:after {
+
+          background: #c34fb3;
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-mini-enabled) {
+
+  /* ----------------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------------
+
+  Screen Size: Mini (@screen-mini) and above
+
+  -------------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-mini) {
+
+    /* -----------------------------------------------------------------------------
+    --------------------------------------------------------------------------------
+
+    Row Pod
+
+    --------------------------------------------------------------------------------
+    ----------------------------------------------------------------------------- */
+
+    .row-pod {
+
+      &.row-pod-shorter {
+
+        padding-top: @container-pod-short-padding-vertical-screen-mini * 0.5;
+        padding-bottom: @container-pod-short-padding-vertical-screen-mini * 0.5;
+
+      }
+
+      &.row-pod-taller {
+
+        padding-top: @container-pod-tall-padding-vertical-screen-mini * 1.5;
+        padding-bottom: @container-pod-tall-padding-vertical-screen-mini * 1.5;
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-small-enabled) {
+
+  /* ----------------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------------
+
+  Screen Size: Small (@screen-small) and above
+
+  -------------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-small) {
+
+    /* -----------------------------------------------------------------------------
+    --------------------------------------------------------------------------------
+
+    Row Pod
+
+    --------------------------------------------------------------------------------
+    ----------------------------------------------------------------------------- */
+
+    .row-pod {
+
+      &.row-pod-shorter {
+
+        padding-top: @container-pod-short-padding-vertical-screen-small * 0.5;
+        padding-bottom: @container-pod-short-padding-vertical-screen-small * 0.5;
+
+      }
+
+      &.row-pod-taller {
+
+        padding-top: @container-pod-tall-padding-vertical-screen-small * 1.5;
+        padding-bottom: @container-pod-tall-padding-vertical-screen-small * 1.5;
+
+      }
+
+    }
+
+
+
+
+
+
+    /* -----------------------------------------------------------------------------
+    --------------------------------------------------------------------------------
+
+    Row Crosshairs
+
+    --------------------------------------------------------------------------------
+    ----------------------------------------------------------------------------- */
+
+    .row-crosshairs {
+
+      [class^="column-"] {
+
+        margin-top: @grid-gutter-width-screen-small * 0.5;
+        margin-bottom: @grid-gutter-width-screen-small * 0.5;
+
+        .row-crosshairs-item-corner {
+
+          &:before {
+
+            width: @base-spacing-unit-screen-small * 0.5;
+
+          }
+
+          &:after {
+
+            height: @base-spacing-unit-screen-small * 0.5;;
+
+          }
+
+        }
+
+        .row-crosshairs-item-corner-top-left {
+
+          top: -(@grid-gutter-width-screen-small * 0.5);
+
+          &:before {
+
+            left: -(@base-spacing-unit-screen-small * 0.5) * 0.5;
+
+          }
+
+          &:after {
+
+            top: -(@base-spacing-unit-screen-small * 0.5) * 0.5;
+
+          }
+
+        }
+
+        .row-crosshairs-item-corner-top-right {
+
+          top: -(@grid-gutter-width-screen-small * 0.5);
+
+          &:before {
+
+            right: -(@base-spacing-unit-screen-small * 0.5) * 0.5;
+
+          }
+
+          &:after {
+
+            top: -(@base-spacing-unit-screen-small * 0.5) * 0.5;
+
+          }
+
+        }
+
+        .row-crosshairs-item-corner-bottom-left {
+
+          bottom: -(@grid-gutter-width-screen-small * 0.5);
+
+          &:before {
+
+            left: -(@base-spacing-unit-screen-small * 0.5) * 0.5;
+
+          }
+
+          &:after {
+
+            bottom: -(@base-spacing-unit-screen-small * 0.5) * 0.5;
+
+          }
+
+        }
+
+        .row-crosshairs-item-corner-bottom-right {
+
+          bottom: -(@grid-gutter-width-screen-small * 0.5);
+
+          &:before {
+
+            right: -(@base-spacing-unit-screen-small * 0.5) * 0.5;
+
+          }
+
+          &:after {
+
+            bottom: -(@base-spacing-unit-screen-small * 0.5) * 0.5;
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-medium-enabled) {
+
+  /* ----------------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------------
+
+  Screen Size: Medium (@screen-medium) and above
+
+  -------------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-medium) {
+
+    /* -----------------------------------------------------------------------------
+    --------------------------------------------------------------------------------
+
+    Row Pod
+
+    --------------------------------------------------------------------------------
+    ----------------------------------------------------------------------------- */
+
+    .row-pod {
+
+      &.row-pod-shorter {
+
+        padding-top: @container-pod-short-padding-vertical-screen-medium * 0.5;
+        padding-bottom: @container-pod-short-padding-vertical-screen-medium * 0.5;
+
+      }
+
+      &.row-pod-taller {
+
+        padding-top: @container-pod-tall-padding-vertical-screen-medium * 1.5;
+        padding-bottom: @container-pod-tall-padding-vertical-screen-medium * 1.5;
+
+      }
+
+    }
+
+
+
+
+
+
+    /* -----------------------------------------------------------------------------
+    --------------------------------------------------------------------------------
+
+    Row Crosshairs
+
+    --------------------------------------------------------------------------------
+    ----------------------------------------------------------------------------- */
+
+    .row-crosshairs {
+
+      [class^="column-"] {
+
+        margin-top: @grid-gutter-width-screen-medium * 0.5;
+        margin-bottom: @grid-gutter-width-screen-medium * 0.5;
+
+        .row-crosshairs-item-corner {
+
+          &:before {
+
+            width: @base-spacing-unit-screen-medium * 0.5;
+
+          }
+
+          &:after {
+
+            height: @base-spacing-unit-screen-medium * 0.5;;
+
+          }
+
+        }
+
+        .row-crosshairs-item-corner-top-left {
+
+          top: -(@grid-gutter-width-screen-medium * 0.5);
+
+          &:before {
+
+            left: -(@base-spacing-unit-screen-medium * 0.5) * 0.5;
+
+          }
+
+          &:after {
+
+            top: -(@base-spacing-unit-screen-medium * 0.5) * 0.5;
+
+          }
+
+        }
+
+        .row-crosshairs-item-corner-top-right {
+
+          top: -(@grid-gutter-width-screen-medium * 0.5);
+
+          &:before {
+
+            right: -(@base-spacing-unit-screen-medium * 0.5) * 0.5;
+
+          }
+
+          &:after {
+
+            top: -(@base-spacing-unit-screen-medium * 0.5) * 0.5;
+
+          }
+
+        }
+
+        .row-crosshairs-item-corner-bottom-left {
+
+          bottom: -(@grid-gutter-width-screen-medium * 0.5);
+
+          &:before {
+
+            left: -(@base-spacing-unit-screen-medium * 0.5) * 0.5;
+
+          }
+
+          &:after {
+
+            bottom: -(@base-spacing-unit-screen-medium * 0.5) * 0.5;
+
+          }
+
+        }
+
+        .row-crosshairs-item-corner-bottom-right {
+
+          bottom: -(@grid-gutter-width-screen-medium * 0.5);
+
+          &:before {
+
+            right: -(@base-spacing-unit-screen-medium * 0.5) * 0.5;
+
+          }
+
+          &:after {
+
+            bottom: -(@base-spacing-unit-screen-medium * 0.5) * 0.5;
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-large-enabled) {
+
+  /* ----------------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------------
+
+  Screen Size: Large (@screen-large) and above
+
+  -------------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-large) {
+
+    /* -----------------------------------------------------------------------------
+    --------------------------------------------------------------------------------
+
+    Row Pod
+
+    --------------------------------------------------------------------------------
+    ----------------------------------------------------------------------------- */
+
+    .row-pod {
+
+      &.row-pod-shorter {
+
+        padding-top: @container-pod-short-padding-vertical-screen-large * 0.5;
+        padding-bottom: @container-pod-short-padding-vertical-screen-large * 0.5;
+
+      }
+
+      &.row-pod-taller {
+
+        padding-top: @container-pod-tall-padding-vertical-screen-large * 1.5;
+        padding-bottom: @container-pod-tall-padding-vertical-screen-large * 1.5;
+
+      }
+
+    }
+
+
+
+
+
+
+    /* -----------------------------------------------------------------------------
+    --------------------------------------------------------------------------------
+
+    Row Crosshairs
+
+    --------------------------------------------------------------------------------
+    ----------------------------------------------------------------------------- */
+
+    .row-crosshairs {
+
+      [class^="column-"] {
+
+        margin-top: @grid-gutter-width-screen-large * 0.5;
+        margin-bottom: @grid-gutter-width-screen-large * 0.5;
+
+        .row-crosshairs-item-corner {
+
+          &:before {
+
+            width: @base-spacing-unit-screen-large * 0.5;
+
+          }
+
+          &:after {
+
+            height: @base-spacing-unit-screen-large * 0.5;;
+
+          }
+
+        }
+
+        .row-crosshairs-item-corner-top-left {
+
+          top: -(@grid-gutter-width-screen-large * 0.5);
+
+          &:before {
+
+            left: -(@base-spacing-unit-screen-large * 0.5) * 0.5;
+
+          }
+
+          &:after {
+
+            top: -(@base-spacing-unit-screen-large * 0.5) * 0.5;
+
+          }
+
+        }
+
+        .row-crosshairs-item-corner-top-right {
+
+          top: -(@grid-gutter-width-screen-large * 0.5);
+
+          &:before {
+
+            right: -(@base-spacing-unit-screen-large * 0.5) * 0.5;
+
+          }
+
+          &:after {
+
+            top: -(@base-spacing-unit-screen-large * 0.5) * 0.5;
+
+          }
+
+        }
+
+        .row-crosshairs-item-corner-bottom-left {
+
+          bottom: -(@grid-gutter-width-screen-large * 0.5);
+
+          &:before {
+
+            left: -(@base-spacing-unit-screen-large * 0.5) * 0.5;
+
+          }
+
+          &:after {
+
+            bottom: -(@base-spacing-unit-screen-large * 0.5) * 0.5;
+
+          }
+
+        }
+
+        .row-crosshairs-item-corner-bottom-right {
+
+          bottom: -(@grid-gutter-width-screen-large * 0.5);
+
+          &:before {
+
+            right: -(@base-spacing-unit-screen-large * 0.5) * 0.5;
+
+          }
+
+          &:after {
+
+            bottom: -(@base-spacing-unit-screen-large * 0.5) * 0.5;
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-resolution-2x-enabled) {
+
+  /* ----------------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------------
+
+  Screen Resolution: 2x
+
+  -------------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------------- */
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+
+    /* ----------------------------------------------------------------------------------------------------
+    -------------------------------------------------------------------------------------------------------
+
+    Canvas Pod
+
+    -------------------------------------------------------------------------------------------------------
+    ---------------------------------------------------------------------------------------------------- */
+
+    .canvas-pod {
+
+      &.canvas-pod-patterned {
+
+        &.canvas-pod-patterned-isometric-grid {
+
+          background-image: url("@{path-images}layout/canvas/canvas-pod-patterned-isometric-grid@2x.png");
+
+        }
+
+      }
+
+    }
+
+  }
+
+}

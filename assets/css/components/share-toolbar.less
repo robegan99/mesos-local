@@ -1,0 +1,248 @@
+/* -----------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+components/share-toolbar.less
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+----------------------------------------------------------------------------- */
+
+
+
+
+
+
+/* -----------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Element
+--------------------------------------------------------------------------------
+----------------------------------------------------------------------------- */
+
+.share-toolbar {
+
+	margin: 0px;
+	margin-bottom: -(@base-spacing-unit * 0.15);
+	.clearfix();
+
+	.share-toolbar-item {
+
+		margin: 0px;
+		margin-right: @base-spacing-unit * 0.15;
+		margin-bottom: @base-spacing-unit * 0.15;
+		list-style: none;
+		display: inline-block;
+		vertical-align: top;
+		padding-left: 0px;
+		overflow: visible !important;
+
+		&:before {
+
+			display: none;
+
+		}
+
+		&.share-toolbar-item-facebook {
+
+			height: 20px;
+
+			> .fb-like,
+			> .fb-share-button {
+
+				vertical-align: top;
+
+				span {
+
+					vertical-align: top !important;
+
+				}
+
+			}
+
+		}
+
+		&.share-toolbar-item-twitter {
+
+			height: 20px;
+			overflow: visible;
+
+			&.share-toolbar-item-twitter-follow-only {
+
+				width: 60px;
+
+			}
+
+		}
+
+		&:last-child {
+
+			margin-right: 0px;
+
+		}
+
+	}
+
+	&.share-toolbar-align-horizontal-center {
+
+		text-align: center;
+
+	}
+
+  &.share-toolbar-align-horizontal-right {
+
+		text-align: right;
+
+	}
+
+}
+
+
+
+
+
+
+& when (@screen-mini-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+  Screen Size: Mini (@screen-mini) and above
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-mini) {
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-small-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+  Screen Size: Small (@screen-small) and above
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-small) {
+
+    .share-toolbar {
+
+  		margin-bottom: -@base-spacing-unit-screen-small * 0.15;
+
+  		.share-toolbar-item {
+
+  			margin-right: @base-spacing-unit-screen-small * 0.15;
+  			margin-bottom: @base-spacing-unit-screen-small * 0.15;
+
+  		}
+
+  	}
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-medium-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+  Screen Size: Medium (@screen-medium) and above
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-medium) {
+
+    .share-toolbar {
+
+  		margin-bottom: -@base-spacing-unit-screen-medium * 0.15;
+
+  		.share-toolbar-item {
+
+  			margin-right: @base-spacing-unit-screen-medium * 0.15;
+  			margin-bottom: @base-spacing-unit-screen-medium * 0.15;
+
+  		}
+
+  	}
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-large-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+  Screen Size: Large (@screen-large) and above
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-large) {
+
+    .share-toolbar {
+
+  		margin-bottom: -@base-spacing-unit-screen-large * 0.15;
+
+  		.share-toolbar-item {
+
+  			margin-right: @base-spacing-unit-screen-large * 0.15;
+  			margin-bottom: @base-spacing-unit-screen-large * 0.15;
+
+  		}
+
+  	}
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-resolution-2x-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+  Screen Resolution: 2x
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-resolution-3x-enabled) {
+
+  /* -----------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+  Screen Resolution: 3x
+  --------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------- */
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 3) {
+
+  }
+
+}

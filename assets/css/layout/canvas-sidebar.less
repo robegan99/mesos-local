@@ -1,0 +1,571 @@
+/* ----------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+
+layout/canvas-sidebar.less
+
+-------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+/* ----------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+
+Variables
+
+-------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------- */
+
+@canvas-sidebar-navigation-text-font-family:                                    @lead-text-font-family;
+@canvas-sidebar-navigation-text-font-size:                                      @lead-text-font-size;
+@canvas-sidebar-navigation-text-font-weight:                                    400;
+@canvas-sidebar-navigation-text-font-style:                                     @lead-text-font-style;
+@canvas-sidebar-navigation-text-line-height:                                    60px;
+@canvas-sidebar-navigation-text-transform:                                      @lead-text-transform;
+@canvas-sidebar-navigation-text-color:                                          ~`color_lightness("@{neutral}", 80)`;
+
+
+
+
+
+
+
+/* ----------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+
+Downloads
+
+-------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------- */
+
+#canvas-sidebar {
+
+  position: fixed;
+  top: 0px;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  //margin-left: -((2 * (@grid-gutter-width / 2)) + @icon-glyph-small-width);
+  //padding-left: ((2 * (@grid-gutter-width / 2)) + @icon-glyph-small-width);
+  overflow: hidden;
+  background: ~`color_lightness("@{neutral}", -50)`;
+  z-index: @z-index-sidebar;
+  .transition(left 0.3s ease);
+
+  .canvas-sidebar-content {
+
+    position: relative;
+    padding-top: @header-height;
+
+    &:before {
+
+      content: '';
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      display: block;
+      width: 100%;
+      height: @header-height;
+      z-index: 1;
+
+      @color-top: ~`color_lightness("@{neutral}", -50)`;
+      @color-bottom: hsla(hue(color(@color-top)), saturation(color(@color-top)), lightness(color(@color-top)), 0.0);
+
+      #gradient > .vertical-three-colors(@color-top, 0%, @color-top, 50%, @color-bottom, 100%);
+
+    }
+
+  }
+
+  .ps-scrollbar-y-rail {
+
+    z-index: 2;
+
+  }
+
+  .container-pod {
+
+    &.container-pod-short {
+
+      padding-top: (@base-spacing-unit * 0.5);
+      padding-bottom: (@base-spacing-unit * 0.5);
+
+    }
+
+  }
+
+  ul {
+
+    list-style: none;
+    //margin: 0px -(@grid-gutter-width / 2) 0px 0px;
+    margin: 0px;
+    line-height: @canvas-sidebar-navigation-text-line-height;
+    position: relative;
+
+    ul {
+
+      margin: 0px;
+
+      > li {
+
+        //border-top: 1px solid rgba(255, 255, 255, 0.25);
+        border-bottom: none;
+        margin-left: (@base-spacing-unit * 0.5);
+
+        a {
+
+          color: @orange;
+
+        }
+
+      }
+
+    }
+
+    > li {
+
+      position: relative;
+      display: block;
+      margin: 0px;
+      margin-left: -100%;
+      font-family: @canvas-sidebar-navigation-text-font-family;
+      font-size: @canvas-sidebar-navigation-text-font-size;
+      font-weight: @canvas-sidebar-navigation-text-font-weight;
+      font-style: @canvas-sidebar-navigation-text-font-style;
+      line-height: @canvas-sidebar-navigation-text-line-height;
+      text-transform: @canvas-sidebar-navigation-text-transform;
+      color: @purple;
+      text-rendering: optimizelegibility;
+      //border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+      padding-left: 0px;
+      .transition(e('margin 0.3s ease, opacity 0.3s ease'));
+      .opacity(0);
+
+      &:before {
+
+        display: none;
+
+      }
+
+      > a {
+
+        color: @purple;
+        text-decoration: none;
+        line-height: @canvas-sidebar-navigation-text-line-height;
+        display: block;
+
+      }
+
+      &:hover {
+
+        > a {
+
+          //color: @white;
+
+        }
+
+      }
+
+      &.current-menu-item,
+      &.active {
+
+        > a {
+
+          color: @white;
+
+        }
+
+      }
+
+      &:last-child {
+
+        border-bottom: none;
+
+      }
+
+      @delay-initial: 0.10s;
+      @delay-step: 0.04s;
+
+      &:nth-child(1) {
+
+        .transition-delay(@delay-initial + (@delay-step * 0));
+
+      }
+
+      &:nth-child(2) {
+
+        .transition-delay(@delay-initial + (@delay-step * 1));
+
+      }
+
+      &:nth-child(3) {
+
+        .transition-delay(@delay-initial + (@delay-step * 2));
+
+      }
+
+      &:nth-child(4) {
+
+        .transition-delay(@delay-initial + (@delay-step * 3));
+
+      }
+
+      &:nth-child(5) {
+
+        .transition-delay(@delay-initial + (@delay-step * 4));
+
+      }
+
+      &:nth-child(6) {
+
+        .transition-delay(@delay-initial + (@delay-step * 5));
+
+      }
+
+      &:nth-child(7) {
+
+        .transition-delay(@delay-initial + (@delay-step * 6));
+
+      }
+
+      &:nth-child(8) {
+
+        .transition-delay(@delay-initial + (@delay-step * 7));
+
+      }
+
+      &:nth-child(9) {
+
+        .transition-delay(@delay-initial + (@delay-step * 8));
+
+      }
+
+      &:nth-child(10) {
+
+        .transition-delay(@delay-initial + (@delay-step * 9));
+
+      }
+
+      &:nth-child(11) {
+
+        .transition-delay(@delay-initial + (@delay-step * 10));
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+/* -----------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+Header Mobile Menu Button
+
+--------------------------------------------------------------------------------
+----------------------------------------------------------------------------- */
+
+.canvas-sidebar-toggle {
+
+  display: block;
+  position: fixed;
+  top: @header-container-padding-vertical + floor((@button-height - @icon-small-height) / 2);
+  left: @grid-gutter-width;
+  width: @icon-small-height;
+  height: @icon-small-height;
+  cursor: pointer;
+  z-index: @z-index-header + 1;
+  .transition(e('opacity 0.2s ease'));
+
+  span {
+
+    display: none;
+
+  }
+
+  &.fade {
+
+    .opacity(0);
+
+  }
+
+  &:before,
+  &:after {
+
+    content: '';
+    display: block;
+    width: @icon-small-height;
+    height: 2px;
+    position: absolute;
+    top: ((@icon-small-height) * 0.5) - 1px;
+    left: 0px;
+    .rotate(0deg);
+    background-color: @header-navigation-link-text-link-text-color;
+    .transition(e('all 0.3s ease'));
+
+  }
+
+  &:before {
+
+    top: ((@icon-small-height) * 0.5) - 1px - 4px;
+
+  }
+
+  &:after {
+
+    top: ((@icon-small-height) * 0.5) - 1px + 4px;
+
+  }
+
+  &.canvas-sidebar-toggle-light {
+
+    &:before,
+    &:after {
+
+      background-color: @white;
+
+    }
+
+  }
+
+}
+
+
+
+body.canvas-sidebar-open {
+
+  #canvas-sidebar {
+
+    left: 0px;
+
+    ul {
+
+      > li {
+
+        margin-left: 0%;
+        .opacity(100);
+
+      }
+
+    }
+
+  }
+
+  #canvas {
+
+    left: 100%;
+    //margin-left: -((2 * (@grid-gutter-width / 2)) + @icon-glyph-small-width);
+    position: fixed;
+
+  }
+
+  .canvas-sidebar-toggle {
+
+    &:before {
+
+      top: ((@icon-small-height) * 0.5) - 1px;
+      .rotate(45deg);
+      background-color: @white;
+
+    }
+
+    &:after {
+
+      top: ((@icon-small-height) * 0.5) - 1px;
+      .rotate(-45deg);
+      background-color: @white;
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-mini-enabled) {
+
+  /* ----------------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------------
+
+  Screen Size: Mini (@screen-mini) and above
+
+  -------------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-mini) {
+
+    /* ----------------------------------------------------------------------------------------------------
+    -------------------------------------------------------------------------------------------------------
+
+    Downloads
+
+    -------------------------------------------------------------------------------------------------------
+    ---------------------------------------------------------------------------------------------------- */
+
+    #canvas-sidebar {
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-small-enabled) {
+
+  /* ----------------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------------
+
+  Screen Size: Small (@screen-small) and above
+
+  -------------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-small) {
+
+    /* ----------------------------------------------------------------------------------------------------
+    -------------------------------------------------------------------------------------------------------
+
+    Downloads
+
+    -------------------------------------------------------------------------------------------------------
+    ---------------------------------------------------------------------------------------------------- */
+
+    #canvas-sidebar {
+
+      .canvas-sidebar-content {
+
+        &:before {
+
+          display: none;
+
+        }
+
+      }
+
+    }
+
+    /* -----------------------------------------------------------------------------
+    --------------------------------------------------------------------------------
+
+    Header Mobile Menu Button
+
+    --------------------------------------------------------------------------------
+    ----------------------------------------------------------------------------- */
+
+    .canvas-sidebar-toggle {
+
+      display: none;
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-medium-enabled) {
+
+  /* ----------------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------------
+
+  Screen Size: Medium (@screen-medium) and above
+
+  -------------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-medium) {
+
+    /* ----------------------------------------------------------------------------------------------------
+    -------------------------------------------------------------------------------------------------------
+
+    Downloads
+
+    -------------------------------------------------------------------------------------------------------
+    ---------------------------------------------------------------------------------------------------- */
+
+    #canvas-sidebar {
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-large-enabled) {
+
+  /* ----------------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------------
+
+  Screen Size: large (@screen-large) and above
+
+  -------------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------------- */
+
+  @media (min-width: @screen-large) {
+
+    /* ----------------------------------------------------------------------------------------------------
+    -------------------------------------------------------------------------------------------------------
+
+    Downloads
+
+    -------------------------------------------------------------------------------------------------------
+    ---------------------------------------------------------------------------------------------------- */
+
+    #canvas-sidebar {
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+& when (@screen-resolution-2x-enabled) {
+
+  /* ----------------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------------
+
+  Screen Resolution: 2x
+
+  -------------------------------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------------- */
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+
+    #canvas-sidebar {
+
+    }
+
+  }
+
+}
